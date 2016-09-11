@@ -1,0 +1,449 @@
+body {
+	border-top: #9e0000 10px solid;
+	font-size: 2.2em;
+	font-family: "Source Sans Pro";
+	font-weight: 300;
+	color: #565e64;
+	background: #fdfdfd;
+}
+
+a {
+    color: #9e0000;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e69411;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    text-decoration: none;
+}
+
+.jumbotron {
+	background: none;
+	margin-bottom: 30px;
+	padding-bottom: 10px;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+
+}
+.jumbotron p {
+	font-weight: 300;
+	color: #5C6163;
+	margin: 0;
+	padding-left: 4px;
+}
+
+.jumbotron  h1 {
+  color: #5A6775;
+  font-weight: 300;
+  margin: 0;
+}
+
+.social span {
+    font-size: 2.1em;
+    line-height: 0;
+    font-style: normal;
+}
+
+.social > a {
+	margin-left: .1em;
+	margin-right: .1em;
+}
+
+.social > a:last-child {
+	margin-right: 0px;
+}
+
+.social > a:first-child {
+	margin-left: 0px;
+}
+
+
+.social {
+	height: 60px;
+	padding-top: 25px;
+}
+
+.social a:hover {
+	text-decoration: none;
+}
+
+.pagination {
+	font-size: .8em;
+}
+
+.site-footer {
+	text-align: center;
+	font-size: .8em;
+	margin-bottom: 15px;
+	width: 100%;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.post-header {
+	margin-bottom: 10px;
+}
+
+.post-link {
+	text-decoration: none;
+	color: #4D5152;
+}
+.post-link:hover {
+	text-decoration: none;
+	color: #4D5152;
+}
+
+.post > .post-meta {
+	font-size: .8em;
+}
+span.post-meta {
+	text-align: center;
+}
+
+.post-hr {
+	border-top: 1px solid #4D5152;
+}
+
+.post-index a.post-title {
+	font-weight: 300;
+	font-size: 1.2em;
+	margin: 0;
+}
+
+.post-index .post-header {
+	margin: 0;
+}
+
+.post-excerpt p {
+	margin-bottom: 0;
+}
+
+h1.post-title {
+	font-size: 2.1em;
+}
+
+.post-content {
+	margin-top: 15px;
+}
+
+h1,h2,h3,h4,h5 {
+	font-weight: 300;
+}
+
+h2 {
+	font-size: 1.5em;
+	color: #9e0000;
+}
+h3 {
+	font-size: 1.4em;
+	color: #9e0000;
+}
+h4 {
+	font-size: .9em;
+}
+
+h5 {
+	font-size: .75em;
+}
+
+blockquote {
+	border-left: 5px solid #9e0000;
+	font-size: 1.25em;
+	color: #797F81;
+}
+
+pre {
+  background-color: #373D44;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+  border: none;
+  color: #FDFDFD;
+}
+
+code {
+	background-color: #373D44;
+	color: #F8F8F2;
+}
+
+.share > a > span {
+	font-style: normal;
+	font-size: 1.8em;
+	line-height: .7em;
+}
+
+.share > a {
+	margin-left: .2em;
+	margin-right: .2em;
+}
+
+.share {
+	text-align: center;
+}
+
+.profile-pic-wrapper {
+	float: right;
+}
+
+.profile-pic {
+	height: 120px;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+#post-profile-pic {
+	max-height: 120px;
+	margin: 0 0 0 auto;
+}
+
+#landing-profile-pic {
+	max-height: 200px;
+	max-width: 200px;
+	float: right;
+	display: block;
+	margin: auto;
+}
+
+.author {
+	height: 120px;
+
+}
+.author-row {
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+.bio {
+	height: 100%;
+	color: #5A6775;
+}
+
+.bio-text {
+	height: 120px;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.bio-text h4 {
+	font-size: .85em;
+	margin: 0;
+}
+
+.bio-text p {
+	font-size: .7em;
+	margin: 0;
+	max-width: 450px;
+}
+
+.landing-wrapper-bio {
+	height: 200px;
+	width: 100%;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.landing-pic-wrapper{
+	vertical-align: middle;
+	display: table-cell;
+	float: right;
+}
+
+.landing-bio {
+	text-align: left;
+}
+
+.blog-title {
+	text-transform: uppercase;
+	color: #FDFDFD;
+	padding: 0.1875rem 1.125rem;
+	background: #9e0000;
+}
+.pagination {
+	width:100%;
+	text-align: center;
+}
+.page-number {
+	margin: 0 auto;
+	display: block;
+}
+
+.newer-posts {
+	float: left;
+	display: inline;
+}
+
+.older-posts {
+	float: right;
+	display: inline;
+}
+
+.post-header {
+	margin-top: 20px;
+}
+
+
+.date-col {
+	text-align: right;
+	font-size:1em;
+	line-height: 1.9em;
+}
+
+footer.site-footer span.symbol {
+	font-size:1.8em;
+	line-height:1em;
+}
+
+@media only screen and (max-width: 320px) {
+
+	body {
+		font-size: 1.85em;
+	}
+
+	.author-row {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+
+	.date-col {
+		text-align: left;
+	}
+
+
+}
+
+@media only screen and (max-width: 767px) {
+	.social {
+		text-align: center;
+	}
+
+	.landing-wrapper-bio h1{
+		text-align: center;
+	}
+
+	.landing-wrapper-bio p{
+		text-align: center;
+	}
+
+	#landing-profile-pic {
+		float: none;
+		display: block;
+	}
+
+	.landing-pic-wrapper {
+		margin: auto;
+		height: 200px;
+		display: block;
+		float: none;
+	}
+
+	.date-col {
+		text-align: left;
+	}
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+	.landing-pic-wrapper {
+		height: 258px;
+		float: none;
+	}
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+	.landing-pic-wrapper {
+		height: 258px;
+		float: none;
+	}
+	.container .jumbotron {
+		//padding-left: 30px;
+		//padding-right:30px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.row .col-xs-12 {
+		padding-left: 0px;
+	}
+}
+
+/* For use with the code_line-number_word-wrap_switcher_jquery.js Pelican plugin */
+code {
+    overflow: auto;
+    /* This uses `white-space: pre-wrap` to get elements within <pre> tags to wrap. Python, for code chunks within three backticks (```), doesn't wordwrap code lines by default, because they're within <pre> tags, which don't wrap by default. See https://github.com/github/markup/issues/168 , which is specifically about this parsing issue, even though that link's discussion is talking about GitHub. */
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+/* Following http://bililite.com/blog/2012/08/05/line-numbering-in-pre-elements/, use CSS to add line numbers to all spans that have the class 'code-line' */
+
+.highlight pre {
+    counter-reset: linecounter;
+    padding-left: 2em;
+}
+.highlight pre span.code-line {
+    counter-increment: linecounter;
+    padding-left: 1em;
+    text-indent: -1em;
+    display: inline-block;
+}
+.highlight pre span.code-line:before {
+    content: counter(linecounter);
+    padding-right: 1em;
+    display: inline-block;
+    color: grey;
+    text-align: right;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+table {
+	font-family: verdana, arial, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	border-width: 1px;
+	border-color: #3A3A3A;
+	border-collapse: collapse;
+	margin:0 auto;
+}
+
+table th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #517994;
+	background-color: #B2CFD8;
+}
+
+table tr:hover td {
+	background-color: #DFEBF1;
+}
+
+table td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #517994;
+	background-color: #ffffff;
+}

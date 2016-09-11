@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>Mustafa ALTINKAYNAK</title><link>https://www.mustafa.com.tr/</link><description>[ 'System Administrator', 'Linux', 'Web App', 'Cyber Security', 'Octosec' ]</description><lastBuildDate>Sun, 11 Sep 2016 22:05:00 +0300</lastBuildDate><item><title>[SLACK] SSH girişlerini bildirim olarak almak</title><link>https://www.mustafa.com.tr/slack-ssh-girislerini-bildirim-olarak-almak.html</link><description>&lt;p&gt;Merhabalar.
+Bu yazımızda daha çok geliştirici ekiplerinin kullandığı ekip içi yazışma ortamı sağlayan Slack ile ilgili çalışma gerçekleştireceğiz.
+Artık ekip içi yazışmalarınızı, iş atamalarınızı (busybot) Slack üzerinden yaptığınıza göre fazlalıklardan kurtulmak isteyebilirsiniz. Şahsen ben çok fazla ortam kullanmayı tercih etmek yerine, tek yerden bir dashboard mantığında herşeyi görebilmek isterim. Kısa bir girizgahından ardından giriş yapalım.&lt;/p&gt;
+&lt;p&gt;Slack'de çoğu uygulama gibi webhook yapısına uygun tasarlanmıştır. Webhook farklı uygulamaların birbirleri ile entegrasyon sağlayabilmeleri için Uygulama içerisinde oluşan event'leri HTTP üzerinden JSON Payload'ları ile kendilerine subscribe olan diğer uygulamaları tetiklemesidir. Tabii bu işlemi yapabilmeniz için webhook izinlerini sağlamanız gerekmektedir.&lt;/p&gt;
+&lt;h2&gt;Slack için token oluşturalım.&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://api.slack.com/incoming-webhooks"&gt;Buraya&lt;/a&gt; tıklayarak &lt;strong&gt;Integration Settings&lt;/strong&gt; alanından yapılandırma ayarlarına ulaşabilirsiniz.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Post to Channel:&lt;/strong&gt; Gönderim yapacağınız kanal&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Webhook URL :&lt;/strong&gt; Kanalı seçmeniz ardından bu URL dinamik olarak oluşacaktır. Bu URL'yi sonra ki aşamalarda kullanacağımızdan dolayı saklamanız gerekmektedir.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Descriptive Label:&lt;/strong&gt; Dilerseniz opsiyonel olarak açıklama etiketi girebilirsiniz.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Customize Name:&lt;/strong&gt; Gelen bildirimlerde yer alan kullanıcı adını seçebilirsiniz.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Customize Icon:&lt;/strong&gt; Gelen bildirimlerde yer alan iconu değiştirebilirsiniz.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Preview Message:&lt;/strong&gt; Bu alandan da gelecek bildirimi önizleme olarak görebilirsiniz.&lt;/p&gt;
+&lt;p&gt;Ayarları &lt;strong&gt;"Save Settings"&lt;/strong&gt; butonu ile birlikte kaydediyoruz.&lt;/p&gt;
+&lt;h2&gt;SSH ile yapılan girişlerde bildirim gelmesini sağlayalım.&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;/etc/profile&lt;/strong&gt; dosyasını editör ile açtıktan sonra en alt kısmına aşağıdaki kod blogunu ekleyebilirsiniz. &lt;strong&gt;"WEBHOOK_URL"&lt;/strong&gt; alanını yukarıda saklamanızı istediğim alanla değiştirmeyi unutmayınız.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;    if [ -n &amp;quot;&lt;span class="nv"&gt;$SSH_CLIENT&lt;/span&gt;&amp;quot; ]; then&lt;/span&gt;
+&lt;span class="code-line"&gt;      TEXT=&amp;quot;$(date): ssh login to &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;USER&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;@$(hostname -f)&amp;quot;&lt;/span&gt;
+&lt;span class="code-line"&gt;      TEXT=&amp;quot;&lt;span class="nv"&gt;$TEXT&lt;/span&gt; from $(echo &lt;span class="nv"&gt;$SSH_CLIENT&lt;/span&gt;|awk &amp;#39;{print $1}&amp;#39;)&amp;quot;&lt;/span&gt;
+&lt;span class="code-line"&gt;      curl -X POST \&lt;/span&gt;
+&lt;span class="code-line"&gt;      --data-urlencode &amp;quot;payload={\&amp;quot;username\&amp;quot;: \&amp;quot;SSH Login Alerts\&amp;quot;, \&amp;quot;text\&amp;quot;: \&amp;quot;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;TEXT&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;\&amp;quot;}&amp;quot; \&lt;/span&gt;
+&lt;span class="code-line"&gt;      WEBHOOK_URL &lt;span class="err"&gt;&amp;amp;&lt;/span&gt;&amp;gt;/dev/null &lt;span class="err"&gt;&amp;amp;&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Yukarıdaki kod blogunu açıklamak gerekirse, sadece SSH işlemlerinde çalışacak şekilde ayarlanmıştır. date parametresinde zaman damgası, $USER bağlantıyı gerçekleştiren kullanıcı, $hostname ise bağlantı yapılan makina adını içerir. $SSH_CLIENT ise bağlantıyı gerçekleştiren kullanıcının IP adresini içerir ve bu AWK ile sadeleştirilmiştir. Akabinde curl ile birlikte POST isteği gerçekleştiriyoruz. Curl istekleri sonrasında response değerlerinin ekrana yazdırılmaması için /dev/null değeri kullandım. Böylece ssh yapan kullanıcı hiçbir şekilde çıktı göremeyecektir.&lt;/p&gt;
+&lt;p&gt;Kendim Slack uygulamasını mobilde de kullandığımdan dolayı bildirimler cep telefonuma da direkt ulaşmaktadır.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/slack-bildirimi.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Hepsi bu kadar.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">admin</dc:creator><pubDate>Sun, 11 Sep 2016 22:05:00 +0300</pubDate><guid isPermaLink="false">tag:www.mustafa.com.tr,2016-09-11:slack-ssh-girislerini-bildirim-olarak-almak.html</guid></item><item><title>VSFTPD Kurulumu ve Yapılandırma</title><link>https://www.mustafa.com.tr/vsftpd-kurulumu-ve-yapilandirma.html</link><description>&lt;p&gt;Yazımıza başlamadan önemli bir hatırlatmak isterim. FTP Protokolü cleartext trafik içermesi nedeniyle
+&lt;strong&gt;güvenli&lt;/strong&gt; değildir. Bu yüzden &lt;strong&gt;SFTP&lt;/strong&gt; protokolünü kullanmanızı öneririm.&lt;/p&gt;
+&lt;h2&gt;Kurulum&lt;/h2&gt;
+&lt;p&gt;Vsftpd server Ubuntu'nun default repolarından erişilebilmektedir. Ek olarak bir kaynak belirtmenize gerek yoktur.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;vsftpd&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Yapılandırma&lt;/h2&gt;
+&lt;p&gt;Vsftpd kurulumu ardından &lt;strong&gt;etc/vsftpd.conf&lt;/strong&gt; dosyası içerisinde yapılandırma ayarları bulunmaktadır. Bu dosya içerisinde aşağıdaki değişiklikleri yapmanızı öneririm.&lt;/p&gt;
+&lt;p&gt;FTP için anonymous bağlantı gerçekleştirmelerini kapatmak için aşağıdaki değeri varsa yorum satırından çıkartıp, "NO" olarak belirtiyoruz.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;anonymous_enable&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;NO&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Sunucu üzerinde yer alan kullanıcıların FTP'ye bağlanabilmelerini sağlamaları amacıyla aşağıdaki değeri varsa yorum satırından çıkartıp, "YES" olarak belirtiyoruz.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;local_enable&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;YES&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Kullanıcıların dosyalar üzerinde yazma işlemi yapabilmelerini sağlamaları amacıyla aşağıdaki değeri "YES" olarak belirtiyoruz.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;write_enable&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;YES&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Kullanıcıların home dizinlerine erişim hakkı vermek amacıyla aşağıdaki değeri "YES" olarak belirtiyoruz.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;chroot_local_user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;YES&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Bu dosyayı kaydedip, çıkıyoruz.&lt;/p&gt;
+&lt;h2&gt;FTP Kullanıcı Hesabı Oluşturma&lt;/h2&gt;
+&lt;p&gt;Kullanıcı oluşturalım.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;adduser&lt;/span&gt; &lt;span class="n"&gt;ftpkullanicisi&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Kullanıcıyı oluşturduktan sonra, bu kullanıcıya ait dizin için root sahipliği verelim.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;chown&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ftpkullanicisi&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Şimdi ise kullanıcıya dosyalarını gönderebileceği bir klasör oluşturalım ve bu kullanıcıya erişim hakkı verelim.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ftpkullanicisi&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dosyalar&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;chown&lt;/span&gt; &lt;span class="n"&gt;ftpuser&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;ftpuser&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ftpkullanicisi&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Vsftpd'yi yeniden başlatalım.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;vsftpd&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Tüm işlem bu kadar.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">admin</dc:creator><pubDate>Sat, 10 Sep 2016 21:37:00 +0300</pubDate><guid isPermaLink="false">tag:www.mustafa.com.tr,2016-09-10:vsftpd-kurulumu-ve-yapilandirma.html</guid></item><item><title>Public / Private ile SSH bağlantısı sağlama</title><link>https://www.mustafa.com.tr/public-private-ile-ssh-baglantisi-saglama.html</link><description>&lt;p&gt;Bu yazımızda public/private ikilisi ile birlikte SSH bağlantısı
+sağlamayı akabinde ise sunucu üzerinde clear parola girilmesini yani
+pub/private ikilileri olmadan bağlantı sağlanamamasını
+gerçekleştireceğiz.&lt;/p&gt;
+&lt;p&gt;Openssh-server kurulu değilse öncelikle olarak kurulumunu
+gerçekleştirin.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;openssh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Client bilgisayar üzerinde anahtarlarınızı aşağıdaki komut ile birlikte
+oluşturalım.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;keygen&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;rsa&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;root/.ssh&lt;/strong&gt; dizini altına &lt;strong&gt;id_rsa ve id_rsa.pub&lt;/strong&gt; dosyaları
+oluşturulmuş olacaktır. &lt;strong&gt;id_rsa.pub&lt;/strong&gt; dosyanız uzantısından da
+anlaşılacağı üzere public key dosyanızdır. &lt;strong&gt;id_rsa&lt;/strong&gt; ise iyi korunaklı
+saklamanız gereken private key dosyanızdır.&lt;/p&gt;
+&lt;p&gt;Artık public anahtarımızı bağlantı yapacağımız sunucuya gönderelim.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;    &lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;id_rsa&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pub&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;ip&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;umask&lt;/span&gt; &lt;span class="mo"&gt;077&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;authorized_keys&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Client bilgisayarda artık aşağıdaki komut ile birlikte uzak sunucuya
+parola gerektirmeksizin bağlantı yapabilirsiniz.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;    &lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;uzaksunucu_ip&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Artık public/private ikilisi ile birlikte bağlantı yaptığımıza göre uzak
+sunucu üzerinde parola ile girişleri kapatabiliriz. Bunun için
+/etc/ssh/sshd_config kısmında aşağıdaki satırı bularak,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="c"&gt;# Change to no to disable tunnelled clear text passwords&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="c"&gt;#PasswordAuthentication yes&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;bununla değiştiriniz.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="cp"&gt;# Change to no to disable tunnelled clear text passwords&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="n"&gt;PasswordAuthentication&lt;/span&gt; &lt;span class="n"&gt;no&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">admin</dc:creator><pubDate>Tue, 06 Sep 2016 09:10:00 +0300</pubDate><guid isPermaLink="false">tag:www.mustafa.com.tr,2016-09-06:public-private-ile-ssh-baglantisi-saglama.html</guid></item></channel></rss>

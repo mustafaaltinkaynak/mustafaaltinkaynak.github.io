@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Mustafa ALTINKAYNAK - Public / Private ile SSH bağlantısı sağlama</title>
+        <meta name="description" content="" />
+
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="shortcut icon" href="https://www.mustafa.com.tr/assets/images/favicon.png">
+        <link rel="stylesheet" type="text/css" href="https://www.mustafa.com.tr/theme/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://www.mustafa.com.tr/theme/css/custom.css"/>
+        <link rel="stylesheet" type="text/css" href="https://www.mustafa.com.tr/theme/css/pygments.css"/>
+        <link rel="stylesheet" type="text/css" href="https://www.mustafa.com.tr/theme/css/monosocialiconsfont.css"/>
+        <link rel="stylesheet" href="https://www.mustafa.com.tr/theme/tipuesearch/tipuesearch.css">
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+        <link href="https://www.mustafa.com.tr/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Mustafa ALTINKAYNAK Full Atom Feed" />
+        <link href="https://www.mustafa.com.tr/feeds/all.rss" type="application/rss+xml" rel="alternate" title="Mustafa ALTINKAYNAK Full RSS Feed" />
+        <link href="https://www.mustafa.com.tr/feeds/sistem-yoneticiligi.atom.xml" type="application/atom+xml" rel="alternate" title="Mustafa ALTINKAYNAK Categories Atom Feed" />
+
+    </head>
+    <body class="home-template">
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+<main class="content" role="main">
+    <div class="row">
+        <article class="post tag-play tag-security">
+          <header class="post-header">
+            <a class="blog-logo" href="/">
+              <span class="blog-title">Mustafa ALTINKAYNAK</span>
+            </a>
+          </header>
+           
+            <h1 class="post-title">Public / Private ile SSH bağlantısı sağlama</h1>
+
+
+            <section class="post-content">
+              <p>Bu yazımızda public/private ikilisi ile birlikte SSH bağlantısı
+sağlamayı akabinde ise sunucu üzerinde clear parola girilmesini yani
+pub/private ikilileri olmadan bağlantı sağlanamamasını
+gerçekleştireceğiz.</p>
+<p>Openssh-server kurulu değilse öncelikle olarak kurulumunu
+gerçekleştirin.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">openssh</span><span class="o">-</span><span class="n">server</span></span>
+</pre></div>
+
+
+<p>Client bilgisayar üzerinde anahtarlarınızı aşağıdaki komut ile birlikte
+oluşturalım.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">sudo</span> <span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">rsa</span></span>
+</pre></div>
+
+
+<p><strong>root/.ssh</strong> dizini altına <strong>id_rsa ve id_rsa.pub</strong> dosyaları
+oluşturulmuş olacaktır. <strong>id_rsa.pub</strong> dosyanız uzantısından da
+anlaşılacağı üzere public key dosyanızdır. <strong>id_rsa</strong> ise iyi korunaklı
+saklamanız gereken private key dosyanızdır.</p>
+<p>Artık public anahtarımızı bağlantı yapacağımız sunucuya gönderelim.</p>
+<div class="highlight"><pre><span class="code-line">    <span class="n">cat</span> <span class="o">~/</span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span><span class="p">.</span><span class="n">pub</span> <span class="o">|</span> <span class="n">ssh</span> <span class="n">root</span><span class="err">@</span><span class="n">ip</span> <span class="err">&#39;</span><span class="n">umask</span> <span class="mo">077</span><span class="p">;</span> <span class="n">cat</span> <span class="o">&gt;&gt;</span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span><span class="err">&#39;</span></span>
+</pre></div>
+
+
+<p>Client bilgisayarda artık aşağıdaki komut ile birlikte uzak sunucuya
+parola gerektirmeksizin bağlantı yapabilirsiniz.</p>
+<div class="highlight"><pre><span class="code-line">    <span class="n">ssh</span> <span class="n">uzaksunucu_ip</span></span>
+</pre></div>
+
+
+<p>Artık public/private ikilisi ile birlikte bağlantı yaptığımıza göre uzak
+sunucu üzerinde parola ile girişleri kapatabiliriz. Bunun için
+/etc/ssh/sshd_config kısmında aşağıdaki satırı bularak,</p>
+<div class="highlight"><pre><span class="code-line"><span class="c"># Change to no to disable tunnelled clear text passwords</span></span>
+<span class="code-line"><span class="c">#PasswordAuthentication yes</span></span>
+</pre></div>
+
+
+<p>bununla değiştiriniz.</p>
+<div class="highlight"><pre><span class="code-line"><span class="cp"># Change to no to disable tunnelled clear text passwords</span></span>
+<span class="code-line"><span class="n">PasswordAuthentication</span> <span class="n">no</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="n">service</span> <span class="n">ssh</span> <span class="n">restart</span></span>
+</pre></div>
+            </section>
+
+            <footer class="post-footer">
+                <section>
+                  <span class="post-meta">
+                    Tags:                   </span>
+                </section>
+
+                <section class="share">
+                    <h4>Share this post</h4>
+                    <a class="icon-twitter" href="http://twitter.com/share?text=Public / Private ile SSH bağlantısı sağlama&url=https://www.mustafa.com.tr/public-private-ile-ssh-baglantisi-saglama.html"
+                        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                        <span class="hidden">Twitter</span>
+                        <span class='symbol'>circletwitterbird</span>
+                    </a>
+                    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.mustafa.com.tr/public-private-ile-ssh-baglantisi-saglama.html"
+                        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                        <span class="hidden">Facebook</span>
+                        <span class='symbol'>circlefacebook</span>
+                    </a>
+                    <a class="icon-google-plus" href="https://plus.google.com/share?url=https://www.mustafa.com.tr/public-private-ile-ssh-baglantisi-saglama.html"
+                       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                        <span class="hidden">Google+</span>
+                        <span class='symbol'>circlegoogleplus</span>
+                    </a>
+                </section>
+
+            </footer>
+
+            <div id="disqus_thread"></div>
+            <script>
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//mustafaaltinkaynak.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        </article>
+    </div>
+</main>
+                <footer class="site-footer">
+                    <a class="subscribe icon-feed" href="https://www.mustafa.com.tr/feeds/all.rss"><span class="tooltip"><span class="symbol">blip</span></span></a>
+                    <a class="subscribe icon-feed" href="https://www.mustafa.com.tr/archives.html"><span class="tooltip"><span class="symbol">star</span></span></a>
+                    <div class="inner">
+                         <section class="copyright">mustafaaltinkaynak &copy; 2015</section>
+                    </div>
+                </footer>
+
+
+            </div>
+        </div>
+    </body>
+</html>
