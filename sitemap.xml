@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/</loc>
-<lastmod>2016-09-12T18:56:18-00:00</lastmod>
+<lastmod>2016-09-15T15:52:04-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/archives.html</loc>
-<lastmod>2016-09-12T18:56:18-00:00</lastmod>
+<lastmod>2016-09-15T15:52:04-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/tags.html</loc>
-<lastmod>2016-09-12T18:56:18-00:00</lastmod>
+<lastmod>2016-09-15T15:52:04-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/categories.html</loc>
-<lastmod>2016-09-12T18:56:18-00:00</lastmod>
+<lastmod>2016-09-15T15:52:04-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -40,7 +40,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/pages/contact.html</loc>
-<lastmod>2016-09-12T18:56:18-00:00</lastmod>
+<lastmod>2016-09-15T15:52:04-00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://www.mustafa.com.tr/slack-fail2ban-entegrasyonu.html</loc>
+<lastmod>2016-09-15T15:05:00+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -75,14 +82,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/category/sistem-yoneticiligi.html</loc>
-<lastmod>2016-09-12T18:56:00+01:56</lastmod>
+<lastmod>2016-09-15T15:05:00+01:56</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://www.mustafa.com.tr/tag/slack.html</loc>
+<lastmod>2016-09-15T15:05:00+01:56</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://www.mustafa.com.tr/tag/fail2ban.html</loc>
+<lastmod>2016-09-15T15:05:00+01:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/author/admin.html</loc>
-<lastmod>2016-09-12T18:56:00+01:56</lastmod>
+<lastmod>2016-09-15T15:05:00+01:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

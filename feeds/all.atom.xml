@@ -1,5 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Mustafa ALTINKAYNAK</title><link href="https://www.mustafa.com.tr/" rel="alternate"></link><link href="https://www.mustafa.com.tr/feeds/all.atom.xml" rel="self"></link><id>https://www.mustafa.com.tr/</id><updated>2016-09-12T18:56:00+03:00</updated><entry><title>[SLACK] Nagios entegrasyonu</title><link href="https://www.mustafa.com.tr/slack-nagios-entegrasyonu.html" rel="alternate"></link><published>2016-09-12T18:56:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-12:slack-nagios-entegrasyonu.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Nagios&lt;/strong&gt; ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılımdır. Yazılım sayesinde tüm aktif cihazlarını sizlere sunmuş olduğu arayüz üzerinden monitör edebilirsiniz. Nagios ile birlikte makinalara farklı görev tanımları gerçekleştirebilir ve durum maili alabilirsiniz. &lt;a href="https://www.nagios.org"&gt;Buraya&lt;/a&gt; tıklayarak Nagios'a ulaşabilirsiniz.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Mustafa ALTINKAYNAK</title><link href="https://www.mustafa.com.tr/" rel="alternate"></link><link href="https://www.mustafa.com.tr/feeds/all.atom.xml" rel="self"></link><id>https://www.mustafa.com.tr/</id><updated>2016-09-15T15:05:00+03:00</updated><entry><title>[SLACK] Fail2ban entegrasyonu</title><link href="https://www.mustafa.com.tr/slack-fail2ban-entegrasyonu.html" rel="alternate"></link><published>2016-09-15T15:05:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-15:slack-fail2ban-entegrasyonu.html</id><summary type="html">&lt;h2&gt;Brute Force Nedir?&lt;/h2&gt;
+&lt;p&gt;Saldırganların sıklıkla tercih ettikleri tekniklerden biri de Brute Force adı verilen kaba kuvvet saldırılarıdır. Brute force bir program yardımıyla yapılabileceği gibi el ile de yapılabilir. Brute force saldırılarında kullanıcı adı ve parola bilgisi teker teker denenir. Bu saldırıda başarılı olunabilmesi için en çok kullanılan parola dizilimleri yani sözlük denilen listeler kullanılır. Ne kadar geniş bir sözlük varsa başarıya ulaşma imkanı da o kadar yüksek olur.&lt;/p&gt;
+&lt;p&gt;Uygulamalar brute force saldırılarına yönelik çeşitli aksiyonlar almışlardır. Bazı uygulamalar çok sayıda giriş yapıldığında captcha ile giriş istemekte, bazı uygulamalar ise belirli süre o kullanıcıya ait hesabı kapatmaktadır.&lt;/p&gt;
+&lt;h2&gt;Fail2Ban Nedir?&lt;/h2&gt;
+&lt;p&gt;Fail2ban sunucu sistemlerinde servislere ait log kayıtlarının takip edilerek gerektiği durumlarda bu kişilere karşı aksiyon almayı sağlar. Bu kişilere yönelik sizin belirlediğiniz süre kadar sisteme girişlerini yasaklar. Fail2ban iptables firewall'a ilgili kuralı dinamik olarak girmektedir. Ek olarak fail2ban tcpwrapper'la da çalışabilmektedir.&lt;/p&gt;
+&lt;p&gt;Şu sıralar epeyi Slack ile haşır neşir olmaya ve gittikçe sevmeye başladım. Şimdi fail2ban'ın almış olduğu aksiyonlardan anında haberdar olabilmek için Slack ile entegrasyon edelim.&lt;/p&gt;
+&lt;p&gt;NOT: Bu tarz durumlar için e-posta kullanmayı pek sevmediğimden dolayı, e-posta ile notification almak istemiyorum. Tercihim bu yüzden Slack'den yana.&lt;/p&gt;
+&lt;h2&gt;Fail2ban Slack Entegrasyonu&lt;/h2&gt;
+&lt;p&gt;Fail2ban uygulamasına ait yapılandırma ayarları &lt;strong&gt;/etc/fail2ban/jail.conf&lt;/strong&gt; dosyasında tutulmaktadır. Ancak custom (özelleştirilmiş) yapılandırma ihtiyaçlarında bu dosyanın bir kopyası üzerinden devam edilmesi önerilir.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;cp&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fail2ban&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;jail&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fail2ban&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;jail&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Artık değişikliklerimizi &lt;strong&gt;jail.local&lt;/strong&gt; dosyası üzerinden gerçekleştireceğiz. Slack için action durumunu ayarlayalım.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;action_with_slack_notification&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;banaction&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%(port)s&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;protocol&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%(protocol)s&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;chain&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%(chain)s&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;                                 &lt;span class="n"&gt;slack&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;protocol&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%(protocol)s&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="cp"&gt;# Choose default action.  To change, just override value of &amp;#39;action&amp;#39; with the&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="cp"&gt;# interpolation to the chosen action shortcut (e.g.  action_mw, action_mwl, etc) in jail.local&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="cp"&gt;# globally (section [DEFAULT]) or per specific section&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="n"&gt;action&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;action_with_slack_notification&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Slack için bildirimlerde kullanacağımız betiği oluşturmak için ilgili dizine gidelim.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fail2ban&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Şimdi slack bildirimleri için &lt;strong&gt;slack-notify.sh&lt;/strong&gt; adında betiğimizi oluşturalım.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;# !/bin/bash&lt;/span&gt;
+&lt;span class="code-line"&gt;# Dosya: /etc/fail2ban/action.d/slack-notify.sh&lt;/span&gt;
+&lt;span class="code-line"&gt;MESSAGE=$1&lt;/span&gt;
+&lt;span class="code-line"&gt;HOOK_URL={HOOK_URL} # https://hooks.slack.com/services/1111111/1111111111111&lt;/span&gt;
+&lt;span class="code-line"&gt;HOST=$(hostname)&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;CHANNEL=&amp;quot;#alerts&amp;quot; # Hangi kanala gönderim yapılacak&lt;/span&gt;
+&lt;span class="code-line"&gt;USERNAME=&amp;quot;fail2ban&amp;quot; # Hangi kullanıcı adıyla gönderim yapılacak&lt;/span&gt;
+&lt;span class="code-line"&gt;ICON=&amp;quot;:bangbang:&amp;quot; # Mesajlarda kullanılacak icon -&amp;gt; http://www.webpagefx.com/tools/emoji-cheat-sheet/&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;if [ &amp;quot;$#&amp;quot; -ge 2 ]; then&lt;/span&gt;
+&lt;span class="code-line"&gt;    IP=$2&lt;/span&gt;
+&lt;span class="code-line"&gt;    # İsteğin hangi ülkeden geldiği&lt;/span&gt;
+&lt;span class="code-line"&gt;    COUNTRY=$(curl ipinfo.io/&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;IP&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;/country)&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    COUNTRY=$(echo &amp;quot;&lt;span class="nv"&gt;$COUNTRY&lt;/span&gt;&amp;quot; | tr -s  &amp;#39;[:upper:]&amp;#39;  &amp;#39;[:lower:]&amp;#39;)&lt;/span&gt;
+&lt;span class="code-line"&gt;    # Ülkeye uygun emoji setleniyor.&lt;/span&gt;
+&lt;span class="code-line"&gt;    COUNTRY=&amp;quot;:flag-&lt;span class="nv"&gt;$COUNTRY&lt;/span&gt;:&amp;quot;&lt;/span&gt;
+&lt;span class="code-line"&gt;    MESSAGE=&amp;quot;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;MESSAGE&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;_country_&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;COUNTRY&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="code-line"&gt;fi&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;# Curl isteği gerçekleştiriyoruz.&lt;/span&gt;
+&lt;span class="code-line"&gt;curl -X POST --data-urlencode &amp;quot;payload={\&amp;quot;channel\&amp;quot;: \&amp;quot;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;CHANNEL&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;\&amp;quot;, \&amp;quot;username\&amp;quot;: \&amp;quot;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;USERNAME&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;\&amp;quot;, \&amp;quot;text\&amp;quot;: \&amp;quot;[*&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;HOST&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;*] &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;MESSAGE&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;\&amp;quot;, \&amp;quot;icon_emoji\&amp;quot;: \&amp;quot;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;ICON&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;\&amp;quot;$&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;exit 0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Bildirim betiğimiz hazır. Şimdi hangi durumlarda çalışması gerektiğini belirliyoruz.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nx"&gt;Dosya&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;etc&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;fail2ban&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;action.d&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;slack.conf&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="err"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;Definition&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;actioncheck=&lt;/span&gt;
+&lt;span class="code-line"&gt;actionstart = /bin/bash /etc/fail2ban/action.d/slack-notify.sh &amp;quot;The jail &lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt; has been started successfully.&amp;quot; &amp;gt; /dev/null 2&amp;gt;&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;1&lt;/span&gt;
+&lt;span class="code-line"&gt;actionstop = /bin/bash /etc/fail2ban/action.d/slack-notify.sh &amp;quot;The jail &lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt; has been stopped.&amp;quot; &amp;gt; /dev/null 2&amp;gt;&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;1&lt;/span&gt;
+&lt;span class="code-line"&gt;actionban = /bin/bash /etc/fail2ban/action.d/slack-notify.sh &amp;quot;Banned _country_ &lt;span class="nt"&gt;&amp;lt;ip&amp;gt;&lt;/span&gt; in the jail &lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt; after &lt;span class="nt"&gt;&amp;lt;failures&amp;gt;&lt;/span&gt; attempts&amp;quot; &amp;quot;&lt;span class="nt"&gt;&amp;lt;ip&amp;gt;&lt;/span&gt;&amp;quot; &amp;gt; /dev/null 2&amp;gt;&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;1&lt;/span&gt;
+&lt;span class="code-line"&gt;actionunban = /bin/bash /etc/fail2ban/action.d/slack-notify.sh &amp;quot;Unbanned _country_ &lt;span class="nt"&gt;&amp;lt;ip&amp;gt;&lt;/span&gt; in the jail &lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt;&amp;quot; &amp;quot;&lt;span class="nt"&gt;&amp;lt;ip&amp;gt;&lt;/span&gt;&amp;quot; &amp;gt; /dev/null 2&amp;gt;&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;1&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;# Default name of the chain&lt;/span&gt;
+&lt;span class="code-line"&gt;#&lt;/span&gt;
+&lt;span class="code-line"&gt;name = default&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Artık servis başladığında, durduğunda, bir kullanıcı sistemden atıldığı ve yasaklamasının kaldırıldığı durumda bildirim gelecektir.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/fail2ban_slack.jpg" /&gt;&lt;/p&gt;</summary><category term="slack"></category><category term="fail2ban"></category></entry><entry><title>[SLACK] Nagios entegrasyonu</title><link href="https://www.mustafa.com.tr/slack-nagios-entegrasyonu.html" rel="alternate"></link><published>2016-09-12T18:56:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-12:slack-nagios-entegrasyonu.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Nagios&lt;/strong&gt; ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılımdır. Yazılım sayesinde tüm aktif cihazlarını sizlere sunmuş olduğu arayüz üzerinden monitör edebilirsiniz. Nagios ile birlikte makinalara farklı görev tanımları gerçekleştirebilir ve durum maili alabilirsiniz. &lt;a href="https://www.nagios.org"&gt;Buraya&lt;/a&gt; tıklayarak Nagios'a ulaşabilirsiniz.&lt;/p&gt;
 &lt;h2&gt;Slack Nagios Entegrasyonu&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://my.slack.com/services/new/nagios"&gt;https://my.slack.com/services/new/nagios&lt;/a&gt; adresinde yer alan &lt;strong&gt;"Add Nagios integration"&lt;/strong&gt; kısmı içerisinde yer alan &lt;strong&gt;Setup Instructions&lt;/strong&gt; başlığı altında kurulum talimatlarına ulaşabilirsiniz. Sizler için takımınıza ait kanal ismi ve token bilgisi dinamik olarak üretilecektir.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//raw.github.com/tinyspeck/services-examples/master/nagios.pl&lt;/span&gt;&lt;/span&gt;
