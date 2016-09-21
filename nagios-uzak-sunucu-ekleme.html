@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Mustafa ALTINKAYNAK - Nagios uzak sunucu ekleme</title>
+        <meta name="description" content="" />
+
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="shortcut icon" href="https://www.mustafa.com.tr/assets/images/favicon.png">
+        <link rel="stylesheet" type="text/css" href="https://www.mustafa.com.tr/theme/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://www.mustafa.com.tr/theme/css/custom.css"/>
+        <link rel="stylesheet" type="text/css" href="https://www.mustafa.com.tr/theme/css/pygments.css"/>
+        <link rel="stylesheet" type="text/css" href="https://www.mustafa.com.tr/theme/css/monosocialiconsfont.css"/>
+        <link rel="stylesheet" href="https://www.mustafa.com.tr/theme/tipuesearch/tipuesearch.css">
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+        <link href="https://www.mustafa.com.tr/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Mustafa ALTINKAYNAK Full Atom Feed" />
+        <link href="https://www.mustafa.com.tr/feeds/all.rss" type="application/rss+xml" rel="alternate" title="Mustafa ALTINKAYNAK Full RSS Feed" />
+        <link href="https://www.mustafa.com.tr/feeds/sistem-yoneticiligi.atom.xml" type="application/atom+xml" rel="alternate" title="Mustafa ALTINKAYNAK Categories Atom Feed" />
+
+<meta name="tags" content="nagios host ekleme" />
+<meta name="tags" content="nagios" />
+    </head>
+    <body class="home-template">
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+<main class="content" role="main">
+    <div class="row">
+        <article class="post tag-play tag-security">
+          <header class="post-header">
+            <a class="blog-logo" href="/">
+              <span class="blog-title">Mustafa ALTINKAYNAK</span>
+            </a>
+          </header>
+           
+            <h1 class="post-title">Nagios uzak sunucu ekleme</h1>
+
+
+            <section class="post-content">
+              <p><strong>Nagios</strong> ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılım olduğunu bir önceki yazılarımda ifade etmiştim. Şimdi nagios üzerine uzak bir sunucuyu kontrol etmek için görev (host, servis) tanımlayalım.</p>
+<p>Bu yazı da www.mustafa.com.tr adresi için HTTP ve SSH servislerini belirli zaman aralıklarında kontrol etmesini sağlayacağım.</p>
+<h2>Host ve servis tanımlama</h2>
+<p>/etc/nagios3/conf.d dizini altına giderek hostadi_nagios2.cfg adında bir dosya oluşturalım.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">define</span> <span class="n">host</span> <span class="p">{</span></span>
+<span class="code-line">   <span class="n">use</span>                    <span class="n">generic</span><span class="o">-</span><span class="n">host</span></span>
+<span class="code-line">   <span class="n">host_name</span>              <span class="n">mustafa</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">tr</span></span>
+<span class="code-line">   <span class="n">alias</span>                  <span class="n">mustafa</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">tr</span></span>
+<span class="code-line"><span class="p">}</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="n">define</span> <span class="n">service</span> <span class="p">{</span></span>
+<span class="code-line">   <span class="n">use</span>                            <span class="n">generic</span><span class="o">-</span><span class="n">service</span>         <span class="p">;</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">service</span> <span class="n">template</span> <span class="n">to</span> <span class="n">use</span></span>
+<span class="code-line">   <span class="n">host_name</span>                       <span class="n">mustafa</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">tr</span></span>
+<span class="code-line">   <span class="n">service_description</span>             <span class="n">HTTP</span></span>
+<span class="code-line">   <span class="n">normal_check_interval</span> <span class="mi">2</span></span>
+<span class="code-line">   <span class="n">retry_check_interval</span> <span class="mi">1</span></span>
+<span class="code-line">   <span class="n">flap_detection_enabled</span> <span class="mi">0</span></span>
+<span class="code-line">   <span class="n">max_check_attempts</span> <span class="mi">2</span></span>
+<span class="code-line">   <span class="n">check_command</span>                   <span class="n">check_http</span></span>
+<span class="code-line">   <span class="n">notifications_enabled</span>           <span class="mi">1</span></span>
+<span class="code-line"><span class="p">}</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="n">define</span> <span class="n">service</span> <span class="p">{</span></span>
+<span class="code-line">    <span class="n">use</span>                             <span class="n">generic</span><span class="o">-</span><span class="n">service</span></span>
+<span class="code-line">    <span class="n">host_name</span>                       <span class="n">mustafa</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">tr</span></span>
+<span class="code-line">    <span class="n">service_description</span>             <span class="n">SSH</span></span>
+<span class="code-line">    <span class="n">check_command</span>                   <span class="n">check_ssh</span></span>
+<span class="code-line">    <span class="n">notifications_enabled</span>           <span class="mi">1</span></span>
+<span class="code-line"><span class="p">}</span></span>
+</pre></div>
+
+
+<p>Akabinde aşağıdaki komutu çalıştırarak config dosyasının hata kontrolünü sağlayalım.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">sudo</span> <span class="n">nagios3</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nagios3</span><span class="o">/</span><span class="n">nagios</span><span class="p">.</span><span class="n">cfg</span> <span class="o">|</span> <span class="n">less</span></span>
+</pre></div>
+
+
+<p>Nagios'u yeniden başlatalım.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">sudo</span> <span class="n">service</span> <span class="n">nagios3</span> <span class="n">reload</span></span>
+</pre></div>
+
+
+<p><img alt="" src="assets/images/nagios_add_host.jpg" />
+Host nagios paneline eklenmiş gözüküyor.</p>
+            </section>
+
+            <footer class="post-footer">
+                <section>
+                  <span class="post-meta">
+                    Tags:                     <a href="https://www.mustafa.com.tr/tag/nagios-host-ekleme.html">nagios host ekleme</a>,                     <a href="https://www.mustafa.com.tr/tag/nagios.html">nagios</a>                  </span>
+                </section>
+
+                <section class="share">
+                    <h4>Share this post</h4>
+                    <a class="icon-twitter" href="http://twitter.com/share?text=Nagios uzak sunucu ekleme&url=https://www.mustafa.com.tr/nagios-uzak-sunucu-ekleme.html"
+                        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                        <span class="hidden">Twitter</span>
+                        <span class='symbol'>circletwitterbird</span>
+                    </a>
+                    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.mustafa.com.tr/nagios-uzak-sunucu-ekleme.html"
+                        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                        <span class="hidden">Facebook</span>
+                        <span class='symbol'>circlefacebook</span>
+                    </a>
+                    <a class="icon-google-plus" href="https://plus.google.com/share?url=https://www.mustafa.com.tr/nagios-uzak-sunucu-ekleme.html"
+                       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                        <span class="hidden">Google+</span>
+                        <span class='symbol'>circlegoogleplus</span>
+                    </a>
+                </section>
+
+            </footer>
+
+            <div id="disqus_thread"></div>
+            <script>
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//mustafaaltinkaynak.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        </article>
+    </div>
+</main>
+                <footer class="site-footer">
+                    <a class="subscribe icon-feed" href="https://www.mustafa.com.tr/feeds/all.rss"><span class="tooltip"><span class="symbol">blip</span></span></a>
+                    <a class="subscribe icon-feed" href="https://www.mustafa.com.tr/archives.html"><span class="tooltip"><span class="symbol">star</span></span></a>
+                    <div class="inner">
+                         <section class="copyright">mustafaaltinkaynak &copy; 2015</section>
+                    </div>
+                </footer>
+
+                <!-- Yandex.Metrika counter -->
+                <script type="text/javascript">
+                    (function (d, w, c) {
+                        (w[c] = w[c] || []).push(function() {
+                            try {
+                                w.yaCounter39549065 = new Ya.Metrika({
+                                    id:39549065,
+                                    clickmap:true,
+                                    trackLinks:true,
+                                    accurateTrackBounce:true
+                                });
+                            } catch(e) { }
+                        });
+
+                        var n = d.getElementsByTagName("script")[0],
+                            s = d.createElement("script"),
+                            f = function () { n.parentNode.insertBefore(s, n); };
+                        s.type = "text/javascript";
+                        s.async = true;
+                        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+                        if (w.opera == "[object Opera]") {
+                            d.addEventListener("DOMContentLoaded", f, false);
+                        } else { f(); }
+                    })(document, window, "yandex_metrika_callbacks");
+                </script>
+                <noscript><div><img src="https://mc.yandex.ru/watch/39549065" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                <!-- /Yandex.Metrika counter -->
+
+
+            </div>
+        </div>
+    </body>
+</html>

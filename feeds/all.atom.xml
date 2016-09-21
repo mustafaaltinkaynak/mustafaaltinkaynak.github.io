@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Mustafa ALTINKAYNAK</title><link href="https://www.mustafa.com.tr/" rel="alternate"></link><link href="https://www.mustafa.com.tr/feeds/all.atom.xml" rel="self"></link><id>https://www.mustafa.com.tr/</id><updated>2016-09-15T15:05:00+03:00</updated><entry><title>[SLACK] Fail2ban entegrasyonu</title><link href="https://www.mustafa.com.tr/slack-fail2ban-entegrasyonu.html" rel="alternate"></link><published>2016-09-15T15:05:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-15:slack-fail2ban-entegrasyonu.html</id><summary type="html">&lt;h2&gt;Brute Force Nedir?&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Mustafa ALTINKAYNAK</title><link href="https://www.mustafa.com.tr/" rel="alternate"></link><link href="https://www.mustafa.com.tr/feeds/all.atom.xml" rel="self"></link><id>https://www.mustafa.com.tr/</id><updated>2016-09-21T21:34:00+03:00</updated><entry><title>Nagios uzak sunucu ekleme</title><link href="https://www.mustafa.com.tr/nagios-uzak-sunucu-ekleme.html" rel="alternate"></link><published>2016-09-21T21:34:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-21:nagios-uzak-sunucu-ekleme.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Nagios&lt;/strong&gt; ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılım olduğunu bir önceki yazılarımda ifade etmiştim. Şimdi nagios üzerine uzak bir sunucuyu kontrol etmek için görev (host, servis) tanımlayalım.&lt;/p&gt;
+&lt;p&gt;Bu yazı da www.mustafa.com.tr adresi için HTTP ve SSH servislerini belirli zaman aralıklarında kontrol etmesini sağlayacağım.&lt;/p&gt;
+&lt;h2&gt;Host ve servis tanımlama&lt;/h2&gt;
+&lt;p&gt;/etc/nagios3/conf.d dizini altına giderek hostadi_nagios2.cfg adında bir dosya oluşturalım.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;define&lt;/span&gt; &lt;span class="n"&gt;host&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;   &lt;span class="n"&gt;use&lt;/span&gt;                    &lt;span class="n"&gt;generic&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;   &lt;span class="n"&gt;host_name&lt;/span&gt;              &lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tr&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;   &lt;span class="n"&gt;alias&lt;/span&gt;                  &lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tr&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="n"&gt;define&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;   &lt;span class="n"&gt;use&lt;/span&gt;                            &lt;span class="n"&gt;generic&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;         &lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;Name&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;   &lt;span class="n"&gt;host_name&lt;/span&gt;                       &lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tr&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;   &lt;span class="n"&gt;service_description&lt;/span&gt;             &lt;span class="n"&gt;HTTP&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;   &lt;span class="n"&gt;normal_check_interval&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;   &lt;span class="n"&gt;retry_check_interval&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;   &lt;span class="n"&gt;flap_detection_enabled&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;   &lt;span class="n"&gt;max_check_attempts&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;   &lt;span class="n"&gt;check_command&lt;/span&gt;                   &lt;span class="n"&gt;check_http&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;   &lt;span class="n"&gt;notifications_enabled&lt;/span&gt;           &lt;span class="mi"&gt;1&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="n"&gt;define&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    &lt;span class="n"&gt;use&lt;/span&gt;                             &lt;span class="n"&gt;generic&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    &lt;span class="n"&gt;host_name&lt;/span&gt;                       &lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tr&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    &lt;span class="n"&gt;service_description&lt;/span&gt;             &lt;span class="n"&gt;SSH&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    &lt;span class="n"&gt;check_command&lt;/span&gt;                   &lt;span class="n"&gt;check_ssh&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    &lt;span class="n"&gt;notifications_enabled&lt;/span&gt;           &lt;span class="mi"&gt;1&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Akabinde aşağıdaki komutu çalıştırarak config dosyasının hata kontrolünü sağlayalım.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;nagios3&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nagios3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nagios&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cfg&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;less&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Nagios'u yeniden başlatalım.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;nagios3&lt;/span&gt; &lt;span class="n"&gt;reload&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="" src="assets/images/nagios_add_host.jpg" /&gt;
+Host nagios paneline eklenmiş gözüküyor.&lt;/p&gt;</summary><category term="nagios host ekleme"></category><category term="nagios"></category></entry><entry><title>[SLACK] Fail2ban entegrasyonu</title><link href="https://www.mustafa.com.tr/slack-fail2ban-entegrasyonu.html" rel="alternate"></link><published>2016-09-15T15:05:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-15:slack-fail2ban-entegrasyonu.html</id><summary type="html">&lt;h2&gt;Brute Force Nedir?&lt;/h2&gt;
 &lt;p&gt;Saldırganların sıklıkla tercih ettikleri tekniklerden biri de Brute Force adı verilen kaba kuvvet saldırılarıdır. Brute force bir program yardımıyla yapılabileceği gibi el ile de yapılabilir. Brute force saldırılarında kullanıcı adı ve parola bilgisi teker teker denenir. Bu saldırıda başarılı olunabilmesi için en çok kullanılan parola dizilimleri yani sözlük denilen listeler kullanılır. Ne kadar geniş bir sözlük varsa başarıya ulaşma imkanı da o kadar yüksek olur.&lt;/p&gt;
 &lt;p&gt;Uygulamalar brute force saldırılarına yönelik çeşitli aksiyonlar almışlardır. Bazı uygulamalar çok sayıda giriş yapıldığında captcha ile giriş istemekte, bazı uygulamalar ise belirli süre o kullanıcıya ait hesabı kapatmaktadır.&lt;/p&gt;
 &lt;h2&gt;Fail2Ban Nedir?&lt;/h2&gt;
