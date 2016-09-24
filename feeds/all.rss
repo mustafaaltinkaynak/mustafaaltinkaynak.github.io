@@ -65,8 +65,8 @@
 &lt;span class="code-line"&gt;    &lt;span class="n"&gt;balance&lt;/span&gt; &lt;span class="n"&gt;roundrobin&lt;/span&gt;&lt;/span&gt;
 &lt;span class="code-line"&gt;    &lt;span class="n"&gt;option&lt;/span&gt; &lt;span class="n"&gt;httpclose&lt;/span&gt;&lt;/span&gt;
 &lt;span class="code-line"&gt;    &lt;span class="n"&gt;option&lt;/span&gt; &lt;span class="n"&gt;forwardfor&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="n"&gt;webserver01&lt;/span&gt; &lt;span class="mf"&gt;192.168.205.16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt; &lt;span class="n"&gt;check&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="n"&gt;webserver02&lt;/span&gt; &lt;span class="mf"&gt;192.168.205.17&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt; &lt;span class="n"&gt;check&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    &lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="n"&gt;webserver01&lt;/span&gt; &lt;span class="mf"&gt;192.168.1.201&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt; &lt;span class="n"&gt;check&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    &lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="n"&gt;webserver02&lt;/span&gt; &lt;span class="mf"&gt;192.168.1.202&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt; &lt;span class="n"&gt;check&lt;/span&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
