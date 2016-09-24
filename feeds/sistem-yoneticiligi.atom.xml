@@ -1,5 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Mustafa ALTINKAYNAK</title><link href="https://www.mustafa.com.tr/" rel="alternate"></link><link href="https://www.mustafa.com.tr/feeds/sistem-yoneticiligi.atom.xml" rel="self"></link><id>https://www.mustafa.com.tr/</id><updated>2016-09-21T21:34:00+03:00</updated><entry><title>Nagios uzak sunucu ekleme</title><link href="https://www.mustafa.com.tr/nagios-uzak-sunucu-ekleme.html" rel="alternate"></link><published>2016-09-21T21:34:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-21:nagios-uzak-sunucu-ekleme.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Nagios&lt;/strong&gt; ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılım olduğunu bir önceki yazılarımda ifade etmiştim. Şimdi nagios üzerine uzak bir sunucuyu kontrol etmek için görev (host, servis) tanımlayalım.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Mustafa ALTINKAYNAK</title><link href="https://www.mustafa.com.tr/" rel="alternate"></link><link href="https://www.mustafa.com.tr/feeds/sistem-yoneticiligi.atom.xml" rel="self"></link><id>https://www.mustafa.com.tr/</id><updated>2016-09-24T23:34:00+03:00</updated><entry><title>HAProxy Kurulumu ve Yapılandırma</title><link href="https://www.mustafa.com.tr/haproxy-kurulumu-ve-yapilandirma.html" rel="alternate"></link><published>2016-09-24T23:34:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-24:haproxy-kurulumu-ve-yapilandirma.html</id><summary type="html">&lt;h2&gt;HAProxy nedir?&lt;/h2&gt;
+&lt;p&gt;HAProxy (High Availability Proxy), bir yük dengeleme görev yöneticisidir. Birçok servis için yük dengeleme, yüksek erişilebilirlik ve proxy gibi hizmetleri ücretsiz, güvenli olarak sunmaktadır. Stabil versiyonu 1.6'dır.&lt;/p&gt;
+&lt;p&gt;Bu yazı da ise Ubuntu üzerine HAProxy 1.4.24 kurulumu gerçekleştirerek aşağıda yer alan yapıyı oluşturacağız.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/haproxy-yapi.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;HAProxy sunucusu:&lt;/strong&gt; 192.168.1.200&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Webserver 1:&lt;/strong&gt; 192.168.1.201&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Webserver 2:&lt;/strong&gt; 192.168.1.202&lt;/p&gt;
+&lt;p&gt;Tüm sunuculara web server kurulumunu gerçekleştirdim.&lt;/p&gt;
+&lt;h2&gt;HAProxy kurulumu&lt;/h2&gt;
+&lt;p&gt;Ubuntu deposunda tanımlı olduğundan dolayı direkt apt-get ile kurabilirsiniz.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;haproxy&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Kurulum işleminin ardından aşağıdaki komut ile birlikte versiyon kontrolü sağlayabilirsiniz.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;haproxy&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="n"&gt;HA&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Proxy&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="mf"&gt;1.4.24&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mo"&gt;06&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="n"&gt;Copyright&lt;/span&gt; &lt;span class="mi"&gt;2000&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="n"&gt;Willy&lt;/span&gt; &lt;span class="n"&gt;Tarreau&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;wt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;eu&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;HAProxy'i etkinleştirmek için /etc/default/haproxy dosyasında yer alan ENABLED değerini 1 olarak değiştirmeniz gerekmektedir.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Artık HAProxy servisi için etkinlikler geldi.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;haproxy&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="nl"&gt;Usage:&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;haproxy&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;stop&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;reload&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;restart&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;HAProxy yapılandırma&lt;/h2&gt;
+&lt;p&gt;Herşeye başlamadan önce mevcut HAProxy konfigurasyon dosyasını yedekleyelim.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mv&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;haproxy&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;haproxy&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cfg&lt;/span&gt;&lt;span class="p"&gt;{,.&lt;/span&gt;&lt;span class="n"&gt;original&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Artık &lt;strong&gt;haproxy.cfg&lt;/strong&gt; adında yeni bir konfigurasyon dosyası oluşturarak burada işlem gerçekleştirelim.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;global&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;        &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;   &lt;span class="n"&gt;local0&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;        &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;   &lt;span class="n"&gt;local1&lt;/span&gt; &lt;span class="n"&gt;notice&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;        &lt;span class="n"&gt;maxconn&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;        &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="n"&gt;haproxy&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;        &lt;span class="n"&gt;group&lt;/span&gt; &lt;span class="n"&gt;haproxy&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;        &lt;span class="n"&gt;daemon&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="n"&gt;defaults&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;        &lt;span class="n"&gt;log&lt;/span&gt;     &lt;span class="n"&gt;global&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;        &lt;span class="n"&gt;mode&lt;/span&gt;    &lt;span class="n"&gt;http&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;        &lt;span class="n"&gt;option&lt;/span&gt;  &lt;span class="n"&gt;httplog&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;        &lt;span class="n"&gt;option&lt;/span&gt;  &lt;span class="n"&gt;dontlognull&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;        &lt;span class="n"&gt;retries&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;        &lt;span class="n"&gt;option&lt;/span&gt; &lt;span class="n"&gt;redispatch&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;        &lt;span class="n"&gt;maxconn&lt;/span&gt; &lt;span class="mi"&gt;2000&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;        &lt;span class="n"&gt;contimeout&lt;/span&gt;     &lt;span class="mi"&gt;5000&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;        &lt;span class="n"&gt;clitimeout&lt;/span&gt;     &lt;span class="mi"&gt;50000&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;        &lt;span class="n"&gt;srvtimeout&lt;/span&gt;     &lt;span class="mi"&gt;50000&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="n"&gt;listen&lt;/span&gt; &lt;span class="n"&gt;altinkaynak&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    &lt;span class="n"&gt;mode&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    &lt;span class="n"&gt;stats&lt;/span&gt; &lt;span class="n"&gt;enable&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    &lt;span class="n"&gt;stats&lt;/span&gt; &lt;span class="n"&gt;uri&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;haproxy&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt;&lt;span class="n"&gt;stats&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    &lt;span class="n"&gt;balance&lt;/span&gt; &lt;span class="n"&gt;roundrobin&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    &lt;span class="n"&gt;option&lt;/span&gt; &lt;span class="n"&gt;httpclose&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    &lt;span class="n"&gt;option&lt;/span&gt; &lt;span class="n"&gt;forwardfor&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    &lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="n"&gt;webserver01&lt;/span&gt; &lt;span class="mf"&gt;192.168.205.16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt; &lt;span class="n"&gt;check&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;    &lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="n"&gt;webserver02&lt;/span&gt; &lt;span class="mf"&gt;192.168.205.17&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt; &lt;span class="n"&gt;check&lt;/span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Bu sürüm için geçerli konfigurasyon açıklamasına &lt;a href="http://www.haproxy.org/download/1.4/doc/configuration.txt"&gt;buradan&lt;/a&gt; ulaşabilirsiniz.&lt;/p&gt;
+&lt;p&gt;Şimdi HAProxy dashboard sayfamıza göz atalım. Aşağıdaki göreceğiz üzere tüm servislerimiz yerlerini almış ve UP/DOWN durumları zamansal olarak gösterilmiştir. Servisler üzerinde açılan session sayısını da görebilmekteyiz.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/haproxy-dashboard.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Sunucuların up/down durumlarında e-posta bildirimi almak isteyebilirsiniz. O zaman güzel bir haber vereyim. HAProxy 1.6 sürümünde bildirim desteği gelmiştir. Ancak 1.4 sürümünde olmadığından dolayı bu yazıda yer veremiyorum.&lt;/p&gt;
+&lt;p&gt;HAProxy'in bize sunmuş olduğu yük dengelemeyi de test edelim. Artık tüm trafiği HAProxy sunucusu üzerine (192.168.1.200) üzerine yönlendiriyoruz. Ben farkı anlayabilmek açısından giriş sayfalarına hangi sunucuya bağlantı yaptığımı yazdırdım.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/sunucular.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Sonuç olarak HAProxy en uygun olan sunucuya beni yönlendirdi.&lt;/p&gt;</summary><category term="haproxy kurulumu"></category></entry><entry><title>Nagios Uzak Sunucu Ekleme</title><link href="https://www.mustafa.com.tr/nagios-uzak-sunucu-ekleme.html" rel="alternate"></link><published>2016-09-21T21:34:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-21:nagios-uzak-sunucu-ekleme.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Nagios&lt;/strong&gt; ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılım olduğunu bir önceki yazılarımda ifade etmiştim. Şimdi nagios üzerine uzak bir sunucuyu kontrol etmek için görev (host, servis) tanımlayalım.&lt;/p&gt;
 &lt;p&gt;Bu yazı da www.mustafa.com.tr adresi için HTTP ve SSH servislerini belirli zaman aralıklarında kontrol etmesini sağlayacağım.&lt;/p&gt;
 &lt;h2&gt;Host ve servis tanımlama&lt;/h2&gt;
 &lt;p&gt;/etc/nagios3/conf.d dizini altına giderek hostadi_nagios2.cfg adında bir dosya oluşturalım.&lt;/p&gt;
@@ -42,7 +119,7 @@
 
 
 &lt;p&gt;&lt;img alt="" src="assets/images/nagios_add_host.jpg" /&gt;
-Host nagios paneline eklenmiş gözüküyor.&lt;/p&gt;</summary><category term="nagios host ekleme"></category><category term="nagios"></category></entry><entry><title>[SLACK] Fail2ban entegrasyonu</title><link href="https://www.mustafa.com.tr/slack-fail2ban-entegrasyonu.html" rel="alternate"></link><published>2016-09-15T15:05:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-15:slack-fail2ban-entegrasyonu.html</id><summary type="html">&lt;h2&gt;Brute Force Nedir?&lt;/h2&gt;
+Host nagios paneline eklenmiş gözüküyor.&lt;/p&gt;</summary><category term="nagios host ekleme"></category><category term="nagios"></category></entry><entry><title>[SLACK] Fail2ban Entegrasyonu</title><link href="https://www.mustafa.com.tr/slack-fail2ban-entegrasyonu.html" rel="alternate"></link><published>2016-09-15T15:05:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-15:slack-fail2ban-entegrasyonu.html</id><summary type="html">&lt;h2&gt;Brute Force Nedir?&lt;/h2&gt;
 &lt;p&gt;Saldırganların sıklıkla tercih ettikleri tekniklerden biri de Brute Force adı verilen kaba kuvvet saldırılarıdır. Brute force bir program yardımıyla yapılabileceği gibi el ile de yapılabilir. Brute force saldırılarında kullanıcı adı ve parola bilgisi teker teker denenir. Bu saldırıda başarılı olunabilmesi için en çok kullanılan parola dizilimleri yani sözlük denilen listeler kullanılır. Ne kadar geniş bir sözlük varsa başarıya ulaşma imkanı da o kadar yüksek olur.&lt;/p&gt;
 &lt;p&gt;Uygulamalar brute force saldırılarına yönelik çeşitli aksiyonlar almışlardır. Bazı uygulamalar çok sayıda giriş yapıldığında captcha ile giriş istemekte, bazı uygulamalar ise belirli süre o kullanıcıya ait hesabı kapatmaktadır.&lt;/p&gt;
 &lt;h2&gt;Fail2Ban Nedir?&lt;/h2&gt;
@@ -118,7 +195,7 @@ Host nagios paneline eklenmiş gözüküyor.&lt;/p&gt;</summary><category term="
 
 
 &lt;p&gt;Artık servis başladığında, durduğunda, bir kullanıcı sistemden atıldığı ve yasaklamasının kaldırıldığı durumda bildirim gelecektir.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/fail2ban_slack.jpg" /&gt;&lt;/p&gt;</summary><category term="slack"></category><category term="fail2ban"></category></entry><entry><title>[SLACK] Nagios entegrasyonu</title><link href="https://www.mustafa.com.tr/slack-nagios-entegrasyonu.html" rel="alternate"></link><published>2016-09-12T18:56:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-12:slack-nagios-entegrasyonu.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Nagios&lt;/strong&gt; ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılımdır. Yazılım sayesinde tüm aktif cihazlarını sizlere sunmuş olduğu arayüz üzerinden monitör edebilirsiniz. Nagios ile birlikte makinalara farklı görev tanımları gerçekleştirebilir ve durum maili alabilirsiniz. &lt;a href="https://www.nagios.org"&gt;Buraya&lt;/a&gt; tıklayarak Nagios'a ulaşabilirsiniz.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/fail2ban_slack.jpg" /&gt;&lt;/p&gt;</summary><category term="slack"></category><category term="fail2ban"></category></entry><entry><title>[SLACK] Nagios Entegrasyonu</title><link href="https://www.mustafa.com.tr/slack-nagios-entegrasyonu.html" rel="alternate"></link><published>2016-09-12T18:56:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-12:slack-nagios-entegrasyonu.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Nagios&lt;/strong&gt; ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılımdır. Yazılım sayesinde tüm aktif cihazlarını sizlere sunmuş olduğu arayüz üzerinden monitör edebilirsiniz. Nagios ile birlikte makinalara farklı görev tanımları gerçekleştirebilir ve durum maili alabilirsiniz. &lt;a href="https://www.nagios.org"&gt;Buraya&lt;/a&gt; tıklayarak Nagios'a ulaşabilirsiniz.&lt;/p&gt;
 &lt;h2&gt;Slack Nagios Entegrasyonu&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://my.slack.com/services/new/nagios"&gt;https://my.slack.com/services/new/nagios&lt;/a&gt; adresinde yer alan &lt;strong&gt;"Add Nagios integration"&lt;/strong&gt; kısmı içerisinde yer alan &lt;strong&gt;Setup Instructions&lt;/strong&gt; başlığı altında kurulum talimatlarına ulaşabilirsiniz. Sizler için takımınıza ait kanal ismi ve token bilgisi dinamik olarak üretilecektir.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//raw.github.com/tinyspeck/services-examples/master/nagios.pl&lt;/span&gt;&lt;/span&gt;
@@ -233,7 +310,7 @@ Host nagios paneline eklenmiş gözüküyor.&lt;/p&gt;</summary><category term="
 &lt;p&gt;18:35:19'da da Nagios MySQL servisine erişemediğine dair bildirimi göndermiş.
 &lt;img alt="" src="assets/images/nagios_alert.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Aynı esnada cep telefonuma da bildirim geldi.
-&lt;img alt="" src="assets/images/slack_android.png" /&gt;&lt;/p&gt;</summary></entry><entry><title>[SLACK] SSH girişlerini bildirim olarak almak</title><link href="https://www.mustafa.com.tr/slack-ssh-girislerini-bildirim-olarak-almak.html" rel="alternate"></link><published>2016-09-11T22:05:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-11:slack-ssh-girislerini-bildirim-olarak-almak.html</id><summary type="html">&lt;p&gt;Merhabalar.
+&lt;img alt="" src="assets/images/slack_android.png" /&gt;&lt;/p&gt;</summary></entry><entry><title>[SLACK] SSH Girişlerini Bildirim Olarak Almak</title><link href="https://www.mustafa.com.tr/slack-ssh-girislerini-bildirim-olarak-almak.html" rel="alternate"></link><published>2016-09-11T22:05:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-11:slack-ssh-girislerini-bildirim-olarak-almak.html</id><summary type="html">&lt;p&gt;Merhabalar.
 Bu yazımızda daha çok geliştirici ekiplerinin kullandığı ekip içi yazışma ortamı sağlayan Slack ile ilgili çalışma gerçekleştireceğiz.
 Artık ekip içi yazışmalarınızı, iş atamalarınızı (busybot) Slack üzerinden yaptığınıza göre fazlalıklardan kurtulmak isteyebilirsiniz. Şahsen ben çok fazla ortam kullanmayı tercih etmek yerine, tek yerden bir dashboard mantığında herşeyi görebilmek isterim. Kısa bir girizgahından ardından giriş yapalım.&lt;/p&gt;
 &lt;p&gt;Slack'de çoğu uygulama gibi webhook yapısına uygun tasarlanmıştır. Webhook farklı uygulamaların birbirleri ile entegrasyon sağlayabilmeleri için Uygulama içerisinde oluşan event'leri HTTP üzerinden JSON Payload'ları ile kendilerine subscribe olan diğer uygulamaları tetiklemesidir. Tabii bu işlemi yapabilmeniz için webhook izinlerini sağlamanız gerekmektedir.&lt;/p&gt;
@@ -314,7 +391,7 @@ Artık ekip içi yazışmalarınızı, iş atamalarınızı (busybot) Slack üze
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Tüm işlem bu kadar.&lt;/p&gt;</summary></entry><entry><title>Public / Private ile SSH bağlantısı sağlama</title><link href="https://www.mustafa.com.tr/public-private-ile-ssh-baglantisi-saglama.html" rel="alternate"></link><published>2016-09-06T09:10:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-06:public-private-ile-ssh-baglantisi-saglama.html</id><summary type="html">&lt;p&gt;Bu yazımızda public/private ikilisi ile birlikte SSH bağlantısı
+&lt;p&gt;Tüm işlem bu kadar.&lt;/p&gt;</summary></entry><entry><title>Public / Private ile SSH Bağlantısı Sağlama</title><link href="https://www.mustafa.com.tr/public-private-ile-ssh-baglantisi-saglama.html" rel="alternate"></link><published>2016-09-06T09:10:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-06:public-private-ile-ssh-baglantisi-saglama.html</id><summary type="html">&lt;p&gt;Bu yazımızda public/private ikilisi ile birlikte SSH bağlantısı
 sağlamayı akabinde ise sunucu üzerinde clear parola girilmesini yani
 pub/private ikilileri olmadan bağlantı sağlanamamasını
 gerçekleştireceğiz.&lt;/p&gt;

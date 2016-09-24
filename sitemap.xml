@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/</loc>
-<lastmod>2016-09-21T22:05:14-00:00</lastmod>
+<lastmod>2016-09-25T01:17:36-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/archives.html</loc>
-<lastmod>2016-09-21T22:05:14-00:00</lastmod>
+<lastmod>2016-09-25T01:17:36-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/tags.html</loc>
-<lastmod>2016-09-21T22:05:14-00:00</lastmod>
+<lastmod>2016-09-25T01:17:36-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/categories.html</loc>
-<lastmod>2016-09-21T22:05:14-00:00</lastmod>
+<lastmod>2016-09-25T01:17:36-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -40,7 +40,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/pages/contact.html</loc>
-<lastmod>2016-09-21T22:05:14-00:00</lastmod>
+<lastmod>2016-09-25T01:17:36-00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://www.mustafa.com.tr/haproxy-kurulumu-ve-yapilandirma.html</loc>
+<lastmod>2016-09-24T23:34:00+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -89,7 +96,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/category/sistem-yoneticiligi.html</loc>
-<lastmod>2016-09-21T21:34:00+01:56</lastmod>
+<lastmod>2016-09-24T23:34:00+01:56</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://www.mustafa.com.tr/tag/haproxy-kurulumu.html</loc>
+<lastmod>2016-09-24T23:34:00+01:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -124,7 +138,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/author/admin.html</loc>
-<lastmod>2016-09-21T21:34:00+01:56</lastmod>
+<lastmod>2016-09-24T23:34:00+01:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
