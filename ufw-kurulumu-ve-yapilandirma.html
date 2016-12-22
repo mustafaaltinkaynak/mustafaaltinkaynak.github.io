@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Mustafa ALTINKAYNAK - UFW Kurulumu ve Yapılandırma</title>
+        <meta name="description" content="" />
+
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="shortcut icon" href="https://www.mustafa.com.tr/assets/images/favicon.png">
+        <link rel="stylesheet" type="text/css" href="https://www.mustafa.com.tr/theme/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://www.mustafa.com.tr/theme/css/custom.css"/>
+        <link rel="stylesheet" type="text/css" href="https://www.mustafa.com.tr/theme/css/pygments.css"/>
+        <link rel="stylesheet" type="text/css" href="https://www.mustafa.com.tr/theme/css/monosocialiconsfont.css"/>
+        <link rel="stylesheet" href="https://www.mustafa.com.tr/theme/tipuesearch/tipuesearch.css">
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+        <link href="https://www.mustafa.com.tr/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Mustafa ALTINKAYNAK Full Atom Feed" />
+        <link href="https://www.mustafa.com.tr/feeds/all.rss" type="application/rss+xml" rel="alternate" title="Mustafa ALTINKAYNAK Full RSS Feed" />
+        <link href="https://www.mustafa.com.tr/feeds/sistem-yoneticiligi.atom.xml" type="application/atom+xml" rel="alternate" title="Mustafa ALTINKAYNAK Categories Atom Feed" />
+
+<meta name="tags" content="ufw kurulumu ve yapılandırma" />
+<meta name="tags" content="ufw nedir" />
+<meta name="tags" content="ufw ubuntu" />
+<meta name="tags" content="ufw debian" />
+    </head>
+    <body class="home-template">
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+<main class="content" role="main">
+    <div class="row">
+        <article class="post tag-play tag-security">
+          <header class="post-header">
+            <a class="blog-logo" href="/">
+              <span class="blog-title">Mustafa ALTINKAYNAK</span>
+            </a>
+          </header>
+           
+            <h1 class="post-title">UFW Kurulumu ve Yapılandırma</h1>
+
+
+            <section class="post-content">
+              <h2>UFW nedir?</h2>
+<p>UFW yani Uncomplicated Firewall güvenlik duvarı yönetim aracıdır. Iptables güvenlik duvarı yapılandırmasını kolaylaştırmak için geliştirilen ufw, ipv4 veya v6 ile desteğiyle birlikte kullanıcıların işini epeyi kolaylaştırmaktadır. Varsayılan olarak UFW devre dışı olarak gelmektedir. UFW'yi konsol üzerinden yönetebileceğiniz gibi GUI desteği sayesinde konsol kullanmadan <a href="https://help.ubuntu.com/community/Gufw">Gufw</a> ile de yönetebilirsiniz. Ubuntu için varsayılan güvenlik duvarı yapılandırma aracıdır.</p>
+<h2>UFW kurulumu</h2>
+<p>UFW ubuntu üzerinde varsayılan geldiğinden dolayı farklı bir işletim sistemi kuruyorsanız aşağıdaki adımı izleyebilirsiniz.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">ufw</span></span>
+</pre></div>
+
+
+<p>Kurulum işleminin ardından aşağıdaki komut ile birlikte versiyon kontrolü sağlayabilirsiniz.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">version</span></span>
+</pre></div>
+
+
+<p><strong>ÖNEMLİ:</strong> Eğer ki ev kullanıcı iseniz UFW sizler için varsayılan bir profil ile birlikte sisteminize dahil olmaktadır. Kısacası, ev kullanıcıları için istisnalar dışında tüm gelen istekler reddedilmektedir.</p>
+<h2>UFW yönetimi</h2>
+<p>UFW'yi etkinleştirmek yada pasifleştirmek için aşağıdaki komutu kullanabilirsiniz.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">enable</span></span>
+<span class="code-line"><span class="n">Firewall</span> <span class="n">is</span> <span class="n">active</span> <span class="n">and</span> <span class="n">enabled</span> <span class="n">on</span> <span class="n">system</span> <span class="n">startup</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">disable</span></span>
+<span class="code-line"><span class="n">Firewall</span> <span class="n">stopped</span> <span class="n">and</span> <span class="n">disabled</span> <span class="n">on</span> <span class="n">system</span> <span class="n">startup</span></span>
+</pre></div>
+
+
+<p>Mevcut UFW'ye ait kurallar dizisini görmek için aşağıdaki komutu kullanabilirsiniz.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">status</span> <span class="n">verbose</span></span>
+<span class="code-line"><span class="nl">Status:</span> <span class="n">active</span></span>
+<span class="code-line"><span class="nl">Logging:</span> <span class="n">on</span> <span class="p">(</span><span class="n">full</span><span class="p">)</span></span>
+<span class="code-line"><span class="nl">Default:</span> <span class="n">deny</span> <span class="p">(</span><span class="n">incoming</span><span class="p">),</span> <span class="n">allow</span> <span class="p">(</span><span class="n">outgoing</span><span class="p">),</span> <span class="n">disabled</span> <span class="p">(</span><span class="n">routed</span><span class="p">)</span></span>
+<span class="code-line"><span class="n">New</span> <span class="n">profiles</span><span class="o">:</span> <span class="n">skip</span></span>
+</pre></div>
+
+
+<p>Henüz bir kural tanımlamadığımız kurallar dizisi görünmemektedir. Ancak UFW'nin mevcut durumuna ilişkin bilgi sahibi olabileceğimiz bilgiler yer almaktadır. Firewall'ın durumu, loglama hassasiyeti, ön tanımlı davranışını bu çıktı da yer almaktadır.</p>
+<p>Kural içerikleri <strong>"/etc/ufw"</strong> altında <strong>".rules"</strong> uzantısı ile biten dosyalarda yer almaktadır.</p>
+<h2>Kural oluşturma</h2>
+<p>UFW üzerinde iki farklı davranış allow, deny belirleyebilirsiniz. Allow ile izin verebilir, deny ile gelen istekleri reddedebilirsiniz.</p>
+<p>Allow içeren kurallar aşağıdaki şekilde tanımlanabilir.</p>
+<div class="highlight"><pre><span class="code-line"><span class="nx">ufw</span> <span class="nx">allow</span> <span class="o">&lt;</span><span class="nb">port</span><span class="o">&gt;/&lt;</span><span class="nx">optional</span><span class="p">:</span> <span class="nx">protocol</span><span class="o">&gt;</span></span>
+</pre></div>
+
+
+<p>53.port üzerine gelen TCP ve UDP bağlantılarına izin verelim.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="mi">53</span></span>
+</pre></div>
+
+
+<p>Yalnızca TCP üzerinden gelen bağlantılara izin vermek için,</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="mi">53</span><span class="o">/</span><span class="n">tcp</span></span>
+</pre></div>
+
+
+<p>Yalnızca UDP üzerinden gelen bağlantılara izin vermek için,</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="mi">53</span><span class="o">/</span><span class="n">tcp</span></span>
+</pre></div>
+
+
+<p>Deny içeren kurallar aşağıdaki şekilde tanımlanabilir.</p>
+<div class="highlight"><pre><span class="code-line"><span class="nx">ufw</span> <span class="nx">deny</span> <span class="o">&lt;</span><span class="nb">port</span><span class="o">&gt;/&lt;</span><span class="nx">optional</span><span class="p">:</span> <span class="nx">protocol</span><span class="o">&gt;</span></span>
+</pre></div>
+
+
+<p>53.port üzerine gelen TCP ve UDP bağlantılarını engelleyelim.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">deny</span> <span class="mi">53</span></span>
+</pre></div>
+
+
+<p>Yalnızca TCP üzerinden gelen bağlantıları engellemek için,</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">deny</span> <span class="mi">53</span><span class="o">/</span><span class="n">tcp</span></span>
+</pre></div>
+
+
+<p>Yalnızca UDP üzerinden gelen bağlantıları engellemek için,</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">deny</span> <span class="mi">53</span><span class="o">/</span><span class="n">udp</span></span>
+</pre></div>
+
+
+<p>Belirli Subnet'e izin verelim.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">192.168.1.0</span><span class="o">/</span><span class="mi">24</span></span>
+</pre></div>
+
+
+<p>Belirlenmiş bir IP adresine erişim izni verelim.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">10.50.1.55</span></span>
+</pre></div>
+
+
+<p>Belirlenmiş bir IP adresine yalnızca bir port için izin verelim.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">10.50.1.55</span> <span class="n">to</span> <span class="n">any</span> <span class="n">port</span> <span class="mi">22</span></span>
+</pre></div>
+
+
+<p>RFC1918 adresleri yani 10.0.0.0/8, 172.16.0.0/12, 169.254.0.0/16, 192.168.0.0/16 olarak belirlenen adreslere izin verelim.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">10.0.0.0</span><span class="o">/</span><span class="mi">8</span></span>
+<span class="code-line"><span class="n">Rule</span> <span class="n">added</span></span>
+<span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">172.16.0.0</span><span class="o">/</span><span class="mi">12</span></span>
+<span class="code-line"><span class="n">Rule</span> <span class="n">added</span></span>
+<span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">192.168.0.0</span><span class="o">/</span><span class="mi">16</span></span>
+<span class="code-line"><span class="n">Rule</span> <span class="n">added</span></span>
+</pre></div>
+
+
+<p>Bazı durumlarda kuralların birbirlerini bastırdığı durumlar olabilir. Örneğin: SSH bağlantılarını tümüyle kapatan bir kural eklediniz. Akabinde de spesifik bir adres için SSH izni verdiniz. Bu durumda ilk eklediğiniz kural gerçekleşecektir ve spesifik IP adresi bağlantı gerçekleştiremeyecektir.</p>
+<p>Bu durumda araya kural eklemesi yapabilirsiniz.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">insert</span> <span class="mi">1</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">10.50.1.55</span> <span class="n">to</span> <span class="n">any</span> <span class="n">port</span> <span class="mi">22</span></span>
+<span class="code-line"><span class="n">Rule</span> <span class="n">inserted</span></span>
+</pre></div>
+
+
+<p>Belirli bir IP adresi veya subnet için protokol sınırlaması getirelim.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">10.50.1.55</span> <span class="n">to</span> <span class="n">any</span> <span class="n">port</span> <span class="mi">22</span> <span class="n">proto</span> <span class="n">tcp</span></span>
+<span class="code-line"><span class="n">Rule</span> <span class="n">added</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">192.168.0.0</span><span class="o">/</span><span class="mi">16</span> <span class="n">to</span> <span class="n">any</span> <span class="n">port</span> <span class="mi">22</span> <span class="n">proto</span> <span class="n">tcp</span></span>
+<span class="code-line"><span class="n">Rule</span> <span class="n">added</span></span>
+</pre></div>
+
+
+<h2>Kural kaldırma</h2>
+<p>UFW üzerinde kural kaldırmak için kural oluşturma sırasında yazmış olduğunuz koda delete eklemeniz yeterlidir.</p>
+<p>80.porta gelen bağlantıları engellemek için,
+    mustafa@altinkaynak:/# ufw deny 80/tcp</p>
+<p>Belirlenen bu kuralı silmek için,</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">delete</span> <span class="n">deny</span> <span class="mi">53</span><span class="o">/</span><span class="n">udp</span></span>
+</pre></div>
+
+
+<p>Yada tüm kurallar içerisinden belirlemiş olduğunuzu silmek istiyorsanız öncelikle aşağıdaki komutla kuralları numaralandırılmış halde listeleyin, ardından silmek istediğiniz kuralın numarasını ufw delete komutuna vermeniz yeterlidir.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">status</span> <span class="n">numbered</span></span>
+<span class="code-line"><span class="nl">Status:</span> <span class="n">active</span></span>
+<span class="code-line"><span class="n">To</span>                         <span class="n">Action</span>      <span class="n">From</span></span>
+<span class="code-line"><span class="o">--</span>                         <span class="o">------</span>      <span class="o">----</span></span>
+<span class="code-line"><span class="p">[</span> <span class="mi">1</span><span class="p">]</span> <span class="mi">80</span><span class="o">/</span><span class="n">tcp</span>                     <span class="n">DENY</span> <span class="n">IN</span>     <span class="n">Anywhere</span></span>
+<span class="code-line"><span class="p">[</span> <span class="mi">2</span><span class="p">]</span> <span class="mi">80</span><span class="o">/</span><span class="n">tcp</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>                <span class="n">DENY</span> <span class="n">IN</span>     <span class="n">Anywhere</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">delete</span> <span class="mi">1</span></span>
+<span class="code-line"><span class="nl">Deleting:</span></span>
+<span class="code-line"> <span class="n">deny</span> <span class="mi">80</span><span class="o">/</span><span class="n">tcp</span></span>
+<span class="code-line"><span class="n">Proceed</span> <span class="n">with</span> <span class="n">operation</span> <span class="p">(</span><span class="n">y</span><span class="o">|</span><span class="n">n</span><span class="p">)</span><span class="o">?</span> <span class="n">y</span></span>
+<span class="code-line"><span class="n">Rule</span> <span class="n">deleted</span></span>
+</pre></div>
+
+
+<h2>Servisler için kural yazma</h2>
+<p>UFW /etc/services dosyasını da okuyabildiği için hizmet adına göre de izin verebilir veya reddedebilirsiniz. Servislerin listesini görmek için <strong>"/etc/services"</strong> dosyasına göz atabilirsiniz.</p>
+<p>Servis ismiyle bağlantıya izin verilen kurallar aşağıdaki şekilde tanımlanabilir.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">ufw</span> <span class="n">allow</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">name</span><span class="o">&gt;</span></span>
+</pre></div>
+
+
+<p>SSH servisine bağlantılara izin vermek için,</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">ssh</span></span>
+<span class="code-line"><span class="n">Rule</span> <span class="n">added</span></span>
+<span class="code-line"><span class="n">Rule</span> <span class="n">added</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span></span>
+</pre></div>
+
+
+<p>Servis ismiyle bağlantının reddedildiği kurallar aşağıdaki şekilde tanımlanabilir.</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">ufw</span> <span class="n">deny</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">name</span><span class="o">&gt;</span></span>
+</pre></div>
+
+
+<p>SSH servisine bağlantıları reddetmek için,</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">deny</span> <span class="n">ssh</span></span>
+<span class="code-line"><span class="n">Rule</span> <span class="n">added</span></span>
+<span class="code-line"><span class="n">Rule</span> <span class="n">added</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span></span>
+</pre></div>
+
+
+<h2>Loglama</h2>
+<p>UFW loglama için farklı bir değer belirtilmedikçe "low" yani düşük seviye loglama işlemi yapmaktadır. Loglama konusunda hassas davranmak istiyorsanız aşağıdaki komutu 'off', 'low', 'medium', 'high' ve 'full' değerleriyle birlikte kullanabilirsiniz.</p>
+<p>Log kaydetme seviyeleri yükseldikçe daha fazla çıktı üreterek, yoğunluğunuza göre diskinizi hızla doldurabilir. Production ortamlarda yapılacak olan seviye belirlemelerinde bunu göz önünde bulundurmalısınız.</p>
+<p>Loglama işlemini devre dışı bırakmak için,</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">logging</span> <span class="n">off</span></span>
+<span class="code-line"><span class="n">Logging</span> <span class="n">disabled</span></span>
+</pre></div>
+
+
+<p>En yüksek düzeyde loglama gerçekleştirmek için,</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">logging</span> <span class="n">full</span></span>
+<span class="code-line"><span class="n">Logging</span> <span class="n">enabled</span></span>
+</pre></div>
+
+
+<p>Loglama işlemini tamamiyle devre dışı bırakmak için,</p>
+<div class="highlight"><pre><span class="code-line"><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">logging</span> <span class="n">off</span></span>
+<span class="code-line"><span class="n">Logging</span> <span class="n">disabled</span></span>
+</pre></div>
+
+
+<p>Bir sonraki yazımda görüşmek dileğiyle.</p>
+            </section>
+
+            <footer class="post-footer">
+                <section>
+                  <span class="post-meta">
+                    Tags:                     <a href="https://www.mustafa.com.tr/tag/ufw-kurulumu-ve-yapilandirma.html">ufw kurulumu ve yapılandırma</a>,                     <a href="https://www.mustafa.com.tr/tag/ufw-nedir.html">ufw nedir</a>,                     <a href="https://www.mustafa.com.tr/tag/ufw-ubuntu.html">ufw ubuntu</a>,                     <a href="https://www.mustafa.com.tr/tag/ufw-debian.html">ufw debian</a>                  </span>
+                </section>
+
+                <section class="share">
+                    <h4>Share this post</h4>
+                    <a class="icon-twitter" href="http://twitter.com/share?text=UFW Kurulumu ve Yapılandırma&url=https://www.mustafa.com.tr/ufw-kurulumu-ve-yapilandirma.html"
+                        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                        <span class="hidden">Twitter</span>
+                        <span class='symbol'>circletwitterbird</span>
+                    </a>
+                    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.mustafa.com.tr/ufw-kurulumu-ve-yapilandirma.html"
+                        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                        <span class="hidden">Facebook</span>
+                        <span class='symbol'>circlefacebook</span>
+                    </a>
+                    <a class="icon-google-plus" href="https://plus.google.com/share?url=https://www.mustafa.com.tr/ufw-kurulumu-ve-yapilandirma.html"
+                       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                        <span class="hidden">Google+</span>
+                        <span class='symbol'>circlegoogleplus</span>
+                    </a>
+                </section>
+
+            </footer>
+
+            <div id="disqus_thread"></div>
+            <script>
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//mustafaaltinkaynak.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        </article>
+    </div>
+</main>
+                <footer class="site-footer">
+                    <a class="subscribe icon-feed" href="https://www.mustafa.com.tr/feeds/all.rss"><span class="tooltip"><span class="symbol">blip</span></span></a>
+                    <a class="subscribe icon-feed" href="https://www.mustafa.com.tr/archives.html"><span class="tooltip"><span class="symbol">star</span></span></a>
+                    <div class="inner">
+                         <section class="copyright">mustafaaltinkaynak &copy; 2015</section>
+                    </div>
+                </footer>
+
+                <!-- Yandex.Metrika counter -->
+                <script type="text/javascript">
+                    (function (d, w, c) {
+                        (w[c] = w[c] || []).push(function() {
+                            try {
+                                w.yaCounter39549065 = new Ya.Metrika({
+                                    id:39549065,
+                                    clickmap:true,
+                                    trackLinks:true,
+                                    accurateTrackBounce:true
+                                });
+                            } catch(e) { }
+                        });
+
+                        var n = d.getElementsByTagName("script")[0],
+                            s = d.createElement("script"),
+                            f = function () { n.parentNode.insertBefore(s, n); };
+                        s.type = "text/javascript";
+                        s.async = true;
+                        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+                        if (w.opera == "[object Opera]") {
+                            d.addEventListener("DOMContentLoaded", f, false);
+                        } else { f(); }
+                    })(document, window, "yandex_metrika_callbacks");
+                </script>
+                <noscript><div><img src="https://mc.yandex.ru/watch/39549065" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+                <!-- /Yandex.Metrika counter -->
+
+
+            </div>
+        </div>
+    </body>
+</html>

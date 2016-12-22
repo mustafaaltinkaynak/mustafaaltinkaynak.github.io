@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/</loc>
-<lastmod>2016-09-25T01:19:47-00:00</lastmod>
+<lastmod>2016-12-22T15:24:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/archives.html</loc>
-<lastmod>2016-09-25T01:19:47-00:00</lastmod>
+<lastmod>2016-12-22T15:24:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/tags.html</loc>
-<lastmod>2016-09-25T01:19:47-00:00</lastmod>
+<lastmod>2016-12-22T15:24:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/categories.html</loc>
-<lastmod>2016-09-25T01:19:47-00:00</lastmod>
+<lastmod>2016-12-22T15:24:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -40,7 +40,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/pages/contact.html</loc>
-<lastmod>2016-09-25T01:19:47-00:00</lastmod>
+<lastmod>2016-12-22T15:24:55-00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://www.mustafa.com.tr/ufw-kurulumu-ve-yapilandirma.html</loc>
+<lastmod>2016-12-22T10:00:00+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -96,7 +103,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/category/sistem-yoneticiligi.html</loc>
-<lastmod>2016-09-24T23:34:00+01:56</lastmod>
+<lastmod>2016-12-22T10:00:00+01:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -104,6 +111,34 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://www.mustafa.com.tr/tag/haproxy-kurulumu.html</loc>
 <lastmod>2016-09-24T23:34:00+01:56</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://www.mustafa.com.tr/tag/ufw-ubuntu.html</loc>
+<lastmod>2016-12-22T10:00:00+01:56</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://www.mustafa.com.tr/tag/ufw-kurulumu-ve-yapilandirma.html</loc>
+<lastmod>2016-12-22T10:00:00+01:56</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://www.mustafa.com.tr/tag/ufw-nedir.html</loc>
+<lastmod>2016-12-22T10:00:00+01:56</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://www.mustafa.com.tr/tag/nagios.html</loc>
+<lastmod>2016-09-21T21:34:00+01:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -123,6 +158,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://www.mustafa.com.tr/tag/ufw-debian.html</loc>
+<lastmod>2016-12-22T10:00:00+01:56</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://www.mustafa.com.tr/tag/slack.html</loc>
 <lastmod>2016-09-15T15:05:00+01:56</lastmod>
 <changefreq>daily</changefreq>
@@ -130,15 +172,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/nagios.html</loc>
-<lastmod>2016-09-21T21:34:00+01:56</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://www.mustafa.com.tr/author/admin.html</loc>
-<lastmod>2016-09-24T23:34:00+01:56</lastmod>
+<lastmod>2016-12-22T10:00:00+01:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
