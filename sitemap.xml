@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/</loc>
-<lastmod>2017-01-23T23:33:25-00:00</lastmod>
+<lastmod>2017-01-23T23:42:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/archives.html</loc>
-<lastmod>2017-01-23T23:33:25-00:00</lastmod>
+<lastmod>2017-01-23T23:42:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/tags.html</loc>
-<lastmod>2017-01-23T23:33:25-00:00</lastmod>
+<lastmod>2017-01-23T23:42:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/categories.html</loc>
-<lastmod>2017-01-23T23:33:25-00:00</lastmod>
+<lastmod>2017-01-23T23:42:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -40,14 +40,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/pages/contact.html</loc>
-<lastmod>2017-01-23T23:33:25-00:00</lastmod>
+<lastmod>2017-01-23T23:42:23-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/btk-usom-siber-yildiz-yarismasi-cozumleri.html</loc>
-<lastmod>2016-12-22T10:00:00+02:00</lastmod>
+<lastmod>2017-01-23T23:40:00+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -110,7 +110,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/category/genel.html</loc>
-<lastmod>2016-12-22T10:00:00+01:56</lastmod>
+<lastmod>2017-01-23T23:40:00+01:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -152,14 +152,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/tag/siberyildiz.html</loc>
-<lastmod>2016-12-22T10:00:00+01:56</lastmod>
+<lastmod>2017-01-23T23:40:00+01:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/tag/usom.html</loc>
-<lastmod>2016-12-22T10:00:00+01:56</lastmod>
+<lastmod>2017-01-23T23:40:00+01:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -180,7 +180,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/tag/siber-guvenlik-yarismasi.html</loc>
-<lastmod>2016-12-22T10:00:00+01:56</lastmod>
+<lastmod>2017-01-23T23:40:00+01:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -201,7 +201,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/tag/btk.html</loc>
-<lastmod>2016-12-22T10:00:00+01:56</lastmod>
+<lastmod>2017-01-23T23:40:00+01:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -215,7 +215,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/author/admin.html</loc>
-<lastmod>2016-12-22T10:00:00+01:56</lastmod>
+<lastmod>2017-01-23T23:40:00+01:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
