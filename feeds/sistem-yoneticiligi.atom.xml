@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Mustafa ALTINKAYNAK</title><link href="https://www.mustafa.com.tr/" rel="alternate"></link><link href="https://www.mustafa.com.tr/feeds/sistem-yoneticiligi.atom.xml" rel="self"></link><id>https://www.mustafa.com.tr/</id><updated>2016-12-22T10:00:00+02:00</updated><entry><title>UFW Kurulumu ve Yapılandırma</title><link href="https://www.mustafa.com.tr/ufw-kurulumu-ve-yapilandirma.html" rel="alternate"></link><published>2016-12-22T10:00:00+02:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-12-22:ufw-kurulumu-ve-yapilandirma.html</id><summary type="html">&lt;h2&gt;UFW nedir?&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Mustafa ALTINKAYNAK - Sistem Yöneticiliği</title><link href="https://www.mustafa.com.tr/" rel="alternate"></link><link href="https://www.mustafa.com.tr/feeds/sistem-yoneticiligi.atom.xml" rel="self"></link><id>https://www.mustafa.com.tr/</id><updated>2016-12-22T10:00:00+03:00</updated><entry><title>UFW Kurulumu ve Yapılandırma</title><link href="https://www.mustafa.com.tr/ufw-kurulumu-ve-yapilandirma.html" rel="alternate"></link><published>2016-12-22T10:00:00+03:00</published><updated>2016-12-22T10:00:00+03:00</updated><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-12-22:/ufw-kurulumu-ve-yapilandirma.html</id><summary type="html">&lt;h2&gt;UFW nedir?&lt;/h2&gt;
+&lt;p&gt;UFW yani Uncomplicated Firewall güvenlik duvarı yönetim aracıdır. Iptables güvenlik duvarı yapılandırmasını kolaylaştırmak için geliştirilen ufw, ipv4 veya v6 ile desteğiyle birlikte kullanıcıların işini epeyi kolaylaştırmaktadır. Varsayılan olarak UFW devre dışı olarak gelmektedir. UFW'yi konsol üzerinden yönetebileceğiniz gibi GUI desteği sayesinde konsol kullanmadan &lt;a href="https://help.ubuntu.com/community/Gufw"&gt;Gufw&lt;/a&gt; ile de yönetebilirsiniz. Ubuntu …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;UFW nedir?&lt;/h2&gt;
 &lt;p&gt;UFW yani Uncomplicated Firewall güvenlik duvarı yönetim aracıdır. Iptables güvenlik duvarı yapılandırmasını kolaylaştırmak için geliştirilen ufw, ipv4 veya v6 ile desteğiyle birlikte kullanıcıların işini epeyi kolaylaştırmaktadır. Varsayılan olarak UFW devre dışı olarak gelmektedir. UFW'yi konsol üzerinden yönetebileceğiniz gibi GUI desteği sayesinde konsol kullanmadan &lt;a href="https://help.ubuntu.com/community/Gufw"&gt;Gufw&lt;/a&gt; ile de yönetebilirsiniz. Ubuntu için varsayılan güvenlik duvarı yapılandırma aracıdır.&lt;/p&gt;
 &lt;h2&gt;UFW kurulumu&lt;/h2&gt;
 &lt;p&gt;UFW ubuntu üzerinde varsayılan geldiğinden dolayı farklı bir işletim sistemi kuruyorsanız aşağıdaki adımı izleyebilirsiniz.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# apt-get install ufw&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Kurulum işleminin ardından aşağıdaki komut ile birlikte versiyon kontrolü sağlayabilirsiniz.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw version&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;ÖNEMLİ:&lt;/strong&gt; Eğer ki ev kullanıcı iseniz UFW sizler için varsayılan bir profil ile birlikte sisteminize dahil olmaktadır. Kısacası, ev kullanıcıları için istisnalar dışında tüm gelen istekler reddedilmektedir.&lt;/p&gt;
 &lt;h2&gt;UFW yönetimi&lt;/h2&gt;
 &lt;p&gt;UFW'yi etkinleştirmek yada pasifleştirmek için aşağıdaki komutu kullanabilirsiniz.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;enable&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Firewall&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;active&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;enabled&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;system&lt;/span&gt; &lt;span class="n"&gt;startup&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw enable&lt;/span&gt;
+&lt;span class="code-line"&gt;Firewall is active and enabled on system startup&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;disable&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Firewall&lt;/span&gt; &lt;span class="n"&gt;stopped&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;disabled&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;system&lt;/span&gt; &lt;span class="n"&gt;startup&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;mustafa@altinkaynak:/# ufw disable&lt;/span&gt;
+&lt;span class="code-line"&gt;Firewall stopped and disabled on system startup&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Mevcut UFW'ye ait kurallar dizisini görmek için aşağıdaki komutu kullanabilirsiniz.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="n"&gt;verbose&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nl"&gt;Status:&lt;/span&gt; &lt;span class="n"&gt;active&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nl"&gt;Logging:&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;full&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nl"&gt;Default:&lt;/span&gt; &lt;span class="n"&gt;deny&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;incoming&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;outgoing&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;disabled&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;routed&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;New&lt;/span&gt; &lt;span class="n"&gt;profiles&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;skip&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw status verbose&lt;/span&gt;
+&lt;span class="code-line"&gt;Status: active&lt;/span&gt;
+&lt;span class="code-line"&gt;Logging: on (full)&lt;/span&gt;
+&lt;span class="code-line"&gt;Default: deny (incoming), allow (outgoing), disabled (routed)&lt;/span&gt;
+&lt;span class="code-line"&gt;New profiles: skip&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -37,83 +38,83 @@
 &lt;h2&gt;Kural oluşturma&lt;/h2&gt;
 &lt;p&gt;UFW üzerinde iki farklı davranış allow, deny belirleyebilirsiniz. Allow ile izin verebilir, deny ile gelen istekleri reddedebilirsiniz.&lt;/p&gt;
 &lt;p&gt;Allow içeren kurallar aşağıdaki şekilde tanımlanabilir.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="nx"&gt;ufw&lt;/span&gt; &lt;span class="nx"&gt;allow&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;port&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;/&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;optional&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;protocol&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;ufw allow &amp;lt;port&amp;gt;/&amp;lt;optional: protocol&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;53.port üzerine gelen TCP ve UDP bağlantılarına izin verelim.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="mi"&gt;53&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw allow 53&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Yalnızca TCP üzerinden gelen bağlantılara izin vermek için,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="mi"&gt;53&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tcp&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw allow 53/tcp&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Yalnızca UDP üzerinden gelen bağlantılara izin vermek için,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="mi"&gt;53&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tcp&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw allow 53/tcp&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Deny içeren kurallar aşağıdaki şekilde tanımlanabilir.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="nx"&gt;ufw&lt;/span&gt; &lt;span class="nx"&gt;deny&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;port&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;/&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;optional&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;protocol&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;ufw deny &amp;lt;port&amp;gt;/&amp;lt;optional: protocol&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;53.port üzerine gelen TCP ve UDP bağlantılarını engelleyelim.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;deny&lt;/span&gt; &lt;span class="mi"&gt;53&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw deny 53&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Yalnızca TCP üzerinden gelen bağlantıları engellemek için,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;deny&lt;/span&gt; &lt;span class="mi"&gt;53&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tcp&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw deny 53/tcp&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Yalnızca UDP üzerinden gelen bağlantıları engellemek için,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;deny&lt;/span&gt; &lt;span class="mi"&gt;53&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;udp&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw deny 53/udp&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Belirli Subnet'e izin verelim.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="mf"&gt;192.168.1.0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw allow from 192.168.1.0/24&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Belirlenmiş bir IP adresine erişim izni verelim.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="mf"&gt;10.50.1.55&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw allow from 10.50.1.55&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Belirlenmiş bir IP adresine yalnızca bir port için izin verelim.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="mf"&gt;10.50.1.55&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;any&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt; &lt;span class="mi"&gt;22&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw allow from 10.50.1.55 to any port 22&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;RFC1918 adresleri yani 10.0.0.0/8, 172.16.0.0/12, 169.254.0.0/16, 192.168.0.0/16 olarak belirlenen adreslere izin verelim.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="mf"&gt;10.0.0.0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Rule&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="mf"&gt;172.16.0.0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Rule&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="mf"&gt;192.168.0.0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Rule&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw allow from 10.0.0.0/8&lt;/span&gt;
+&lt;span class="code-line"&gt;Rule added&lt;/span&gt;
+&lt;span class="code-line"&gt;mustafa@altinkaynak:/# ufw allow from 172.16.0.0/12&lt;/span&gt;
+&lt;span class="code-line"&gt;Rule added&lt;/span&gt;
+&lt;span class="code-line"&gt;mustafa@altinkaynak:/# ufw allow from 192.168.0.0/16&lt;/span&gt;
+&lt;span class="code-line"&gt;Rule added&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Bazı durumlarda kuralların birbirlerini bastırdığı durumlar olabilir. Örneğin: SSH bağlantılarını tümüyle kapatan bir kural eklediniz. Akabinde de spesifik bir adres için SSH izni verdiniz. Bu durumda ilk eklediğiniz kural gerçekleşecektir ve spesifik IP adresi bağlantı gerçekleştiremeyecektir.&lt;/p&gt;
 &lt;p&gt;Bu durumda araya kural eklemesi yapabilirsiniz.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;insert&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="mf"&gt;10.50.1.55&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;any&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt; &lt;span class="mi"&gt;22&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Rule&lt;/span&gt; &lt;span class="n"&gt;inserted&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw insert 1 allow from 10.50.1.55 to any port 22&lt;/span&gt;
+&lt;span class="code-line"&gt;Rule inserted&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Belirli bir IP adresi veya subnet için protokol sınırlaması getirelim.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="mf"&gt;10.50.1.55&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;any&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt; &lt;span class="mi"&gt;22&lt;/span&gt; &lt;span class="n"&gt;proto&lt;/span&gt; &lt;span class="n"&gt;tcp&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Rule&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw allow from 10.50.1.55 to any port 22 proto tcp&lt;/span&gt;
+&lt;span class="code-line"&gt;Rule added&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="mf"&gt;192.168.0.0&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;any&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt; &lt;span class="mi"&gt;22&lt;/span&gt; &lt;span class="n"&gt;proto&lt;/span&gt; &lt;span class="n"&gt;tcp&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Rule&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;mustafa@altinkaynak:/# ufw allow from 192.168.0.0/16 to any port 22 proto tcp&lt;/span&gt;
+&lt;span class="code-line"&gt;Rule added&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -122,49 +123,49 @@
 &lt;p&gt;80.porta gelen bağlantıları engellemek için,
     mustafa@altinkaynak:/# ufw deny 80/tcp&lt;/p&gt;
 &lt;p&gt;Belirlenen bu kuralı silmek için,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;delete&lt;/span&gt; &lt;span class="n"&gt;deny&lt;/span&gt; &lt;span class="mi"&gt;53&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;udp&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw delete deny 53/udp&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Yada tüm kurallar içerisinden belirlemiş olduğunuzu silmek istiyorsanız öncelikle aşağıdaki komutla kuralları numaralandırılmış halde listeleyin, ardından silmek istediğiniz kuralın numarasını ufw delete komutuna vermeniz yeterlidir.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="n"&gt;numbered&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nl"&gt;Status:&lt;/span&gt; &lt;span class="n"&gt;active&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;To&lt;/span&gt;                         &lt;span class="n"&gt;Action&lt;/span&gt;      &lt;span class="n"&gt;From&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="o"&gt;--&lt;/span&gt;                         &lt;span class="o"&gt;------&lt;/span&gt;      &lt;span class="o"&gt;----&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tcp&lt;/span&gt;                     &lt;span class="n"&gt;DENY&lt;/span&gt; &lt;span class="n"&gt;IN&lt;/span&gt;     &lt;span class="n"&gt;Anywhere&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tcp&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                &lt;span class="n"&gt;DENY&lt;/span&gt; &lt;span class="n"&gt;IN&lt;/span&gt;     &lt;span class="n"&gt;Anywhere&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw status numbered&lt;/span&gt;
+&lt;span class="code-line"&gt;Status: active&lt;/span&gt;
+&lt;span class="code-line"&gt;To                         Action      From&lt;/span&gt;
+&lt;span class="code-line"&gt;--                         ------      ----&lt;/span&gt;
+&lt;span class="code-line"&gt;[ 1] 80/tcp                     DENY IN     Anywhere&lt;/span&gt;
+&lt;span class="code-line"&gt;[ 2] 80/tcp (v6)                DENY IN     Anywhere (v6)&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;delete&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nl"&gt;Deleting:&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt; &lt;span class="n"&gt;deny&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tcp&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Proceed&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;operation&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Rule&lt;/span&gt; &lt;span class="n"&gt;deleted&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;mustafa@altinkaynak:/# ufw delete 1&lt;/span&gt;
+&lt;span class="code-line"&gt;Deleting:&lt;/span&gt;
+&lt;span class="code-line"&gt; deny 80/tcp&lt;/span&gt;
+&lt;span class="code-line"&gt;Proceed with operation (y|n)? y&lt;/span&gt;
+&lt;span class="code-line"&gt;Rule deleted&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;Servisler için kural yazma&lt;/h2&gt;
 &lt;p&gt;UFW /etc/services dosyasını da okuyabildiği için hizmet adına göre de izin verebilir veya reddedebilirsiniz. Servislerin listesini görmek için &lt;strong&gt;"/etc/services"&lt;/strong&gt; dosyasına göz atabilirsiniz.&lt;/p&gt;
 &lt;p&gt;Servis ismiyle bağlantıya izin verilen kurallar aşağıdaki şekilde tanımlanabilir.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;ufw allow &amp;lt;service name&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;SSH servisine bağlantılara izin vermek için,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="n"&gt;ssh&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Rule&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Rule&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw allow ssh&lt;/span&gt;
+&lt;span class="code-line"&gt;Rule added&lt;/span&gt;
+&lt;span class="code-line"&gt;Rule added (v6)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Servis ismiyle bağlantının reddedildiği kurallar aşağıdaki şekilde tanımlanabilir.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;deny&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;ufw deny &amp;lt;service name&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;SSH servisine bağlantıları reddetmek için,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;deny&lt;/span&gt; &lt;span class="n"&gt;ssh&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Rule&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Rule&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw deny ssh&lt;/span&gt;
+&lt;span class="code-line"&gt;Rule added&lt;/span&gt;
+&lt;span class="code-line"&gt;Rule added (v6)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -172,144 +173,151 @@
 &lt;p&gt;UFW loglama için farklı bir değer belirtilmedikçe "low" yani düşük seviye loglama işlemi yapmaktadır. Loglama konusunda hassas davranmak istiyorsanız aşağıdaki komutu 'off', 'low', 'medium', 'high' ve 'full' değerleriyle birlikte kullanabilirsiniz.&lt;/p&gt;
 &lt;p&gt;Log kaydetme seviyeleri yükseldikçe daha fazla çıktı üreterek, yoğunluğunuza göre diskinizi hızla doldurabilir. Production ortamlarda yapılacak olan seviye belirlemelerinde bunu göz önünde bulundurmalısınız.&lt;/p&gt;
 &lt;p&gt;Loglama işlemini devre dışı bırakmak için,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt; &lt;span class="n"&gt;off&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Logging&lt;/span&gt; &lt;span class="n"&gt;disabled&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw logging off&lt;/span&gt;
+&lt;span class="code-line"&gt;Logging disabled&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;En yüksek düzeyde loglama gerçekleştirmek için,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt; &lt;span class="n"&gt;full&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Logging&lt;/span&gt; &lt;span class="n"&gt;enabled&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw logging full&lt;/span&gt;
+&lt;span class="code-line"&gt;Logging enabled&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Loglama işlemini tamamiyle devre dışı bırakmak için,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;ufw&lt;/span&gt; &lt;span class="n"&gt;logging&lt;/span&gt; &lt;span class="n"&gt;off&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Logging&lt;/span&gt; &lt;span class="n"&gt;disabled&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# ufw logging off&lt;/span&gt;
+&lt;span class="code-line"&gt;Logging disabled&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Bir sonraki yazımda görüşmek dileğiyle.&lt;/p&gt;</summary><category term="ufw kurulumu ve yapılandırma"></category><category term="ufw nedir"></category><category term="ufw ubuntu"></category><category term="ufw debian"></category></entry><entry><title>HAProxy Kurulumu ve Yapılandırma</title><link href="https://www.mustafa.com.tr/haproxy-kurulumu-ve-yapilandirma.html" rel="alternate"></link><published>2016-09-24T23:34:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-24:haproxy-kurulumu-ve-yapilandirma.html</id><summary type="html">&lt;h2&gt;HAProxy nedir?&lt;/h2&gt;
+&lt;p&gt;Bir sonraki yazımda görüşmek dileğiyle.&lt;/p&gt;</content><category term="ufw kurulumu ve yapılandırma"></category><category term="ufw nedir"></category><category term="ufw ubuntu"></category><category term="ufw debian"></category></entry><entry><title>HAProxy Kurulumu ve Yapılandırma</title><link href="https://www.mustafa.com.tr/haproxy-kurulumu-ve-yapilandirma.html" rel="alternate"></link><published>2016-09-24T23:34:00+03:00</published><updated>2016-09-24T23:34:00+03:00</updated><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-24:/haproxy-kurulumu-ve-yapilandirma.html</id><summary type="html">&lt;h2&gt;HAProxy nedir?&lt;/h2&gt;
 &lt;p&gt;HAProxy (High Availability Proxy), bir yük dengeleme görev yöneticisidir. Birçok servis için yük dengeleme, yüksek erişilebilirlik ve proxy gibi hizmetleri ücretsiz, güvenli olarak sunmaktadır. Stabil versiyonu 1.6'dır.&lt;/p&gt;
 &lt;p&gt;Bu yazı da ise Ubuntu üzerine HAProxy 1.4.24 kurulumu gerçekleştirerek aşağıda yer alan yapıyı oluşturacağız.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/haproxy-yapi.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/haproxy-yapi.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;HAProxy sunucusu:&lt;/strong&gt; 192 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;HAProxy nedir?&lt;/h2&gt;
+&lt;p&gt;HAProxy (High Availability Proxy), bir yük dengeleme görev yöneticisidir. Birçok servis için yük dengeleme, yüksek erişilebilirlik ve proxy gibi hizmetleri ücretsiz, güvenli olarak sunmaktadır. Stabil versiyonu 1.6'dır.&lt;/p&gt;
+&lt;p&gt;Bu yazı da ise Ubuntu üzerine HAProxy 1.4.24 kurulumu gerçekleştirerek aşağıda yer alan yapıyı oluşturacağız.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/haproxy-yapi.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;HAProxy sunucusu:&lt;/strong&gt; 192.168.1.200&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Webserver 1:&lt;/strong&gt; 192.168.1.201&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Webserver 2:&lt;/strong&gt; 192.168.1.202&lt;/p&gt;
 &lt;p&gt;Tüm sunuculara web server kurulumunu gerçekleştirdim.&lt;/p&gt;
 &lt;h2&gt;HAProxy kurulumu&lt;/h2&gt;
 &lt;p&gt;Ubuntu deposunda tanımlı olduğundan dolayı direkt apt-get ile kurabilirsiniz.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;haproxy&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# apt-get install haproxy&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Kurulum işleminin ardından aşağıdaki komut ile birlikte versiyon kontrolü sağlayabilirsiniz.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;haproxy&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="nl"&gt;altinkaynak&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;haproxy&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;span class="n"&gt;HA&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Proxy&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="mf"&gt;1.4.24&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mo"&gt;06&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;Copyright&lt;/span&gt; &lt;span class="mi"&gt;2000&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="n"&gt;Willy&lt;/span&gt; &lt;span class="n"&gt;Tarreau&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;wt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;eu&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;&lt;span class="n"&gt;Copyright&lt;/span&gt; &lt;span class="mi"&gt;2000&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="n"&gt;Willy&lt;/span&gt; &lt;span class="n"&gt;Tarreau&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="mi"&gt;@1&lt;/span&gt;&lt;span class="n"&gt;wt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;eu&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;HAProxy'i etkinleştirmek için /etc/default/haproxy dosyasında yer alan ENABLED değerini 1 olarak değiştirmeniz gerekmektedir.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;ENABLED=1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Artık HAProxy servisi için etkinlikler geldi.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;altinkaynak&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;haproxy&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="nl"&gt;Usage:&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;haproxy&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;stop&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;reload&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;restart&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mustafa@altinkaynak:/# service haproxy&lt;/span&gt;
+&lt;span class="code-line"&gt;Usage: /etc/init.d/haproxy {start|stop|reload|restart|status}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;HAProxy yapılandırma&lt;/h2&gt;
 &lt;p&gt;Herşeye başlamadan önce mevcut HAProxy konfigurasyon dosyasını yedekleyelim.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;mv&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;haproxy&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;haproxy&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cfg&lt;/span&gt;&lt;span class="p"&gt;{,.&lt;/span&gt;&lt;span class="n"&gt;original&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;mv /etc/haproxy/haproxy.cfg{,.original}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Artık &lt;strong&gt;haproxy.cfg&lt;/strong&gt; adında yeni bir konfigurasyon dosyası oluşturarak burada işlem gerçekleştirelim.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;global&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;   &lt;span class="n"&gt;local0&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;   &lt;span class="n"&gt;local1&lt;/span&gt; &lt;span class="n"&gt;notice&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="n"&gt;maxconn&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="n"&gt;haproxy&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="n"&gt;group&lt;/span&gt; &lt;span class="n"&gt;haproxy&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="n"&gt;daemon&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;global&lt;/span&gt;
+&lt;span class="code-line"&gt;        log /dev/log   local0&lt;/span&gt;
+&lt;span class="code-line"&gt;        log 127.0.0.1   local1 notice&lt;/span&gt;
+&lt;span class="code-line"&gt;        maxconn 4096&lt;/span&gt;
+&lt;span class="code-line"&gt;        user haproxy&lt;/span&gt;
+&lt;span class="code-line"&gt;        group haproxy&lt;/span&gt;
+&lt;span class="code-line"&gt;        daemon&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;defaults&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="n"&gt;log&lt;/span&gt;     &lt;span class="n"&gt;global&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="n"&gt;mode&lt;/span&gt;    &lt;span class="n"&gt;http&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="n"&gt;option&lt;/span&gt;  &lt;span class="n"&gt;httplog&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="n"&gt;option&lt;/span&gt;  &lt;span class="n"&gt;dontlognull&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="n"&gt;retries&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="n"&gt;option&lt;/span&gt; &lt;span class="n"&gt;redispatch&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="n"&gt;maxconn&lt;/span&gt; &lt;span class="mi"&gt;2000&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="n"&gt;contimeout&lt;/span&gt;     &lt;span class="mi"&gt;5000&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="n"&gt;clitimeout&lt;/span&gt;     &lt;span class="mi"&gt;50000&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;        &lt;span class="n"&gt;srvtimeout&lt;/span&gt;     &lt;span class="mi"&gt;50000&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;defaults&lt;/span&gt;
+&lt;span class="code-line"&gt;        log     global&lt;/span&gt;
+&lt;span class="code-line"&gt;        mode    http&lt;/span&gt;
+&lt;span class="code-line"&gt;        option  httplog&lt;/span&gt;
+&lt;span class="code-line"&gt;        option  dontlognull&lt;/span&gt;
+&lt;span class="code-line"&gt;        retries 3&lt;/span&gt;
+&lt;span class="code-line"&gt;        option redispatch&lt;/span&gt;
+&lt;span class="code-line"&gt;        maxconn 2000&lt;/span&gt;
+&lt;span class="code-line"&gt;        contimeout     5000&lt;/span&gt;
+&lt;span class="code-line"&gt;        clitimeout     50000&lt;/span&gt;
+&lt;span class="code-line"&gt;        srvtimeout     50000&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;listen&lt;/span&gt; &lt;span class="n"&gt;altinkaynak&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="n"&gt;mode&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="n"&gt;stats&lt;/span&gt; &lt;span class="n"&gt;enable&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="n"&gt;stats&lt;/span&gt; &lt;span class="n"&gt;uri&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;haproxy&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt;&lt;span class="n"&gt;stats&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="n"&gt;balance&lt;/span&gt; &lt;span class="n"&gt;roundrobin&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="n"&gt;option&lt;/span&gt; &lt;span class="n"&gt;httpclose&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="n"&gt;option&lt;/span&gt; &lt;span class="n"&gt;forwardfor&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="n"&gt;webserver01&lt;/span&gt; &lt;span class="mf"&gt;192.168.1.201&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt; &lt;span class="n"&gt;check&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="n"&gt;webserver02&lt;/span&gt; &lt;span class="mf"&gt;192.168.1.202&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt; &lt;span class="n"&gt;check&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;listen altinkaynak 127.0.0.1:80&lt;/span&gt;
+&lt;span class="code-line"&gt;    mode http&lt;/span&gt;
+&lt;span class="code-line"&gt;    stats enable&lt;/span&gt;
+&lt;span class="code-line"&gt;    stats uri /haproxy?stats&lt;/span&gt;
+&lt;span class="code-line"&gt;    balance roundrobin&lt;/span&gt;
+&lt;span class="code-line"&gt;    option httpclose&lt;/span&gt;
+&lt;span class="code-line"&gt;    option forwardfor&lt;/span&gt;
+&lt;span class="code-line"&gt;    server webserver01 192.168.1.201:80 check&lt;/span&gt;
+&lt;span class="code-line"&gt;    server webserver02 192.168.1.202:80 check&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Bu sürüm için geçerli konfigurasyon açıklamasına &lt;a href="http://www.haproxy.org/download/1.4/doc/configuration.txt"&gt;buradan&lt;/a&gt; ulaşabilirsiniz.&lt;/p&gt;
 &lt;p&gt;Şimdi HAProxy dashboard sayfamıza göz atalım. Aşağıdaki göreceğiz üzere tüm servislerimiz yerlerini almış ve UP/DOWN durumları zamansal olarak gösterilmiştir. Servisler üzerinde açılan session sayısını da görebilmekteyiz.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/haproxy-dashboard.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/haproxy-dashboard.png"&gt;&lt;/p&gt;
 &lt;p&gt;Sunucuların up/down durumlarında e-posta bildirimi almak isteyebilirsiniz. O zaman güzel bir haber vereyim. HAProxy 1.6 sürümünde bildirim desteği gelmiştir. Ancak 1.4 sürümünde olmadığından dolayı bu yazıda yer veremiyorum.&lt;/p&gt;
 &lt;p&gt;HAProxy'in bize sunmuş olduğu yük dengelemeyi de test edelim. Artık tüm trafiği HAProxy sunucusu üzerine (192.168.1.200) üzerine yönlendiriyoruz. Ben farkı anlayabilmek açısından giriş sayfalarına hangi sunucuya bağlantı yaptığımı yazdırdım.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/sunucular.png" /&gt;&lt;/p&gt;
-&lt;p&gt;Sonuç olarak HAProxy en uygun olan sunucuya beni yönlendirdi.&lt;/p&gt;</summary><category term="haproxy kurulumu"></category></entry><entry><title>Nagios Uzak Sunucu Ekleme</title><link href="https://www.mustafa.com.tr/nagios-uzak-sunucu-ekleme.html" rel="alternate"></link><published>2016-09-21T21:34:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-21:nagios-uzak-sunucu-ekleme.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Nagios&lt;/strong&gt; ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılım olduğunu bir önceki yazılarımda ifade etmiştim. Şimdi nagios üzerine uzak bir sunucuyu kontrol etmek için görev (host, servis) tanımlayalım.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/sunucular.png"&gt;&lt;/p&gt;
+&lt;p&gt;Sonuç olarak HAProxy en uygun olan sunucuya beni yönlendirdi.&lt;/p&gt;</content><category term="haproxy kurulumu"></category></entry><entry><title>Nagios Uzak Sunucu Ekleme</title><link href="https://www.mustafa.com.tr/nagios-uzak-sunucu-ekleme.html" rel="alternate"></link><published>2016-09-21T21:34:00+03:00</published><updated>2016-09-21T21:34:00+03:00</updated><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-21:/nagios-uzak-sunucu-ekleme.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Nagios&lt;/strong&gt; ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılım olduğunu bir önceki yazılarımda ifade etmiştim. Şimdi nagios üzerine uzak bir sunucuyu kontrol etmek için görev (host, servis) tanımlayalım.&lt;/p&gt;
+&lt;p&gt;Bu yazı da www.mustafa.com.tr adresi için HTTP ve SSH servislerini belirli zaman aralıklarında kontrol etmesini sağlayacağım.&lt;/p&gt;
+&lt;h2&gt;Host …&lt;/h2&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Nagios&lt;/strong&gt; ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılım olduğunu bir önceki yazılarımda ifade etmiştim. Şimdi nagios üzerine uzak bir sunucuyu kontrol etmek için görev (host, servis) tanımlayalım.&lt;/p&gt;
 &lt;p&gt;Bu yazı da www.mustafa.com.tr adresi için HTTP ve SSH servislerini belirli zaman aralıklarında kontrol etmesini sağlayacağım.&lt;/p&gt;
 &lt;h2&gt;Host ve servis tanımlama&lt;/h2&gt;
 &lt;p&gt;/etc/nagios3/conf.d dizini altına giderek hostadi_nagios2.cfg adında bir dosya oluşturalım.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;define&lt;/span&gt; &lt;span class="n"&gt;host&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;   &lt;span class="n"&gt;use&lt;/span&gt;                    &lt;span class="n"&gt;generic&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;   &lt;span class="n"&gt;host_name&lt;/span&gt;              &lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tr&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;   &lt;span class="n"&gt;alias&lt;/span&gt;                  &lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tr&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;define host {&lt;/span&gt;
+&lt;span class="code-line"&gt;   use                    generic-host&lt;/span&gt;
+&lt;span class="code-line"&gt;   host_name              mustafa.com.tr&lt;/span&gt;
+&lt;span class="code-line"&gt;   alias                  mustafa.com.tr&lt;/span&gt;
+&lt;span class="code-line"&gt;}&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;define&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;   &lt;span class="n"&gt;use&lt;/span&gt;                            &lt;span class="n"&gt;generic&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;         &lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;Name&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;   &lt;span class="n"&gt;host_name&lt;/span&gt;                       &lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tr&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;   &lt;span class="n"&gt;service_description&lt;/span&gt;             &lt;span class="n"&gt;HTTP&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;   &lt;span class="n"&gt;normal_check_interval&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;   &lt;span class="n"&gt;retry_check_interval&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;   &lt;span class="n"&gt;flap_detection_enabled&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;   &lt;span class="n"&gt;max_check_attempts&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;   &lt;span class="n"&gt;check_command&lt;/span&gt;                   &lt;span class="n"&gt;check_http&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;   &lt;span class="n"&gt;notifications_enabled&lt;/span&gt;           &lt;span class="mi"&gt;1&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;define service {&lt;/span&gt;
+&lt;span class="code-line"&gt;   use                            generic-service         ; Name of service template to use&lt;/span&gt;
+&lt;span class="code-line"&gt;   host_name                       mustafa.com.tr&lt;/span&gt;
+&lt;span class="code-line"&gt;   service_description             HTTP&lt;/span&gt;
+&lt;span class="code-line"&gt;   normal_check_interval 2&lt;/span&gt;
+&lt;span class="code-line"&gt;   retry_check_interval 1&lt;/span&gt;
+&lt;span class="code-line"&gt;   flap_detection_enabled 0&lt;/span&gt;
+&lt;span class="code-line"&gt;   max_check_attempts 2&lt;/span&gt;
+&lt;span class="code-line"&gt;   check_command                   check_http&lt;/span&gt;
+&lt;span class="code-line"&gt;   notifications_enabled           1&lt;/span&gt;
+&lt;span class="code-line"&gt;}&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;define&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="n"&gt;use&lt;/span&gt;                             &lt;span class="n"&gt;generic&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="n"&gt;host_name&lt;/span&gt;                       &lt;span class="n"&gt;mustafa&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tr&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="n"&gt;service_description&lt;/span&gt;             &lt;span class="n"&gt;SSH&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="n"&gt;check_command&lt;/span&gt;                   &lt;span class="n"&gt;check_ssh&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;    &lt;span class="n"&gt;notifications_enabled&lt;/span&gt;           &lt;span class="mi"&gt;1&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;define service {&lt;/span&gt;
+&lt;span class="code-line"&gt;    use                             generic-service&lt;/span&gt;
+&lt;span class="code-line"&gt;    host_name                       mustafa.com.tr&lt;/span&gt;
+&lt;span class="code-line"&gt;    service_description             SSH&lt;/span&gt;
+&lt;span class="code-line"&gt;    check_command                   check_ssh&lt;/span&gt;
+&lt;span class="code-line"&gt;    notifications_enabled           1&lt;/span&gt;
+&lt;span class="code-line"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Akabinde aşağıdaki komutu çalıştırarak config dosyasının hata kontrolünü sağlayalım.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;nagios3&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nagios3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nagios&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cfg&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;less&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;sudo nagios3 -v /etc/nagios3/nagios.cfg | less&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Nagios'u yeniden başlatalım.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;nagios3&lt;/span&gt; &lt;span class="n"&gt;reload&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;sudo service nagios3 reload&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="" src="assets/images/nagios_add_host.jpg" /&gt;
-Host nagios paneline eklenmiş gözüküyor.&lt;/p&gt;</summary><category term="nagios host ekleme"></category><category term="nagios"></category></entry><entry><title>[SLACK] Fail2ban Entegrasyonu</title><link href="https://www.mustafa.com.tr/slack-fail2ban-entegrasyonu.html" rel="alternate"></link><published>2016-09-15T15:05:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-15:slack-fail2ban-entegrasyonu.html</id><summary type="html">&lt;h2&gt;Brute Force Nedir?&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/nagios_add_host.jpg"&gt;
+Host nagios paneline eklenmiş gözüküyor.&lt;/p&gt;</content><category term="nagios host ekleme"></category><category term="nagios"></category></entry><entry><title>[SLACK] Fail2ban Entegrasyonu</title><link href="https://www.mustafa.com.tr/slack-fail2ban-entegrasyonu.html" rel="alternate"></link><published>2016-09-15T15:05:00+03:00</published><updated>2016-09-15T15:05:00+03:00</updated><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-15:/slack-fail2ban-entegrasyonu.html</id><summary type="html">&lt;h2&gt;Brute Force Nedir?&lt;/h2&gt;
+&lt;p&gt;Saldırganların sıklıkla tercih ettikleri tekniklerden biri de Brute Force adı verilen kaba kuvvet saldırılarıdır. Brute force bir program yardımıyla yapılabileceği gibi el ile de yapılabilir. Brute force saldırılarında kullanıcı adı ve parola bilgisi teker teker denenir. Bu saldırıda başarılı olunabilmesi için en çok kullanılan parola dizilimleri yani …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Brute Force Nedir?&lt;/h2&gt;
 &lt;p&gt;Saldırganların sıklıkla tercih ettikleri tekniklerden biri de Brute Force adı verilen kaba kuvvet saldırılarıdır. Brute force bir program yardımıyla yapılabileceği gibi el ile de yapılabilir. Brute force saldırılarında kullanıcı adı ve parola bilgisi teker teker denenir. Bu saldırıda başarılı olunabilmesi için en çok kullanılan parola dizilimleri yani sözlük denilen listeler kullanılır. Ne kadar geniş bir sözlük varsa başarıya ulaşma imkanı da o kadar yüksek olur.&lt;/p&gt;
 &lt;p&gt;Uygulamalar brute force saldırılarına yönelik çeşitli aksiyonlar almışlardır. Bazı uygulamalar çok sayıda giriş yapıldığında captcha ile giriş istemekte, bazı uygulamalar ise belirli süre o kullanıcıya ait hesabı kapatmaktadır.&lt;/p&gt;
 &lt;h2&gt;Fail2Ban Nedir?&lt;/h2&gt;
@@ -318,28 +326,28 @@ Host nagios paneline eklenmiş gözüküyor.&lt;/p&gt;</summary><category term="
 &lt;p&gt;NOT: Bu tarz durumlar için e-posta kullanmayı pek sevmediğimden dolayı, e-posta ile notification almak istemiyorum. Tercihim bu yüzden Slack'den yana.&lt;/p&gt;
 &lt;h2&gt;Fail2ban Slack Entegrasyonu&lt;/h2&gt;
 &lt;p&gt;Fail2ban uygulamasına ait yapılandırma ayarları &lt;strong&gt;/etc/fail2ban/jail.conf&lt;/strong&gt; dosyasında tutulmaktadır. Ancak custom (özelleştirilmiş) yapılandırma ihtiyaçlarında bu dosyanın bir kopyası üzerinden devam edilmesi önerilir.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;cp&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fail2ban&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;jail&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fail2ban&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;jail&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Artık değişikliklerimizi &lt;strong&gt;jail.local&lt;/strong&gt; dosyası üzerinden gerçekleştireceğiz. Slack için action durumunu ayarlayalım.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;action_with_slack_notification&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;banaction&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%(port)s&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;protocol&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%(protocol)s&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;chain&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%(chain)s&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;                                 &lt;span class="n"&gt;slack&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;protocol&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%(protocol)s&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;action_with_slack_notification = %(banaction)s[name=%(__name__)s, port=&amp;quot;%(port)s&amp;quot;, protocol=&amp;quot;%(protocol)s&amp;quot;, chain=&amp;quot;%(chain)s&amp;quot;]&lt;/span&gt;
+&lt;span class="code-line"&gt;                                 slack[name=%(__name__)s, protocol=&amp;quot;%(protocol)s&amp;quot;]&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;# Choose default action.  To change, just override value of &amp;#39;action&amp;#39; with the&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;# interpolation to the chosen action shortcut (e.g.  action_mw, action_mwl, etc) in jail.local&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="cp"&gt;# globally (section [DEFAULT]) or per specific section&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;action&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;action_with_slack_notification&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;# Choose default action.  To change, just override value of &amp;#39;action&amp;#39; with the&lt;/span&gt;
+&lt;span class="code-line"&gt;# interpolation to the chosen action shortcut (e.g.  action_mw, action_mwl, etc) in jail.local&lt;/span&gt;
+&lt;span class="code-line"&gt;# globally (section [DEFAULT]) or per specific section&lt;/span&gt;
+&lt;span class="code-line"&gt;action = %(action_with_slack_notification)s&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Slack için bildirimlerde kullanacağımız betiği oluşturmak için ilgili dizine gidelim.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fail2ban&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;cd /etc/fail2ban/action.d&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Şimdi slack bildirimleri için &lt;strong&gt;slack-notify.sh&lt;/strong&gt; adında betiğimizi oluşturalım.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;# !/bin/bash&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;# !/bin/bash&lt;/span&gt;
 &lt;span class="code-line"&gt;# Dosya: /etc/fail2ban/action.d/slack-notify.sh&lt;/span&gt;
 &lt;span class="code-line"&gt;MESSAGE=$1&lt;/span&gt;
 &lt;span class="code-line"&gt;HOOK_URL={HOOK_URL} # https://hooks.slack.com/services/1111111/1111111111111&lt;/span&gt;
@@ -368,15 +376,15 @@ Host nagios paneline eklenmiş gözüküyor.&lt;/p&gt;</summary><category term="
 
 
 &lt;p&gt;Bildirim betiğimiz hazır. Şimdi hangi durumlarda çalışması gerektiğini belirliyoruz.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nx"&gt;Dosya&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;etc&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;fail2ban&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;action.d&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;slack.conf&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;# Dosya: /etc/fail2ban/action.d/slack.conf&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="err"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;Definition&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;[Definition]&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;/span&gt;
 &lt;span class="code-line"&gt;actioncheck=&lt;/span&gt;
-&lt;span class="code-line"&gt;actionstart = /bin/bash /etc/fail2ban/action.d/slack-notify.sh &amp;quot;The jail &lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt; has been started successfully.&amp;quot; &amp;gt; /dev/null 2&amp;gt;&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;1&lt;/span&gt;
-&lt;span class="code-line"&gt;actionstop = /bin/bash /etc/fail2ban/action.d/slack-notify.sh &amp;quot;The jail &lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt; has been stopped.&amp;quot; &amp;gt; /dev/null 2&amp;gt;&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;1&lt;/span&gt;
-&lt;span class="code-line"&gt;actionban = /bin/bash /etc/fail2ban/action.d/slack-notify.sh &amp;quot;Banned _country_ &lt;span class="nt"&gt;&amp;lt;ip&amp;gt;&lt;/span&gt; in the jail &lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt; after &lt;span class="nt"&gt;&amp;lt;failures&amp;gt;&lt;/span&gt; attempts&amp;quot; &amp;quot;&lt;span class="nt"&gt;&amp;lt;ip&amp;gt;&lt;/span&gt;&amp;quot; &amp;gt; /dev/null 2&amp;gt;&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;1&lt;/span&gt;
-&lt;span class="code-line"&gt;actionunban = /bin/bash /etc/fail2ban/action.d/slack-notify.sh &amp;quot;Unbanned _country_ &lt;span class="nt"&gt;&amp;lt;ip&amp;gt;&lt;/span&gt; in the jail &lt;span class="nt"&gt;&amp;lt;name&amp;gt;&lt;/span&gt;&amp;quot; &amp;quot;&lt;span class="nt"&gt;&amp;lt;ip&amp;gt;&lt;/span&gt;&amp;quot; &amp;gt; /dev/null 2&amp;gt;&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;1&lt;/span&gt;
+&lt;span class="code-line"&gt;actionstart = /bin/bash /etc/fail2ban/action.d/slack-notify.sh &amp;quot;The jail &amp;lt;name&amp;gt; has been started successfully.&amp;quot; &amp;gt; /dev/null 2&amp;gt;&amp;amp;1&lt;/span&gt;
+&lt;span class="code-line"&gt;actionstop = /bin/bash /etc/fail2ban/action.d/slack-notify.sh &amp;quot;The jail &amp;lt;name&amp;gt; has been stopped.&amp;quot; &amp;gt; /dev/null 2&amp;gt;&amp;amp;1&lt;/span&gt;
+&lt;span class="code-line"&gt;actionban = /bin/bash /etc/fail2ban/action.d/slack-notify.sh &amp;quot;Banned _country_ &amp;lt;ip&amp;gt; in the jail &amp;lt;name&amp;gt; after &amp;lt;failures&amp;gt; attempts&amp;quot; &amp;quot;&amp;lt;ip&amp;gt;&amp;quot; &amp;gt; /dev/null 2&amp;gt;&amp;amp;1&lt;/span&gt;
+&lt;span class="code-line"&gt;actionunban = /bin/bash /etc/fail2ban/action.d/slack-notify.sh &amp;quot;Unbanned _country_ &amp;lt;ip&amp;gt; in the jail &amp;lt;name&amp;gt;&amp;quot; &amp;quot;&amp;lt;ip&amp;gt;&amp;quot; &amp;gt; /dev/null 2&amp;gt;&amp;amp;1&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;/span&gt;
 &lt;span class="code-line"&gt;# Default name of the chain&lt;/span&gt;
 &lt;span class="code-line"&gt;#&lt;/span&gt;
@@ -385,32 +393,34 @@ Host nagios paneline eklenmiş gözüküyor.&lt;/p&gt;</summary><category term="
 
 
 &lt;p&gt;Artık servis başladığında, durduğunda, bir kullanıcı sistemden atıldığı ve yasaklamasının kaldırıldığı durumda bildirim gelecektir.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/fail2ban_slack.jpg" /&gt;&lt;/p&gt;</summary><category term="slack"></category><category term="fail2ban"></category></entry><entry><title>[SLACK] Nagios Entegrasyonu</title><link href="https://www.mustafa.com.tr/slack-nagios-entegrasyonu.html" rel="alternate"></link><published>2016-09-12T18:56:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-12:slack-nagios-entegrasyonu.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Nagios&lt;/strong&gt; ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılımdır. Yazılım sayesinde tüm aktif cihazlarını sizlere sunmuş olduğu arayüz üzerinden monitör edebilirsiniz. Nagios ile birlikte makinalara farklı görev tanımları gerçekleştirebilir ve durum maili alabilirsiniz. &lt;a href="https://www.nagios.org"&gt;Buraya&lt;/a&gt; tıklayarak Nagios'a ulaşabilirsiniz.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/fail2ban_slack.jpg"&gt;&lt;/p&gt;</content><category term="slack"></category><category term="fail2ban"></category></entry><entry><title>[SLACK] Nagios Entegrasyonu</title><link href="https://www.mustafa.com.tr/slack-nagios-entegrasyonu.html" rel="alternate"></link><published>2016-09-12T18:56:00+03:00</published><updated>2016-09-12T18:56:00+03:00</updated><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-12:/slack-nagios-entegrasyonu.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Nagios&lt;/strong&gt; ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılımdır. Yazılım sayesinde tüm aktif cihazlarını sizlere sunmuş olduğu arayüz üzerinden monitör edebilirsiniz. Nagios ile birlikte makinalara farklı görev tanımları gerçekleştirebilir ve durum maili alabilirsiniz. &lt;a href="https://www.nagios.org"&gt;Buraya&lt;/a&gt; tıklayarak Nagios'a ulaşabilirsiniz.&lt;/p&gt;
+&lt;h2&gt;Slack Nagios Entegrasyonu&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://my.slack.com/services/new/nagios"&gt;https://my.slack.com/services/new/nagios&lt;/a&gt; adresinde …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Nagios&lt;/strong&gt; ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılımdır. Yazılım sayesinde tüm aktif cihazlarını sizlere sunmuş olduğu arayüz üzerinden monitör edebilirsiniz. Nagios ile birlikte makinalara farklı görev tanımları gerçekleştirebilir ve durum maili alabilirsiniz. &lt;a href="https://www.nagios.org"&gt;Buraya&lt;/a&gt; tıklayarak Nagios'a ulaşabilirsiniz.&lt;/p&gt;
 &lt;h2&gt;Slack Nagios Entegrasyonu&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://my.slack.com/services/new/nagios"&gt;https://my.slack.com/services/new/nagios&lt;/a&gt; adresinde yer alan &lt;strong&gt;"Add Nagios integration"&lt;/strong&gt; kısmı içerisinde yer alan &lt;strong&gt;Setup Instructions&lt;/strong&gt; başlığı altında kurulum talimatlarına ulaşabilirsiniz. Sizler için takımınıza ait kanal ismi ve token bilgisi dinamik olarak üretilecektir.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//raw.github.com/tinyspeck/services-examples/master/nagios.pl&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;cp&lt;/span&gt; &lt;span class="n"&gt;nagios&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pl&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;slack_nagios&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pl&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;chmod&lt;/span&gt; &lt;span class="mi"&gt;755&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;slack_nagios&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pl&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;wget https://raw.github.com/tinyspeck/services-examples/master/nagios.pl&lt;/span&gt;
+&lt;span class="code-line"&gt;cp nagios.pl /usr/local/bin/slack_nagios.pl&lt;/span&gt;
+&lt;span class="code-line"&gt;chmod 755 /usr/local/bin/slack_nagios.pl&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;slack_nagios.pl dosyası içerisinde bizlere özel teamname ve token bilgisini düzenleyelim.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="k"&gt;my&lt;/span&gt; &lt;span class="nv"&gt;$opt_domain&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;teamname.slack.com&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;# Your team&amp;#39;s domain&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;my&lt;/span&gt; &lt;span class="nv"&gt;$opt_domain&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;teamname.slack.com&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;# Your team&amp;#39;s domain&lt;/span&gt;&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;span class="k"&gt;my&lt;/span&gt; &lt;span class="nv"&gt;$opt_token&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;token&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;# The token from your Nagios services page&lt;/span&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Nagios bildirimlerin kimlere gönderileceği dair yapılandırma ayarlarını &lt;strong&gt;/etc/nagios3/conf.d/contacts_nagios2.cfg&lt;/strong&gt; dosyasında tutmaktadır.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;define&lt;/span&gt; &lt;span class="n"&gt;contact&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;      &lt;span class="n"&gt;contact_name&lt;/span&gt;                             &lt;span class="n"&gt;slack&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;      &lt;span class="n"&gt;alias&lt;/span&gt;                                    &lt;span class="n"&gt;Slack&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;      &lt;span class="n"&gt;service_notification_period&lt;/span&gt;              &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="n"&gt;x7&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;      &lt;span class="n"&gt;host_notification_period&lt;/span&gt;                 &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="n"&gt;x7&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;      &lt;span class="n"&gt;service_notification_options&lt;/span&gt;             &lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;      &lt;span class="n"&gt;host_notification_options&lt;/span&gt;                &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;      &lt;span class="n"&gt;service_notification_commands&lt;/span&gt;            &lt;span class="n"&gt;notify&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;by&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;slack&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;      &lt;span class="n"&gt;host_notification_commands&lt;/span&gt;               &lt;span class="n"&gt;notify&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;by&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;slack&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;define contact {&lt;/span&gt;
+&lt;span class="code-line"&gt;      contact_name                             slack&lt;/span&gt;
+&lt;span class="code-line"&gt;      alias                                    Slack&lt;/span&gt;
+&lt;span class="code-line"&gt;      service_notification_period              24x7&lt;/span&gt;
+&lt;span class="code-line"&gt;      host_notification_period                 24x7&lt;/span&gt;
+&lt;span class="code-line"&gt;      service_notification_options             w,u,c,r&lt;/span&gt;
+&lt;span class="code-line"&gt;      host_notification_options                d,r&lt;/span&gt;
+&lt;span class="code-line"&gt;      service_notification_commands            notify-service-by-slack&lt;/span&gt;
+&lt;span class="code-line"&gt;      host_notification_commands               notify-host-by-slack&lt;/span&gt;
+&lt;span class="code-line"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -483,24 +493,26 @@ Host nagios paneline eklenmiş gözüküyor.&lt;/p&gt;</summary><category term="
 &lt;/table&gt;
 &lt;h2&gt;Nagios bildirim komutlarını tanımlayalım&lt;/h2&gt;
 &lt;p&gt;Contact profilini tanımlarken service_notification_commands ve host_notification_commands parametrelerini kullanmıştım. Şimdi &lt;strong&gt;commands.cfg&lt;/strong&gt; dosyası içerisinde bu komutlarını tanımlayalım. Bu dosyayı "/etc/nagios3/commands.cfg" adresinden ulaşabilirsiniz.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;define&lt;/span&gt; &lt;span class="n"&gt;command&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;      &lt;span class="n"&gt;command_name&lt;/span&gt; &lt;span class="n"&gt;notify&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;by&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;slack&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;      &lt;span class="n"&gt;command_line&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;slack_nagios&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pl&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;field&lt;/span&gt; &lt;span class="n"&gt;slack_channel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;nagios&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;field&lt;/span&gt; &lt;span class="n"&gt;HOSTALIAS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;$HOSTNAME$&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;field&lt;/span&gt; &lt;span class="n"&gt;SERVICEDESC&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;$SERVICEDESC$&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;field&lt;/span&gt; &lt;span class="n"&gt;SERVICESTATE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;$SERVICESTATE$&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;field&lt;/span&gt; &lt;span class="n"&gt;SERVICEOUTPUT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;$SERVICEOUTPUT$&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;field&lt;/span&gt; &lt;span class="n"&gt;NOTIFICATIONTYPE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;$NOTIFICATIONTYPE$&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;define command {&lt;/span&gt;
+&lt;span class="code-line"&gt;      command_name notify-service-by-slack&lt;/span&gt;
+&lt;span class="code-line"&gt;      command_line /usr/local/bin/slack_nagios.pl -field slack_channel=#nagios -field HOSTALIAS=&amp;quot;$HOSTNAME$&amp;quot; -field SERVICEDESC=&amp;quot;$SERVICEDESC$&amp;quot; -field SERVICESTATE=&amp;quot;$SERVICESTATE$&amp;quot; -field SERVICEOUTPUT=&amp;quot;$SERVICEOUTPUT$&amp;quot; -field NOTIFICATIONTYPE=&amp;quot;$NOTIFICATIONTYPE$&amp;quot;&lt;/span&gt;
+&lt;span class="code-line"&gt;}&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;define&lt;/span&gt; &lt;span class="n"&gt;command&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;      &lt;span class="n"&gt;command_name&lt;/span&gt; &lt;span class="n"&gt;notify&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;by&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;slack&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;      &lt;span class="n"&gt;command_line&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;slack_nagios&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pl&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;field&lt;/span&gt; &lt;span class="n"&gt;slack_channel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;nagios&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;field&lt;/span&gt; &lt;span class="n"&gt;HOSTALIAS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;$HOSTNAME$&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;field&lt;/span&gt; &lt;span class="n"&gt;HOSTSTATE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;$HOSTSTATE$&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;field&lt;/span&gt; &lt;span class="n"&gt;HOSTOUTPUT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;$HOSTOUTPUT$&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;field&lt;/span&gt; &lt;span class="n"&gt;NOTIFICATIONTYPE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;$NOTIFICATIONTYPE$&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span class="code-line"&gt;define command {&lt;/span&gt;
+&lt;span class="code-line"&gt;      command_name notify-host-by-slack&lt;/span&gt;
+&lt;span class="code-line"&gt;      command_line /usr/local/bin/slack_nagios.pl -field slack_channel=#nagios -field HOSTALIAS=&amp;quot;$HOSTNAME$&amp;quot; -field HOSTSTATE=&amp;quot;$HOSTSTATE$&amp;quot; -field HOSTOUTPUT=&amp;quot;$HOSTOUTPUT$&amp;quot; -field NOTIFICATIONTYPE=&amp;quot;$NOTIFICATIONTYPE$&amp;quot;&lt;/span&gt;
+&lt;span class="code-line"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Ben Nagios üzerine MySQL server kontrolünü de eklemiştim. Şimdi MySQL servisimizi durduralım. 18:34:36'da MySQL servisi durdurdum.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/mysql_stop.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/mysql_stop.png"&gt;&lt;/p&gt;
 &lt;p&gt;18:35:19'da da Nagios MySQL servisine erişemediğine dair bildirimi göndermiş.
-&lt;img alt="" src="assets/images/nagios_alert.png" /&gt;&lt;/p&gt;
+&lt;img alt="" src="assets/images/nagios_alert.png"&gt;&lt;/p&gt;
 &lt;p&gt;Aynı esnada cep telefonuma da bildirim geldi.
-&lt;img alt="" src="assets/images/slack_android.png" /&gt;&lt;/p&gt;</summary></entry><entry><title>[SLACK] SSH Girişlerini Bildirim Olarak Almak</title><link href="https://www.mustafa.com.tr/slack-ssh-girislerini-bildirim-olarak-almak.html" rel="alternate"></link><published>2016-09-11T22:05:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-11:slack-ssh-girislerini-bildirim-olarak-almak.html</id><summary type="html">&lt;p&gt;Merhabalar.
+&lt;img alt="" src="assets/images/slack_android.png"&gt;&lt;/p&gt;</content></entry><entry><title>[SLACK] SSH Girişlerini Bildirim Olarak Almak</title><link href="https://www.mustafa.com.tr/slack-ssh-girislerini-bildirim-olarak-almak.html" rel="alternate"></link><published>2016-09-11T22:05:00+03:00</published><updated>2016-09-11T22:05:00+03:00</updated><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-11:/slack-ssh-girislerini-bildirim-olarak-almak.html</id><summary type="html">&lt;p&gt;Merhabalar.
+Bu yazımızda daha çok geliştirici ekiplerinin kullandığı ekip içi yazışma ortamı sağlayan Slack ile ilgili çalışma gerçekleştireceğiz.
+Artık ekip içi yazışmalarınızı, iş atamalarınızı (busybot) Slack üzerinden yaptığınıza göre fazlalıklardan kurtulmak isteyebilirsiniz. Şahsen ben çok fazla ortam kullanmayı tercih etmek yerine, tek yerden bir dashboard mantığında herşeyi görebilmek isterim. Kısa …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Merhabalar.
 Bu yazımızda daha çok geliştirici ekiplerinin kullandığı ekip içi yazışma ortamı sağlayan Slack ile ilgili çalışma gerçekleştireceğiz.
 Artık ekip içi yazışmalarınızı, iş atamalarınızı (busybot) Slack üzerinden yaptığınıza göre fazlalıklardan kurtulmak isteyebilirsiniz. Şahsen ben çok fazla ortam kullanmayı tercih etmek yerine, tek yerden bir dashboard mantığında herşeyi görebilmek isterim. Kısa bir girizgahından ardından giriş yapalım.&lt;/p&gt;
 &lt;p&gt;Slack'de çoğu uygulama gibi webhook yapısına uygun tasarlanmıştır. Webhook farklı uygulamaların birbirleri ile entegrasyon sağlayabilmeleri için Uygulama içerisinde oluşan event'leri HTTP üzerinden JSON Payload'ları ile kendilerine subscribe olan diğer uygulamaları tetiklemesidir. Tabii bu işlemi yapabilmeniz için webhook izinlerini sağlamanız gerekmektedir.&lt;/p&gt;
@@ -515,7 +527,7 @@ Artık ekip içi yazışmalarınızı, iş atamalarınızı (busybot) Slack üze
 &lt;p&gt;Ayarları &lt;strong&gt;"Save Settings"&lt;/strong&gt; butonu ile birlikte kaydediyoruz.&lt;/p&gt;
 &lt;h2&gt;SSH ile yapılan girişlerde bildirim gelmesini sağlayalım.&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;/etc/profile&lt;/strong&gt; dosyasını editör ile açtıktan sonra en alt kısmına aşağıdaki kod blogunu ekleyebilirsiniz. &lt;strong&gt;"WEBHOOK_URL"&lt;/strong&gt; alanını yukarıda saklamanızı istediğim alanla değiştirmeyi unutmayınız.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;    if [ -n &amp;quot;&lt;span class="nv"&gt;$SSH_CLIENT&lt;/span&gt;&amp;quot; ]; then&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;    if [ -n &amp;quot;&lt;span class="nv"&gt;$SSH_CLIENT&lt;/span&gt;&amp;quot; ]; then&lt;/span&gt;
 &lt;span class="code-line"&gt;      TEXT=&amp;quot;$(date): ssh login to &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;USER&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;@$(hostname -f)&amp;quot;&lt;/span&gt;
 &lt;span class="code-line"&gt;      TEXT=&amp;quot;&lt;span class="nv"&gt;$TEXT&lt;/span&gt; from $(echo &lt;span class="nv"&gt;$SSH_CLIENT&lt;/span&gt;|awk &amp;#39;{print $1}&amp;#39;)&amp;quot;&lt;/span&gt;
 &lt;span class="code-line"&gt;      curl -X POST \&lt;/span&gt;
@@ -527,73 +539,98 @@ Artık ekip içi yazışmalarınızı, iş atamalarınızı (busybot) Slack üze
 
 &lt;p&gt;Yukarıdaki kod blogunu açıklamak gerekirse, sadece SSH işlemlerinde çalışacak şekilde ayarlanmıştır. date parametresinde zaman damgası, $USER bağlantıyı gerçekleştiren kullanıcı, $hostname ise bağlantı yapılan makina adını içerir. $SSH_CLIENT ise bağlantıyı gerçekleştiren kullanıcının IP adresini içerir ve bu AWK ile sadeleştirilmiştir. Akabinde curl ile birlikte POST isteği gerçekleştiriyoruz. Curl istekleri sonrasında response değerlerinin ekrana yazdırılmaması için /dev/null değeri kullandım. Böylece ssh yapan kullanıcı hiçbir şekilde çıktı göremeyecektir.&lt;/p&gt;
 &lt;p&gt;Kendim Slack uygulamasını mobilde de kullandığımdan dolayı bildirimler cep telefonuma da direkt ulaşmaktadır.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/slack-bildirimi.png" /&gt;&lt;/p&gt;
-&lt;p&gt;Hepsi bu kadar.&lt;/p&gt;</summary></entry><entry><title>VSFTPD Kurulumu ve Yapılandırma</title><link href="https://www.mustafa.com.tr/vsftpd-kurulumu-ve-yapilandirma.html" rel="alternate"></link><published>2016-09-10T21:37:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-10:vsftpd-kurulumu-ve-yapilandirma.html</id><summary type="html">&lt;p&gt;Yazımıza başlamadan önemli bir hatırlatmak isterim. FTP Protokolü cleartext trafik içermesi nedeniyle
+&lt;p&gt;&lt;img alt="" src="assets/images/slack-bildirimi.png"&gt;&lt;/p&gt;
+&lt;p&gt;Hepsi bu kadar.&lt;/p&gt;</content></entry><entry><title>VSFTPD Kurulumu ve Yapılandırma</title><link href="https://www.mustafa.com.tr/vsftpd-kurulumu-ve-yapilandirma.html" rel="alternate"></link><published>2016-09-10T21:37:00+03:00</published><updated>2016-09-10T21:37:00+03:00</updated><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-10:/vsftpd-kurulumu-ve-yapilandirma.html</id><summary type="html">&lt;p&gt;Yazımıza başlamadan önemli bir hatırlatmak isterim. FTP Protokolü cleartext trafik içermesi nedeniyle
 &lt;strong&gt;güvenli&lt;/strong&gt; değildir. Bu yüzden &lt;strong&gt;SFTP&lt;/strong&gt; protokolünü kullanmanızı öneririm.&lt;/p&gt;
 &lt;h2&gt;Kurulum&lt;/h2&gt;
 &lt;p&gt;Vsftpd server Ubuntu'nun default repolarından erişilebilmektedir. Ek olarak bir kaynak belirtmenize gerek yoktur.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;vsftpd&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install vsftpd&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Yapılandırma&lt;/h2&gt;
+&lt;p&gt;Vsftpd kurulumu ardından &lt;strong&gt;etc/vsftpd.conf&lt;/strong&gt; dosyası içerisinde yapılandırma ayarları bulunmaktadır …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Yazımıza başlamadan önemli bir hatırlatmak isterim. FTP Protokolü cleartext trafik içermesi nedeniyle
+&lt;strong&gt;güvenli&lt;/strong&gt; değildir. Bu yüzden &lt;strong&gt;SFTP&lt;/strong&gt; protokolünü kullanmanızı öneririm.&lt;/p&gt;
+&lt;h2&gt;Kurulum&lt;/h2&gt;
+&lt;p&gt;Vsftpd server Ubuntu'nun default repolarından erişilebilmektedir. Ek olarak bir kaynak belirtmenize gerek yoktur.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install vsftpd&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;Yapılandırma&lt;/h2&gt;
 &lt;p&gt;Vsftpd kurulumu ardından &lt;strong&gt;etc/vsftpd.conf&lt;/strong&gt; dosyası içerisinde yapılandırma ayarları bulunmaktadır. Bu dosya içerisinde aşağıdaki değişiklikleri yapmanızı öneririm.&lt;/p&gt;
 &lt;p&gt;FTP için anonymous bağlantı gerçekleştirmelerini kapatmak için aşağıdaki değeri varsa yorum satırından çıkartıp, "NO" olarak belirtiyoruz.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;anonymous_enable&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;NO&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;anonymous_enable=NO&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Sunucu üzerinde yer alan kullanıcıların FTP'ye bağlanabilmelerini sağlamaları amacıyla aşağıdaki değeri varsa yorum satırından çıkartıp, "YES" olarak belirtiyoruz.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;local_enable&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;YES&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;local_enable=YES&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Kullanıcıların dosyalar üzerinde yazma işlemi yapabilmelerini sağlamaları amacıyla aşağıdaki değeri "YES" olarak belirtiyoruz.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;write_enable&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;YES&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;write_enable=YES&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Kullanıcıların home dizinlerine erişim hakkı vermek amacıyla aşağıdaki değeri "YES" olarak belirtiyoruz.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;chroot_local_user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;YES&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;chroot_local_user=YES&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Bu dosyayı kaydedip, çıkıyoruz.&lt;/p&gt;
 &lt;h2&gt;FTP Kullanıcı Hesabı Oluşturma&lt;/h2&gt;
 &lt;p&gt;Kullanıcı oluşturalım.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;adduser&lt;/span&gt; &lt;span class="n"&gt;ftpkullanicisi&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;sudo adduser ftpkullanicisi&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Kullanıcıyı oluşturduktan sonra, bu kullanıcıya ait dizin için root sahipliği verelim.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;chown&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ftpkullanicisi&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;sudo chown root:root /home/ftpkullanicisi&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Şimdi ise kullanıcıya dosyalarını gönderebileceği bir klasör oluşturalım ve bu kullanıcıya erişim hakkı verelim.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ftpkullanicisi&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dosyalar&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;chown&lt;/span&gt; &lt;span class="n"&gt;ftpuser&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;ftpuser&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ftpkullanicisi&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;sudo mkdir /home/ftpkullanicisi/dosyalar&lt;/span&gt;
+&lt;span class="code-line"&gt;sudo chown ftpuser:ftpuser /home/ftpkullanicisi/files&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Vsftpd'yi yeniden başlatalım.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;vsftpd&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;sudo service vsftpd restart&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Tüm işlem bu kadar.&lt;/p&gt;</summary></entry><entry><title>Public / Private ile SSH Bağlantısı Sağlama</title><link href="https://www.mustafa.com.tr/public-private-ile-ssh-baglantisi-saglama.html" rel="alternate"></link><published>2016-09-06T09:10:00+03:00</published><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-06:public-private-ile-ssh-baglantisi-saglama.html</id><summary type="html">&lt;p&gt;Bu yazımızda public/private ikilisi ile birlikte SSH bağlantısı
+&lt;p&gt;Tüm işlem bu kadar.&lt;/p&gt;</content></entry><entry><title>Public / Private ile SSH Bağlantısı Sağlama</title><link href="https://www.mustafa.com.tr/public-private-ile-ssh-baglantisi-saglama.html" rel="alternate"></link><published>2016-09-06T09:10:00+03:00</published><updated>2016-09-06T09:10:00+03:00</updated><author><name>admin</name></author><id>tag:www.mustafa.com.tr,2016-09-06:/public-private-ile-ssh-baglantisi-saglama.html</id><summary type="html">&lt;p&gt;Bu yazımızda public/private ikilisi ile birlikte SSH bağlantısı
 sağlamayı akabinde ise sunucu üzerinde clear parola girilmesini yani
 pub/private ikilileri olmadan bağlantı sağlanamamasını
 gerçekleştireceğiz.&lt;/p&gt;
 &lt;p&gt;Openssh-server kurulu değilse öncelikle olarak kurulumunu
 gerçekleştirin.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;openssh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install openssh-server&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Client bilgisayar üzerinde anahtarlarınızı aşağıdaki komut ile birlikte
 oluşturalım.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;keygen&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;rsa&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;sudo ssh-keygen -t rsa&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;root …&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Bu yazımızda public/private ikilisi ile birlikte SSH bağlantısı
+sağlamayı akabinde ise sunucu üzerinde clear parola girilmesini yani
+pub/private ikilileri olmadan bağlantı sağlanamamasını
+gerçekleştireceğiz.&lt;/p&gt;
+&lt;p&gt;Openssh-server kurulu değilse öncelikle olarak kurulumunu
+gerçekleştirin.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install openssh-server&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Client bilgisayar üzerinde anahtarlarınızı aşağıdaki komut ile birlikte
+oluşturalım.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;sudo ssh-keygen -t rsa&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -602,27 +639,27 @@ oluşturulmuş olacaktır. &lt;strong&gt;id_rsa.pub&lt;/strong&gt; dosyanız uza
 anlaşılacağı üzere public key dosyanızdır. &lt;strong&gt;id_rsa&lt;/strong&gt; ise iyi korunaklı
 saklamanız gereken private key dosyanızdır.&lt;/p&gt;
 &lt;p&gt;Artık public anahtarımızı bağlantı yapacağımız sunucuya gönderelim.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;    &lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;id_rsa&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pub&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;ip&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;umask&lt;/span&gt; &lt;span class="mo"&gt;077&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;authorized_keys&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;    cat ~/.ssh/id_rsa.pub | ssh root@ip &amp;#39;umask 077; cat &amp;gt;&amp;gt;.ssh/authorized_keys&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Client bilgisayarda artık aşağıdaki komut ile birlikte uzak sunucuya
 parola gerektirmeksizin bağlantı yapabilirsiniz.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;    &lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;uzaksunucu_ip&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;    ssh uzaksunucu_ip&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Artık public/private ikilisi ile birlikte bağlantı yaptığımıza göre uzak
 sunucu üzerinde parola ile girişleri kapatabiliriz. Bunun için
 /etc/ssh/sshd_config kısmında aşağıdaki satırı bularak,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="c"&gt;# Change to no to disable tunnelled clear text passwords&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="c"&gt;#PasswordAuthentication yes&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;# Change to no to disable tunnelled clear text passwords&lt;/span&gt;
+&lt;span class="code-line"&gt;#PasswordAuthentication yes&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;bununla değiştiriniz.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span class="cp"&gt;# Change to no to disable tunnelled clear text passwords&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;PasswordAuthentication&lt;/span&gt; &lt;span class="n"&gt;no&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;# Change to no to disable tunnelled clear text passwords&lt;/span&gt;
+&lt;span class="code-line"&gt;PasswordAuthentication no&lt;/span&gt;
 &lt;span class="code-line"&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry></feed>
+&lt;span class="code-line"&gt;service ssh restart&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content></entry></feed>

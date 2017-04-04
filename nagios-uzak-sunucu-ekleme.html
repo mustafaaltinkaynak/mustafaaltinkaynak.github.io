@@ -45,45 +45,45 @@
 <p>Bu yazı da www.mustafa.com.tr adresi için HTTP ve SSH servislerini belirli zaman aralıklarında kontrol etmesini sağlayacağım.</p>
 <h2>Host ve servis tanımlama</h2>
 <p>/etc/nagios3/conf.d dizini altına giderek hostadi_nagios2.cfg adında bir dosya oluşturalım.</p>
-<div class="highlight"><pre><span class="code-line"><span class="n">define</span> <span class="n">host</span> <span class="p">{</span></span>
-<span class="code-line">   <span class="n">use</span>                    <span class="n">generic</span><span class="o">-</span><span class="n">host</span></span>
-<span class="code-line">   <span class="n">host_name</span>              <span class="n">mustafa</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">tr</span></span>
-<span class="code-line">   <span class="n">alias</span>                  <span class="n">mustafa</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">tr</span></span>
-<span class="code-line"><span class="p">}</span></span>
+<div class="highlight"><pre><span class="code-line"><span></span>define host {</span>
+<span class="code-line">   use                    generic-host</span>
+<span class="code-line">   host_name              mustafa.com.tr</span>
+<span class="code-line">   alias                  mustafa.com.tr</span>
+<span class="code-line">}</span>
 <span class="code-line"></span>
-<span class="code-line"><span class="n">define</span> <span class="n">service</span> <span class="p">{</span></span>
-<span class="code-line">   <span class="n">use</span>                            <span class="n">generic</span><span class="o">-</span><span class="n">service</span>         <span class="p">;</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">service</span> <span class="n">template</span> <span class="n">to</span> <span class="n">use</span></span>
-<span class="code-line">   <span class="n">host_name</span>                       <span class="n">mustafa</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">tr</span></span>
-<span class="code-line">   <span class="n">service_description</span>             <span class="n">HTTP</span></span>
-<span class="code-line">   <span class="n">normal_check_interval</span> <span class="mi">2</span></span>
-<span class="code-line">   <span class="n">retry_check_interval</span> <span class="mi">1</span></span>
-<span class="code-line">   <span class="n">flap_detection_enabled</span> <span class="mi">0</span></span>
-<span class="code-line">   <span class="n">max_check_attempts</span> <span class="mi">2</span></span>
-<span class="code-line">   <span class="n">check_command</span>                   <span class="n">check_http</span></span>
-<span class="code-line">   <span class="n">notifications_enabled</span>           <span class="mi">1</span></span>
-<span class="code-line"><span class="p">}</span></span>
+<span class="code-line">define service {</span>
+<span class="code-line">   use                            generic-service         ; Name of service template to use</span>
+<span class="code-line">   host_name                       mustafa.com.tr</span>
+<span class="code-line">   service_description             HTTP</span>
+<span class="code-line">   normal_check_interval 2</span>
+<span class="code-line">   retry_check_interval 1</span>
+<span class="code-line">   flap_detection_enabled 0</span>
+<span class="code-line">   max_check_attempts 2</span>
+<span class="code-line">   check_command                   check_http</span>
+<span class="code-line">   notifications_enabled           1</span>
+<span class="code-line">}</span>
 <span class="code-line"></span>
-<span class="code-line"><span class="n">define</span> <span class="n">service</span> <span class="p">{</span></span>
-<span class="code-line">    <span class="n">use</span>                             <span class="n">generic</span><span class="o">-</span><span class="n">service</span></span>
-<span class="code-line">    <span class="n">host_name</span>                       <span class="n">mustafa</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">tr</span></span>
-<span class="code-line">    <span class="n">service_description</span>             <span class="n">SSH</span></span>
-<span class="code-line">    <span class="n">check_command</span>                   <span class="n">check_ssh</span></span>
-<span class="code-line">    <span class="n">notifications_enabled</span>           <span class="mi">1</span></span>
-<span class="code-line"><span class="p">}</span></span>
+<span class="code-line">define service {</span>
+<span class="code-line">    use                             generic-service</span>
+<span class="code-line">    host_name                       mustafa.com.tr</span>
+<span class="code-line">    service_description             SSH</span>
+<span class="code-line">    check_command                   check_ssh</span>
+<span class="code-line">    notifications_enabled           1</span>
+<span class="code-line">}</span>
 </pre></div>
 
 
 <p>Akabinde aşağıdaki komutu çalıştırarak config dosyasının hata kontrolünü sağlayalım.</p>
-<div class="highlight"><pre><span class="code-line"><span class="n">sudo</span> <span class="n">nagios3</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nagios3</span><span class="o">/</span><span class="n">nagios</span><span class="p">.</span><span class="n">cfg</span> <span class="o">|</span> <span class="n">less</span></span>
+<div class="highlight"><pre><span class="code-line"><span></span>sudo nagios3 -v /etc/nagios3/nagios.cfg | less</span>
 </pre></div>
 
 
 <p>Nagios'u yeniden başlatalım.</p>
-<div class="highlight"><pre><span class="code-line"><span class="n">sudo</span> <span class="n">service</span> <span class="n">nagios3</span> <span class="n">reload</span></span>
+<div class="highlight"><pre><span class="code-line"><span></span>sudo service nagios3 reload</span>
 </pre></div>
 
 
-<p><img alt="" src="assets/images/nagios_add_host.jpg" />
+<p><img alt="" src="assets/images/nagios_add_host.jpg">
 Host nagios paneline eklenmiş gözüküyor.</p>
             </section>
 

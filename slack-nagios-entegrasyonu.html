@@ -42,29 +42,29 @@
               <p><strong>Nagios</strong> ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılımdır. Yazılım sayesinde tüm aktif cihazlarını sizlere sunmuş olduğu arayüz üzerinden monitör edebilirsiniz. Nagios ile birlikte makinalara farklı görev tanımları gerçekleştirebilir ve durum maili alabilirsiniz. <a href="https://www.nagios.org">Buraya</a> tıklayarak Nagios'a ulaşabilirsiniz.</p>
 <h2>Slack Nagios Entegrasyonu</h2>
 <p><a href="https://my.slack.com/services/new/nagios">https://my.slack.com/services/new/nagios</a> adresinde yer alan <strong>"Add Nagios integration"</strong> kısmı içerisinde yer alan <strong>Setup Instructions</strong> başlığı altında kurulum talimatlarına ulaşabilirsiniz. Sizler için takımınıza ait kanal ismi ve token bilgisi dinamik olarak üretilecektir.</p>
-<div class="highlight"><pre><span class="code-line"><span class="n">wget</span> <span class="n">https</span><span class="o">:</span><span class="c1">//raw.github.com/tinyspeck/services-examples/master/nagios.pl</span></span>
-<span class="code-line"><span class="n">cp</span> <span class="n">nagios</span><span class="p">.</span><span class="n">pl</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">slack_nagios</span><span class="p">.</span><span class="n">pl</span></span>
-<span class="code-line"><span class="n">chmod</span> <span class="mi">755</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">slack_nagios</span><span class="p">.</span><span class="n">pl</span></span>
+<div class="highlight"><pre><span class="code-line"><span></span>wget https://raw.github.com/tinyspeck/services-examples/master/nagios.pl</span>
+<span class="code-line">cp nagios.pl /usr/local/bin/slack_nagios.pl</span>
+<span class="code-line">chmod 755 /usr/local/bin/slack_nagios.pl</span>
 </pre></div>
 
 
 <p>slack_nagios.pl dosyası içerisinde bizlere özel teamname ve token bilgisini düzenleyelim.</p>
-<div class="highlight"><pre><span class="code-line"><span class="k">my</span> <span class="nv">$opt_domain</span> <span class="o">=</span> <span class="s">&quot;teamname.slack.com&quot;</span><span class="p">;</span> <span class="c1"># Your team&#39;s domain</span></span>
+<div class="highlight"><pre><span class="code-line"><span></span><span class="k">my</span> <span class="nv">$opt_domain</span> <span class="o">=</span> <span class="s">&quot;teamname.slack.com&quot;</span><span class="p">;</span> <span class="c1"># Your team&#39;s domain</span></span>
 <span class="code-line"><span class="k">my</span> <span class="nv">$opt_token</span> <span class="o">=</span> <span class="s">&quot;token&quot;</span><span class="p">;</span> <span class="c1"># The token from your Nagios services page</span></span>
 </pre></div>
 
 
 <p>Nagios bildirimlerin kimlere gönderileceği dair yapılandırma ayarlarını <strong>/etc/nagios3/conf.d/contacts_nagios2.cfg</strong> dosyasında tutmaktadır.</p>
-<div class="highlight"><pre><span class="code-line"><span class="n">define</span> <span class="n">contact</span> <span class="p">{</span></span>
-<span class="code-line">      <span class="n">contact_name</span>                             <span class="n">slack</span></span>
-<span class="code-line">      <span class="n">alias</span>                                    <span class="n">Slack</span></span>
-<span class="code-line">      <span class="n">service_notification_period</span>              <span class="mi">24</span><span class="n">x7</span></span>
-<span class="code-line">      <span class="n">host_notification_period</span>                 <span class="mi">24</span><span class="n">x7</span></span>
-<span class="code-line">      <span class="n">service_notification_options</span>             <span class="n">w</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">r</span></span>
-<span class="code-line">      <span class="n">host_notification_options</span>                <span class="n">d</span><span class="p">,</span><span class="n">r</span></span>
-<span class="code-line">      <span class="n">service_notification_commands</span>            <span class="n">notify</span><span class="o">-</span><span class="n">service</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">slack</span></span>
-<span class="code-line">      <span class="n">host_notification_commands</span>               <span class="n">notify</span><span class="o">-</span><span class="n">host</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">slack</span></span>
-<span class="code-line"><span class="p">}</span></span>
+<div class="highlight"><pre><span class="code-line"><span></span>define contact {</span>
+<span class="code-line">      contact_name                             slack</span>
+<span class="code-line">      alias                                    Slack</span>
+<span class="code-line">      service_notification_period              24x7</span>
+<span class="code-line">      host_notification_period                 24x7</span>
+<span class="code-line">      service_notification_options             w,u,c,r</span>
+<span class="code-line">      host_notification_options                d,r</span>
+<span class="code-line">      service_notification_commands            notify-service-by-slack</span>
+<span class="code-line">      host_notification_commands               notify-host-by-slack</span>
+<span class="code-line">}</span>
 </pre></div>
 
 
@@ -137,24 +137,24 @@
 </table>
 <h2>Nagios bildirim komutlarını tanımlayalım</h2>
 <p>Contact profilini tanımlarken service_notification_commands ve host_notification_commands parametrelerini kullanmıştım. Şimdi <strong>commands.cfg</strong> dosyası içerisinde bu komutlarını tanımlayalım. Bu dosyayı "/etc/nagios3/commands.cfg" adresinden ulaşabilirsiniz.</p>
-<div class="highlight"><pre><span class="code-line"><span class="n">define</span> <span class="n">command</span> <span class="p">{</span></span>
-<span class="code-line">      <span class="n">command_name</span> <span class="n">notify</span><span class="o">-</span><span class="n">service</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">slack</span></span>
-<span class="code-line">      <span class="n">command_line</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">slack_nagios</span><span class="p">.</span><span class="n">pl</span> <span class="o">-</span><span class="n">field</span> <span class="n">slack_channel</span><span class="o">=</span><span class="err">#</span><span class="n">nagios</span> <span class="o">-</span><span class="n">field</span> <span class="n">HOSTALIAS</span><span class="o">=</span><span class="s">&quot;$HOSTNAME$&quot;</span> <span class="o">-</span><span class="n">field</span> <span class="n">SERVICEDESC</span><span class="o">=</span><span class="s">&quot;$SERVICEDESC$&quot;</span> <span class="o">-</span><span class="n">field</span> <span class="n">SERVICESTATE</span><span class="o">=</span><span class="s">&quot;$SERVICESTATE$&quot;</span> <span class="o">-</span><span class="n">field</span> <span class="n">SERVICEOUTPUT</span><span class="o">=</span><span class="s">&quot;$SERVICEOUTPUT$&quot;</span> <span class="o">-</span><span class="n">field</span> <span class="n">NOTIFICATIONTYPE</span><span class="o">=</span><span class="s">&quot;$NOTIFICATIONTYPE$&quot;</span></span>
-<span class="code-line"><span class="p">}</span></span>
+<div class="highlight"><pre><span class="code-line"><span></span>define command {</span>
+<span class="code-line">      command_name notify-service-by-slack</span>
+<span class="code-line">      command_line /usr/local/bin/slack_nagios.pl -field slack_channel=#nagios -field HOSTALIAS=&quot;$HOSTNAME$&quot; -field SERVICEDESC=&quot;$SERVICEDESC$&quot; -field SERVICESTATE=&quot;$SERVICESTATE$&quot; -field SERVICEOUTPUT=&quot;$SERVICEOUTPUT$&quot; -field NOTIFICATIONTYPE=&quot;$NOTIFICATIONTYPE$&quot;</span>
+<span class="code-line">}</span>
 <span class="code-line"></span>
-<span class="code-line"><span class="n">define</span> <span class="n">command</span> <span class="p">{</span></span>
-<span class="code-line">      <span class="n">command_name</span> <span class="n">notify</span><span class="o">-</span><span class="n">host</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">slack</span></span>
-<span class="code-line">      <span class="n">command_line</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">slack_nagios</span><span class="p">.</span><span class="n">pl</span> <span class="o">-</span><span class="n">field</span> <span class="n">slack_channel</span><span class="o">=</span><span class="err">#</span><span class="n">nagios</span> <span class="o">-</span><span class="n">field</span> <span class="n">HOSTALIAS</span><span class="o">=</span><span class="s">&quot;$HOSTNAME$&quot;</span> <span class="o">-</span><span class="n">field</span> <span class="n">HOSTSTATE</span><span class="o">=</span><span class="s">&quot;$HOSTSTATE$&quot;</span> <span class="o">-</span><span class="n">field</span> <span class="n">HOSTOUTPUT</span><span class="o">=</span><span class="s">&quot;$HOSTOUTPUT$&quot;</span> <span class="o">-</span><span class="n">field</span> <span class="n">NOTIFICATIONTYPE</span><span class="o">=</span><span class="s">&quot;$NOTIFICATIONTYPE$&quot;</span></span>
-<span class="code-line"><span class="p">}</span></span>
+<span class="code-line">define command {</span>
+<span class="code-line">      command_name notify-host-by-slack</span>
+<span class="code-line">      command_line /usr/local/bin/slack_nagios.pl -field slack_channel=#nagios -field HOSTALIAS=&quot;$HOSTNAME$&quot; -field HOSTSTATE=&quot;$HOSTSTATE$&quot; -field HOSTOUTPUT=&quot;$HOSTOUTPUT$&quot; -field NOTIFICATIONTYPE=&quot;$NOTIFICATIONTYPE$&quot;</span>
+<span class="code-line">}</span>
 </pre></div>
 
 
 <p>Ben Nagios üzerine MySQL server kontrolünü de eklemiştim. Şimdi MySQL servisimizi durduralım. 18:34:36'da MySQL servisi durdurdum.</p>
-<p><img alt="" src="assets/images/mysql_stop.png" /></p>
+<p><img alt="" src="assets/images/mysql_stop.png"></p>
 <p>18:35:19'da da Nagios MySQL servisine erişemediğine dair bildirimi göndermiş.
-<img alt="" src="assets/images/nagios_alert.png" /></p>
+<img alt="" src="assets/images/nagios_alert.png"></p>
 <p>Aynı esnada cep telefonuma da bildirim geldi.
-<img alt="" src="assets/images/slack_android.png" /></p>
+<img alt="" src="assets/images/slack_android.png"></p>
             </section>
 
             <footer class="post-footer">

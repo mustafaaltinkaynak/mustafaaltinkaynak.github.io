@@ -43,52 +43,52 @@
 <strong>güvenli</strong> değildir. Bu yüzden <strong>SFTP</strong> protokolünü kullanmanızı öneririm.</p>
 <h2>Kurulum</h2>
 <p>Vsftpd server Ubuntu'nun default repolarından erişilebilmektedir. Ek olarak bir kaynak belirtmenize gerek yoktur.</p>
-<div class="highlight"><pre><span class="code-line"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">vsftpd</span></span>
+<div class="highlight"><pre><span class="code-line"><span></span>sudo apt-get install vsftpd</span>
 </pre></div>
 
 
 <h2>Yapılandırma</h2>
 <p>Vsftpd kurulumu ardından <strong>etc/vsftpd.conf</strong> dosyası içerisinde yapılandırma ayarları bulunmaktadır. Bu dosya içerisinde aşağıdaki değişiklikleri yapmanızı öneririm.</p>
 <p>FTP için anonymous bağlantı gerçekleştirmelerini kapatmak için aşağıdaki değeri varsa yorum satırından çıkartıp, "NO" olarak belirtiyoruz.</p>
-<div class="highlight"><pre><span class="code-line"><span class="n">anonymous_enable</span><span class="o">=</span><span class="n">NO</span></span>
+<div class="highlight"><pre><span class="code-line"><span></span>anonymous_enable=NO</span>
 </pre></div>
 
 
 <p>Sunucu üzerinde yer alan kullanıcıların FTP'ye bağlanabilmelerini sağlamaları amacıyla aşağıdaki değeri varsa yorum satırından çıkartıp, "YES" olarak belirtiyoruz.</p>
-<div class="highlight"><pre><span class="code-line"><span class="n">local_enable</span><span class="o">=</span><span class="n">YES</span></span>
+<div class="highlight"><pre><span class="code-line"><span></span>local_enable=YES</span>
 </pre></div>
 
 
 <p>Kullanıcıların dosyalar üzerinde yazma işlemi yapabilmelerini sağlamaları amacıyla aşağıdaki değeri "YES" olarak belirtiyoruz.</p>
-<div class="highlight"><pre><span class="code-line"><span class="n">write_enable</span><span class="o">=</span><span class="n">YES</span></span>
+<div class="highlight"><pre><span class="code-line"><span></span>write_enable=YES</span>
 </pre></div>
 
 
 <p>Kullanıcıların home dizinlerine erişim hakkı vermek amacıyla aşağıdaki değeri "YES" olarak belirtiyoruz.</p>
-<div class="highlight"><pre><span class="code-line"><span class="n">chroot_local_user</span><span class="o">=</span><span class="n">YES</span></span>
+<div class="highlight"><pre><span class="code-line"><span></span>chroot_local_user=YES</span>
 </pre></div>
 
 
 <p>Bu dosyayı kaydedip, çıkıyoruz.</p>
 <h2>FTP Kullanıcı Hesabı Oluşturma</h2>
 <p>Kullanıcı oluşturalım.</p>
-<div class="highlight"><pre><span class="code-line"><span class="n">sudo</span> <span class="n">adduser</span> <span class="n">ftpkullanicisi</span></span>
+<div class="highlight"><pre><span class="code-line"><span></span>sudo adduser ftpkullanicisi</span>
 </pre></div>
 
 
 <p>Kullanıcıyı oluşturduktan sonra, bu kullanıcıya ait dizin için root sahipliği verelim.</p>
-<div class="highlight"><pre><span class="code-line"><span class="n">sudo</span> <span class="n">chown</span> <span class="n">root</span><span class="o">:</span><span class="n">root</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ftpkullanicisi</span></span>
+<div class="highlight"><pre><span class="code-line"><span></span>sudo chown root:root /home/ftpkullanicisi</span>
 </pre></div>
 
 
 <p>Şimdi ise kullanıcıya dosyalarını gönderebileceği bir klasör oluşturalım ve bu kullanıcıya erişim hakkı verelim.</p>
-<div class="highlight"><pre><span class="code-line"><span class="n">sudo</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ftpkullanicisi</span><span class="o">/</span><span class="n">dosyalar</span></span>
-<span class="code-line"><span class="n">sudo</span> <span class="n">chown</span> <span class="n">ftpuser</span><span class="o">:</span><span class="n">ftpuser</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ftpkullanicisi</span><span class="o">/</span><span class="n">files</span></span>
+<div class="highlight"><pre><span class="code-line"><span></span>sudo mkdir /home/ftpkullanicisi/dosyalar</span>
+<span class="code-line">sudo chown ftpuser:ftpuser /home/ftpkullanicisi/files</span>
 </pre></div>
 
 
 <p>Vsftpd'yi yeniden başlatalım.</p>
-<div class="highlight"><pre><span class="code-line"><span class="n">sudo</span> <span class="n">service</span> <span class="n">vsftpd</span> <span class="n">restart</span></span>
+<div class="highlight"><pre><span class="code-line"><span></span>sudo service vsftpd restart</span>
 </pre></div>
 
 

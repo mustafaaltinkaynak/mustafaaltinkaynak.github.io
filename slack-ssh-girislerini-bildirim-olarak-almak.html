@@ -54,7 +54,7 @@ Artık ekip içi yazışmalarınızı, iş atamalarınızı (busybot) Slack üze
 <p>Ayarları <strong>"Save Settings"</strong> butonu ile birlikte kaydediyoruz.</p>
 <h2>SSH ile yapılan girişlerde bildirim gelmesini sağlayalım.</h2>
 <p><strong>/etc/profile</strong> dosyasını editör ile açtıktan sonra en alt kısmına aşağıdaki kod blogunu ekleyebilirsiniz. <strong>"WEBHOOK_URL"</strong> alanını yukarıda saklamanızı istediğim alanla değiştirmeyi unutmayınız.</p>
-<div class="highlight"><pre><span class="code-line">    if [ -n &quot;<span class="nv">$SSH_CLIENT</span>&quot; ]; then</span>
+<div class="highlight"><pre><span class="code-line"><span></span>    if [ -n &quot;<span class="nv">$SSH_CLIENT</span>&quot; ]; then</span>
 <span class="code-line">      TEXT=&quot;$(date): ssh login to <span class="cp">${</span><span class="n">USER</span><span class="cp">}</span>@$(hostname -f)&quot;</span>
 <span class="code-line">      TEXT=&quot;<span class="nv">$TEXT</span> from $(echo <span class="nv">$SSH_CLIENT</span>|awk &#39;{print $1}&#39;)&quot;</span>
 <span class="code-line">      curl -X POST \</span>
@@ -66,7 +66,7 @@ Artık ekip içi yazışmalarınızı, iş atamalarınızı (busybot) Slack üze
 
 <p>Yukarıdaki kod blogunu açıklamak gerekirse, sadece SSH işlemlerinde çalışacak şekilde ayarlanmıştır. date parametresinde zaman damgası, $USER bağlantıyı gerçekleştiren kullanıcı, $hostname ise bağlantı yapılan makina adını içerir. $SSH_CLIENT ise bağlantıyı gerçekleştiren kullanıcının IP adresini içerir ve bu AWK ile sadeleştirilmiştir. Akabinde curl ile birlikte POST isteği gerçekleştiriyoruz. Curl istekleri sonrasında response değerlerinin ekrana yazdırılmaması için /dev/null değeri kullandım. Böylece ssh yapan kullanıcı hiçbir şekilde çıktı göremeyecektir.</p>
 <p>Kendim Slack uygulamasını mobilde de kullandığımdan dolayı bildirimler cep telefonuma da direkt ulaşmaktadır.</p>
-<p><img alt="" src="assets/images/slack-bildirimi.png" /></p>
+<p><img alt="" src="assets/images/slack-bildirimi.png"></p>
 <p>Hepsi bu kadar.</p>
             </section>
 
