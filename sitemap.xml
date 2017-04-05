@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/</loc>
-<lastmod>2017-04-05T09:40:38-00:00</lastmod>
+<lastmod>2017-04-05T09:42:39-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/archives.html</loc>
-<lastmod>2017-04-05T09:40:38-00:00</lastmod>
+<lastmod>2017-04-05T09:42:39-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/tags.html</loc>
-<lastmod>2017-04-05T09:40:38-00:00</lastmod>
+<lastmod>2017-04-05T09:42:39-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.mustafa.com.tr/categories.html</loc>
-<lastmod>2017-04-05T09:40:38-00:00</lastmod>
+<lastmod>2017-04-05T09:42:39-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -40,7 +40,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.mustafa.com.tr/pages/contact.html</loc>
-<lastmod>2017-04-05T09:40:38-00:00</lastmod>
+<lastmod>2017-04-05T09:42:39-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -179,8 +179,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/blackhat-asia-2017.html</loc>
-<lastmod>2017-04-04T23:40:00+01:56</lastmod>
+<loc>https://www.mustafa.com.tr/tag/usom.html</loc>
+<lastmod>2017-01-23T23:40:00+01:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -207,8 +207,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/usom.html</loc>
-<lastmod>2017-01-23T23:40:00+01:56</lastmod>
+<loc>https://www.mustafa.com.tr/tag/black-hat-asia-2017.html</loc>
+<lastmod>2017-04-04T23:40:00+01:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
