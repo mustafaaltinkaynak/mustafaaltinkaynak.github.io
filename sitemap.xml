@@ -4,246 +4,246 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>https://www.mustafa.com.tr/</loc>
-<lastmod>2017-05-14T18:32:17-00:00</lastmod>
+<loc>/</loc>
+<lastmod>2017-08-31T01:03:14-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/archives.html</loc>
-<lastmod>2017-05-14T18:32:17-00:00</lastmod>
+<loc>/archives.html</loc>
+<lastmod>2017-08-31T01:03:14-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tags.html</loc>
-<lastmod>2017-05-14T18:32:17-00:00</lastmod>
+<loc>/tags.html</loc>
+<lastmod>2017-08-31T01:03:14-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/categories.html</loc>
-<lastmod>2017-05-14T18:32:17-00:00</lastmod>
+<loc>/categories.html</loc>
+<lastmod>2017-08-31T01:03:14-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/pages/about.html</loc>
+<loc>/pages/about.html</loc>
 <lastmod>2014-10-14T04:51:00+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/pages/contact.html</loc>
-<lastmod>2017-05-14T18:32:17-00:00</lastmod>
+<loc>/pages/contact.html</loc>
+<lastmod>2017-08-31T01:03:14-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/blackhat-asia-2017-ve-singapur-macerasi.html</loc>
+<loc>/blackhat-asia-2017-ve-singapur-macerasi.html</loc>
 <lastmod>2017-04-04T23:40:00+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/siber-guvenlik-ve-hacking-kitabi.html</loc>
-<lastmod>2017-02-10T23:40:00+03:00</lastmod>
+<loc>/siber-guvenlik-ve-hacking-kitabi.html</loc>
+<lastmod>2017-02-10T23:40:00+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/btk-usom-siber-yildiz-yarismasi-cozumleri.html</loc>
-<lastmod>2017-01-23T23:40:00+03:00</lastmod>
+<loc>/btk-usom-siber-yildiz-yarismasi-cozumleri.html</loc>
+<lastmod>2017-01-23T23:40:00+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/ufw-kurulumu-ve-yapilandirma.html</loc>
-<lastmod>2016-12-22T10:00:00+03:00</lastmod>
+<loc>/ufw-kurulumu-ve-yapilandirma.html</loc>
+<lastmod>2016-12-22T10:00:00+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/haproxy-kurulumu-ve-yapilandirma.html</loc>
+<loc>/haproxy-kurulumu-ve-yapilandirma.html</loc>
 <lastmod>2016-09-24T23:34:00+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/nagios-uzak-sunucu-ekleme.html</loc>
+<loc>/nagios-uzak-sunucu-ekleme.html</loc>
 <lastmod>2016-09-21T21:34:00+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/slack-fail2ban-entegrasyonu.html</loc>
+<loc>/slack-fail2ban-entegrasyonu.html</loc>
 <lastmod>2016-09-15T15:05:00+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/slack-nagios-entegrasyonu.html</loc>
+<loc>/slack-nagios-entegrasyonu.html</loc>
 <lastmod>2016-09-12T18:56:00+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/slack-ssh-girislerini-bildirim-olarak-almak.html</loc>
+<loc>/slack-ssh-girislerini-bildirim-olarak-almak.html</loc>
 <lastmod>2016-09-11T22:05:00+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/vsftpd-kurulumu-ve-yapilandirma.html</loc>
+<loc>/vsftpd-kurulumu-ve-yapilandirma.html</loc>
 <lastmod>2016-09-10T21:37:00+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/public-private-ile-ssh-baglantisi-saglama.html</loc>
+<loc>/public-private-ile-ssh-baglantisi-saglama.html</loc>
 <lastmod>2016-09-06T09:10:00+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/category/genel.html</loc>
-<lastmod>2017-04-04T23:40:00+01:56</lastmod>
+<loc>/category/genel.html</loc>
+<lastmod>2017-04-04T23:40:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/category/sistem-yoneticiligi.html</loc>
-<lastmod>2016-12-22T10:00:00+01:56</lastmod>
+<loc>/category/sistem-yoneticiligi.html</loc>
+<lastmod>2016-12-22T10:00:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/haproxy-kurulumu.html</loc>
-<lastmod>2016-09-24T23:34:00+01:56</lastmod>
+<loc>/tag/haproxy-kurulumu.html</loc>
+<lastmod>2016-09-24T23:34:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/nagios-host-ekleme.html</loc>
-<lastmod>2016-09-21T21:34:00+01:56</lastmod>
+<loc>/tag/nagios-host-ekleme.html</loc>
+<lastmod>2016-09-21T21:34:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/ufw-ubuntu.html</loc>
-<lastmod>2016-12-22T10:00:00+01:56</lastmod>
+<loc>/tag/ufw-ubuntu.html</loc>
+<lastmod>2016-12-22T10:00:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/uygulamali-siber-guvenlik-ve-hacking-kitabi.html</loc>
-<lastmod>2017-02-10T23:40:00+01:56</lastmod>
+<loc>/tag/uygulamali-siber-guvenlik-ve-hacking-kitabi.html</loc>
+<lastmod>2017-02-10T23:40:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/ufw-kurulumu-ve-yapilandirma.html</loc>
-<lastmod>2016-12-22T10:00:00+01:56</lastmod>
+<loc>/tag/ufw-kurulumu-ve-yapilandirma.html</loc>
+<lastmod>2016-12-22T10:00:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/siberyildiz.html</loc>
-<lastmod>2017-01-23T23:40:00+01:56</lastmod>
+<loc>/tag/siberyildiz.html</loc>
+<lastmod>2017-01-23T23:40:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/usom.html</loc>
-<lastmod>2017-01-23T23:40:00+01:56</lastmod>
+<loc>/tag/usom.html</loc>
+<lastmod>2017-01-23T23:40:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/ufw-nedir.html</loc>
-<lastmod>2016-12-22T10:00:00+01:56</lastmod>
+<loc>/tag/ufw-nedir.html</loc>
+<lastmod>2016-12-22T10:00:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/nagios.html</loc>
-<lastmod>2016-09-21T21:34:00+01:56</lastmod>
+<loc>/tag/nagios.html</loc>
+<lastmod>2016-09-21T21:34:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/siber-guvenlik-yarismasi.html</loc>
-<lastmod>2017-01-23T23:40:00+01:56</lastmod>
+<loc>/tag/siber-guvenlik-yarismasi.html</loc>
+<lastmod>2017-01-23T23:40:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/black-hat-asia-2017.html</loc>
-<lastmod>2017-04-04T23:40:00+01:56</lastmod>
+<loc>/tag/black-hat-asia-2017.html</loc>
+<lastmod>2017-04-04T23:40:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/fail2ban.html</loc>
-<lastmod>2016-09-15T15:05:00+01:56</lastmod>
+<loc>/tag/fail2ban.html</loc>
+<lastmod>2016-09-15T15:05:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/ufw-debian.html</loc>
-<lastmod>2016-12-22T10:00:00+01:56</lastmod>
+<loc>/tag/ufw-debian.html</loc>
+<lastmod>2016-12-22T10:00:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/btk.html</loc>
-<lastmod>2017-01-23T23:40:00+01:56</lastmod>
+<loc>/tag/btk.html</loc>
+<lastmod>2017-01-23T23:40:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/tag/slack.html</loc>
-<lastmod>2016-09-15T15:05:00+01:56</lastmod>
+<loc>/tag/slack.html</loc>
+<lastmod>2016-09-15T15:05:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://www.mustafa.com.tr/author/admin.html</loc>
-<lastmod>2017-04-04T23:40:00+01:56</lastmod>
+<loc>/author/admin.html</loc>
+<lastmod>2017-04-04T23:40:00+01:57</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

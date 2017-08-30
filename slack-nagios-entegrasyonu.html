@@ -10,7 +10,7 @@
         <meta name="MobileOptimized" content="320" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="shortcut icon" href="https://www.mustafa.com.tr/assets/images/favicon.png">
+        <link rel="shortcut icon" href="/assets/images/favicon.png">
         <link rel="stylesheet" type="text/css" href="/theme/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="/theme/css/custom.css"/>
         <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css"/>
@@ -18,9 +18,9 @@
         <link rel="stylesheet" href="/theme/tipuesearch/tipuesearch.css">
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
-        <link href="https://www.mustafa.com.tr/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Mustafa ALTINKAYNAK Full Atom Feed" />
-        <link href="https://www.mustafa.com.tr/feeds/all.rss" type="application/rss+xml" rel="alternate" title="Mustafa ALTINKAYNAK Full RSS Feed" />
-        <link href="https://www.mustafa.com.tr/feeds/sistem-yoneticiligi.atom.xml" type="application/atom+xml" rel="alternate" title="Mustafa ALTINKAYNAK Categories Atom Feed" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Mustafa ALTINKAYNAK Full Atom Feed" />
+        <link href="/feeds/all.rss" type="application/rss+xml" rel="alternate" title="Mustafa ALTINKAYNAK Full RSS Feed" />
+        <link href="/feeds/sistem-yoneticiligi.atom.xml" type="application/atom+xml" rel="alternate" title="Mustafa ALTINKAYNAK Categories Atom Feed" />
 
     </head>
     <body class="home-template">
@@ -165,17 +165,17 @@
 
                 <section class="share">
                     <h4>Share this post</h4>
-                    <a class="icon-twitter" href="http://twitter.com/share?text=[SLACK] Nagios Entegrasyonu&url=https://www.mustafa.com.tr/slack-nagios-entegrasyonu.html"
+                    <a class="icon-twitter" href="http://twitter.com/share?text=[SLACK] Nagios Entegrasyonu&url=/slack-nagios-entegrasyonu.html"
                         onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                         <span class="hidden">Twitter</span>
                         <span class='symbol'>circletwitterbird</span>
                     </a>
-                    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.mustafa.com.tr/slack-nagios-entegrasyonu.html"
+                    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/slack-nagios-entegrasyonu.html"
                         onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                         <span class="hidden">Facebook</span>
                         <span class='symbol'>circlefacebook</span>
                     </a>
-                    <a class="icon-google-plus" href="https://plus.google.com/share?url=https://www.mustafa.com.tr/slack-nagios-entegrasyonu.html"
+                    <a class="icon-google-plus" href="https://plus.google.com/share?url=/slack-nagios-entegrasyonu.html"
                        onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                         <span class="hidden">Google+</span>
                         <span class='symbol'>circlegoogleplus</span>
@@ -200,41 +200,25 @@
     </div>
 </main>
                 <footer class="site-footer">
-                    <a class="subscribe icon-feed" href="https://www.mustafa.com.tr/feeds/all.rss"><span class="tooltip"><span class="symbol">blip</span></span></a>
-                    <a class="subscribe icon-feed" href="https://www.mustafa.com.tr/archives.html"><span class="tooltip"><span class="symbol">star</span></span></a>
+                    <a class="subscribe icon-feed" href="/feeds/all.rss"><span class="tooltip"><span class="symbol">blip</span></span></a>
+                    <a class="subscribe icon-feed" href="/archives.html"><span class="tooltip"><span class="symbol">star</span></span></a>
                     <div class="inner">
                          <section class="copyright">mustafaaltinkaynak &copy; 2017</section>
                     </div>
                 </footer>
 
-                <!-- Yandex.Metrika counter -->
-                <script type="text/javascript">
-                    (function (d, w, c) {
-                        (w[c] = w[c] || []).push(function() {
-                            try {
-                                w.yaCounter39549065 = new Ya.Metrika({
-                                    id:39549065,
-                                    clickmap:true,
-                                    trackLinks:true,
-                                    accurateTrackBounce:true
-                                });
-                            } catch(e) { }
-                        });
+                <!-- Google Analitik -->
+                <script>
+                  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-                        var n = d.getElementsByTagName("script")[0],
-                            s = d.createElement("script"),
-                            f = function () { n.parentNode.insertBefore(s, n); };
-                        s.type = "text/javascript";
-                        s.async = true;
-                        s.src = "https://mc.yandex.ru/metrika/watch.js";
+                  ga('create', 'UA-101755558-1', 'auto');
+                  ga('send', 'pageview');
 
-                        if (w.opera == "[object Opera]") {
-                            d.addEventListener("DOMContentLoaded", f, false);
-                        } else { f(); }
-                    })(document, window, "yandex_metrika_callbacks");
                 </script>
-                <noscript><div><img src="https://mc.yandex.ru/watch/39549065" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-                <!-- /Yandex.Metrika counter -->
+                <!-- /Google Analitik -->
 
 
             </div>
