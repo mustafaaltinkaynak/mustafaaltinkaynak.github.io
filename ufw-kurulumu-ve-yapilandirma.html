@@ -47,32 +47,32 @@
 <p>UFW yani Uncomplicated Firewall güvenlik duvarı yönetim aracıdır. Iptables güvenlik duvarı yapılandırmasını kolaylaştırmak için geliştirilen ufw, ipv4 veya v6 ile desteğiyle birlikte kullanıcıların işini epeyi kolaylaştırmaktadır. Varsayılan olarak UFW devre dışı olarak gelmektedir. UFW'yi konsol üzerinden yönetebileceğiniz gibi GUI desteği sayesinde konsol kullanmadan <a href="https://help.ubuntu.com/community/Gufw">Gufw</a> ile de yönetebilirsiniz. Ubuntu için varsayılan güvenlik duvarı yapılandırma aracıdır.</p>
 <h2>UFW kurulumu</h2>
 <p>UFW ubuntu üzerinde varsayılan geldiğinden dolayı farklı bir işletim sistemi kuruyorsanız aşağıdaki adımı izleyebilirsiniz.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# apt-get install ufw</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">ufw</span>
 </pre></div>
 
 
 <p>Kurulum işleminin ardından aşağıdaki komut ile birlikte versiyon kontrolü sağlayabilirsiniz.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw version</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">version</span>
 </pre></div>
 
 
 <p><strong>ÖNEMLİ:</strong> Eğer ki ev kullanıcı iseniz UFW sizler için varsayılan bir profil ile birlikte sisteminize dahil olmaktadır. Kısacası, ev kullanıcıları için istisnalar dışında tüm gelen istekler reddedilmektedir.</p>
 <h2>UFW yönetimi</h2>
 <p>UFW'yi etkinleştirmek yada pasifleştirmek için aşağıdaki komutu kullanabilirsiniz.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw enable</span>
-<span class="code-line">Firewall is active and enabled on system startup</span>
-<span class="code-line"></span>
-<span class="code-line">mustafa@altinkaynak:/# ufw disable</span>
-<span class="code-line">Firewall stopped and disabled on system startup</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">enable</span>
+<span class="n">Firewall</span> <span class="n">is</span> <span class="n">active</span> <span class="n">and</span> <span class="n">enabled</span> <span class="n">on</span> <span class="n">system</span> <span class="n">startup</span>
+
+<span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">disable</span>
+<span class="n">Firewall</span> <span class="n">stopped</span> <span class="n">and</span> <span class="n">disabled</span> <span class="n">on</span> <span class="n">system</span> <span class="n">startup</span>
 </pre></div>
 
 
 <p>Mevcut UFW'ye ait kurallar dizisini görmek için aşağıdaki komutu kullanabilirsiniz.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw status verbose</span>
-<span class="code-line">Status: active</span>
-<span class="code-line">Logging: on (full)</span>
-<span class="code-line">Default: deny (incoming), allow (outgoing), disabled (routed)</span>
-<span class="code-line">New profiles: skip</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">status</span> <span class="n">verbose</span>
+<span class="nl">Status:</span> <span class="n">active</span>
+<span class="nl">Logging:</span> <span class="n">on</span> <span class="p">(</span><span class="n">full</span><span class="p">)</span>
+<span class="nl">Default:</span> <span class="n">deny</span> <span class="p">(</span><span class="n">incoming</span><span class="p">),</span> <span class="n">allow</span> <span class="p">(</span><span class="n">outgoing</span><span class="p">),</span> <span class="n">disabled</span> <span class="p">(</span><span class="n">routed</span><span class="p">)</span>
+<span class="n">New</span> <span class="n">profiles</span><span class="o">:</span> <span class="n">skip</span>
 </pre></div>
 
 
@@ -81,83 +81,83 @@
 <h2>Kural oluşturma</h2>
 <p>UFW üzerinde iki farklı davranış allow, deny belirleyebilirsiniz. Allow ile izin verebilir, deny ile gelen istekleri reddedebilirsiniz.</p>
 <p>Allow içeren kurallar aşağıdaki şekilde tanımlanabilir.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>ufw allow &lt;port&gt;/&lt;optional: protocol&gt;</span>
+<div class="highlight"><pre><span class="nx">ufw</span> <span class="nx">allow</span> <span class="o">&lt;</span><span class="nb">port</span><span class="o">&gt;/&lt;</span><span class="nx">optional</span><span class="p">:</span> <span class="nx">protocol</span><span class="o">&gt;</span>
 </pre></div>
 
 
 <p>53.port üzerine gelen TCP ve UDP bağlantılarına izin verelim.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw allow 53</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="mi">53</span>
 </pre></div>
 
 
 <p>Yalnızca TCP üzerinden gelen bağlantılara izin vermek için,</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw allow 53/tcp</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="mi">53</span><span class="o">/</span><span class="n">tcp</span>
 </pre></div>
 
 
 <p>Yalnızca UDP üzerinden gelen bağlantılara izin vermek için,</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw allow 53/tcp</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="mi">53</span><span class="o">/</span><span class="n">tcp</span>
 </pre></div>
 
 
 <p>Deny içeren kurallar aşağıdaki şekilde tanımlanabilir.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>ufw deny &lt;port&gt;/&lt;optional: protocol&gt;</span>
+<div class="highlight"><pre><span class="nx">ufw</span> <span class="nx">deny</span> <span class="o">&lt;</span><span class="nb">port</span><span class="o">&gt;/&lt;</span><span class="nx">optional</span><span class="p">:</span> <span class="nx">protocol</span><span class="o">&gt;</span>
 </pre></div>
 
 
 <p>53.port üzerine gelen TCP ve UDP bağlantılarını engelleyelim.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw deny 53</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">deny</span> <span class="mi">53</span>
 </pre></div>
 
 
 <p>Yalnızca TCP üzerinden gelen bağlantıları engellemek için,</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw deny 53/tcp</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">deny</span> <span class="mi">53</span><span class="o">/</span><span class="n">tcp</span>
 </pre></div>
 
 
 <p>Yalnızca UDP üzerinden gelen bağlantıları engellemek için,</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw deny 53/udp</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">deny</span> <span class="mi">53</span><span class="o">/</span><span class="n">udp</span>
 </pre></div>
 
 
 <p>Belirli Subnet'e izin verelim.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw allow from 192.168.1.0/24</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">192.168.1.0</span><span class="o">/</span><span class="mi">24</span>
 </pre></div>
 
 
 <p>Belirlenmiş bir IP adresine erişim izni verelim.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw allow from 10.50.1.55</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">10.50.1.55</span>
 </pre></div>
 
 
 <p>Belirlenmiş bir IP adresine yalnızca bir port için izin verelim.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw allow from 10.50.1.55 to any port 22</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">10.50.1.55</span> <span class="n">to</span> <span class="n">any</span> <span class="n">port</span> <span class="mi">22</span>
 </pre></div>
 
 
 <p>RFC1918 adresleri yani 10.0.0.0/8, 172.16.0.0/12, 169.254.0.0/16, 192.168.0.0/16 olarak belirlenen adreslere izin verelim.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw allow from 10.0.0.0/8</span>
-<span class="code-line">Rule added</span>
-<span class="code-line">mustafa@altinkaynak:/# ufw allow from 172.16.0.0/12</span>
-<span class="code-line">Rule added</span>
-<span class="code-line">mustafa@altinkaynak:/# ufw allow from 192.168.0.0/16</span>
-<span class="code-line">Rule added</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">10.0.0.0</span><span class="o">/</span><span class="mi">8</span>
+<span class="n">Rule</span> <span class="n">added</span>
+<span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">172.16.0.0</span><span class="o">/</span><span class="mi">12</span>
+<span class="n">Rule</span> <span class="n">added</span>
+<span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">192.168.0.0</span><span class="o">/</span><span class="mi">16</span>
+<span class="n">Rule</span> <span class="n">added</span>
 </pre></div>
 
 
 <p>Bazı durumlarda kuralların birbirlerini bastırdığı durumlar olabilir. Örneğin: SSH bağlantılarını tümüyle kapatan bir kural eklediniz. Akabinde de spesifik bir adres için SSH izni verdiniz. Bu durumda ilk eklediğiniz kural gerçekleşecektir ve spesifik IP adresi bağlantı gerçekleştiremeyecektir.</p>
 <p>Bu durumda araya kural eklemesi yapabilirsiniz.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw insert 1 allow from 10.50.1.55 to any port 22</span>
-<span class="code-line">Rule inserted</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">insert</span> <span class="mi">1</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">10.50.1.55</span> <span class="n">to</span> <span class="n">any</span> <span class="n">port</span> <span class="mi">22</span>
+<span class="n">Rule</span> <span class="n">inserted</span>
 </pre></div>
 
 
 <p>Belirli bir IP adresi veya subnet için protokol sınırlaması getirelim.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw allow from 10.50.1.55 to any port 22 proto tcp</span>
-<span class="code-line">Rule added</span>
-<span class="code-line"></span>
-<span class="code-line">mustafa@altinkaynak:/# ufw allow from 192.168.0.0/16 to any port 22 proto tcp</span>
-<span class="code-line">Rule added</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">10.50.1.55</span> <span class="n">to</span> <span class="n">any</span> <span class="n">port</span> <span class="mi">22</span> <span class="n">proto</span> <span class="n">tcp</span>
+<span class="n">Rule</span> <span class="n">added</span>
+
+<span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">from</span> <span class="mf">192.168.0.0</span><span class="o">/</span><span class="mi">16</span> <span class="n">to</span> <span class="n">any</span> <span class="n">port</span> <span class="mi">22</span> <span class="n">proto</span> <span class="n">tcp</span>
+<span class="n">Rule</span> <span class="n">added</span>
 </pre></div>
 
 
@@ -166,49 +166,49 @@
 <p>80.porta gelen bağlantıları engellemek için,
     mustafa@altinkaynak:/# ufw deny 80/tcp</p>
 <p>Belirlenen bu kuralı silmek için,</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw delete deny 53/udp</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">delete</span> <span class="n">deny</span> <span class="mi">53</span><span class="o">/</span><span class="n">udp</span>
 </pre></div>
 
 
 <p>Yada tüm kurallar içerisinden belirlemiş olduğunuzu silmek istiyorsanız öncelikle aşağıdaki komutla kuralları numaralandırılmış halde listeleyin, ardından silmek istediğiniz kuralın numarasını ufw delete komutuna vermeniz yeterlidir.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw status numbered</span>
-<span class="code-line">Status: active</span>
-<span class="code-line">To                         Action      From</span>
-<span class="code-line">--                         ------      ----</span>
-<span class="code-line">[ 1] 80/tcp                     DENY IN     Anywhere</span>
-<span class="code-line">[ 2] 80/tcp (v6)                DENY IN     Anywhere (v6)</span>
-<span class="code-line"></span>
-<span class="code-line">mustafa@altinkaynak:/# ufw delete 1</span>
-<span class="code-line">Deleting:</span>
-<span class="code-line"> deny 80/tcp</span>
-<span class="code-line">Proceed with operation (y|n)? y</span>
-<span class="code-line">Rule deleted</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">status</span> <span class="n">numbered</span>
+<span class="nl">Status:</span> <span class="n">active</span>
+<span class="n">To</span>                         <span class="n">Action</span>      <span class="n">From</span>
+<span class="o">--</span>                         <span class="o">------</span>      <span class="o">----</span>
+<span class="p">[</span> <span class="mi">1</span><span class="p">]</span> <span class="mi">80</span><span class="o">/</span><span class="n">tcp</span>                     <span class="n">DENY</span> <span class="n">IN</span>     <span class="n">Anywhere</span>
+<span class="p">[</span> <span class="mi">2</span><span class="p">]</span> <span class="mi">80</span><span class="o">/</span><span class="n">tcp</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>                <span class="n">DENY</span> <span class="n">IN</span>     <span class="n">Anywhere</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>
+
+<span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">delete</span> <span class="mi">1</span>
+<span class="nl">Deleting:</span>
+ <span class="n">deny</span> <span class="mi">80</span><span class="o">/</span><span class="n">tcp</span>
+<span class="n">Proceed</span> <span class="n">with</span> <span class="n">operation</span> <span class="p">(</span><span class="n">y</span><span class="o">|</span><span class="n">n</span><span class="p">)</span><span class="o">?</span> <span class="n">y</span>
+<span class="n">Rule</span> <span class="n">deleted</span>
 </pre></div>
 
 
 <h2>Servisler için kural yazma</h2>
 <p>UFW /etc/services dosyasını da okuyabildiği için hizmet adına göre de izin verebilir veya reddedebilirsiniz. Servislerin listesini görmek için <strong>"/etc/services"</strong> dosyasına göz atabilirsiniz.</p>
 <p>Servis ismiyle bağlantıya izin verilen kurallar aşağıdaki şekilde tanımlanabilir.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>ufw allow &lt;service name&gt;</span>
+<div class="highlight"><pre><span class="n">ufw</span> <span class="n">allow</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">name</span><span class="o">&gt;</span>
 </pre></div>
 
 
 <p>SSH servisine bağlantılara izin vermek için,</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw allow ssh</span>
-<span class="code-line">Rule added</span>
-<span class="code-line">Rule added (v6)</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">ssh</span>
+<span class="n">Rule</span> <span class="n">added</span>
+<span class="n">Rule</span> <span class="n">added</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>
 </pre></div>
 
 
 <p>Servis ismiyle bağlantının reddedildiği kurallar aşağıdaki şekilde tanımlanabilir.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>ufw deny &lt;service name&gt;</span>
+<div class="highlight"><pre><span class="n">ufw</span> <span class="n">deny</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">name</span><span class="o">&gt;</span>
 </pre></div>
 
 
 <p>SSH servisine bağlantıları reddetmek için,</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw deny ssh</span>
-<span class="code-line">Rule added</span>
-<span class="code-line">Rule added (v6)</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">deny</span> <span class="n">ssh</span>
+<span class="n">Rule</span> <span class="n">added</span>
+<span class="n">Rule</span> <span class="n">added</span> <span class="p">(</span><span class="n">v6</span><span class="p">)</span>
 </pre></div>
 
 
@@ -216,20 +216,20 @@
 <p>UFW loglama için farklı bir değer belirtilmedikçe "low" yani düşük seviye loglama işlemi yapmaktadır. Loglama konusunda hassas davranmak istiyorsanız aşağıdaki komutu 'off', 'low', 'medium', 'high' ve 'full' değerleriyle birlikte kullanabilirsiniz.</p>
 <p>Log kaydetme seviyeleri yükseldikçe daha fazla çıktı üreterek, yoğunluğunuza göre diskinizi hızla doldurabilir. Production ortamlarda yapılacak olan seviye belirlemelerinde bunu göz önünde bulundurmalısınız.</p>
 <p>Loglama işlemini devre dışı bırakmak için,</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw logging off</span>
-<span class="code-line">Logging disabled</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">logging</span> <span class="n">off</span>
+<span class="n">Logging</span> <span class="n">disabled</span>
 </pre></div>
 
 
 <p>En yüksek düzeyde loglama gerçekleştirmek için,</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw logging full</span>
-<span class="code-line">Logging enabled</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">logging</span> <span class="n">full</span>
+<span class="n">Logging</span> <span class="n">enabled</span>
 </pre></div>
 
 
 <p>Loglama işlemini tamamiyle devre dışı bırakmak için,</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# ufw logging off</span>
-<span class="code-line">Logging disabled</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">ufw</span> <span class="n">logging</span> <span class="n">off</span>
+<span class="n">Logging</span> <span class="n">disabled</span>
 </pre></div>
 
 

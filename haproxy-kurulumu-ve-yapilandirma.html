@@ -43,80 +43,80 @@
               <h2>HAProxy nedir?</h2>
 <p>HAProxy (High Availability Proxy), bir yük dengeleme görev yöneticisidir. Birçok servis için yük dengeleme, yüksek erişilebilirlik ve proxy gibi hizmetleri ücretsiz, güvenli olarak sunmaktadır. Stabil versiyonu 1.6'dır.</p>
 <p>Bu yazı da ise Ubuntu üzerine HAProxy 1.4.24 kurulumu gerçekleştirerek aşağıda yer alan yapıyı oluşturacağız.</p>
-<p><img alt="" src="assets/images/haproxy-yapi.png"></p>
+<p><img alt="" src="assets/images/haproxy-yapi.png" /></p>
 <p><strong>HAProxy sunucusu:</strong> 192.168.1.200</p>
 <p><strong>Webserver 1:</strong> 192.168.1.201</p>
 <p><strong>Webserver 2:</strong> 192.168.1.202</p>
 <p>Tüm sunuculara web server kurulumunu gerçekleştirdim.</p>
 <h2>HAProxy kurulumu</h2>
 <p>Ubuntu deposunda tanımlı olduğundan dolayı direkt apt-get ile kurabilirsiniz.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# apt-get install haproxy</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">haproxy</span>
 </pre></div>
 
 
 <p>Kurulum işleminin ardından aşağıdaki komut ile birlikte versiyon kontrolü sağlayabilirsiniz.</p>
-<div class="highlight"><pre><span class="code-line"><span></span><span class="n">mustafa</span><span class="p">@</span><span class="nl">altinkaynak</span><span class="p">:</span><span class="o">/</span><span class="err">#</span> <span class="n">haproxy</span> <span class="o">-</span><span class="n">v</span></span>
-<span class="code-line"><span class="n">HA</span><span class="o">-</span><span class="n">Proxy</span> <span class="n">version</span> <span class="mf">1.4.24</span> <span class="mi">2013</span><span class="o">/</span><span class="mo">06</span><span class="o">/</span><span class="mi">17</span></span>
-<span class="code-line"><span class="n">Copyright</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">2013</span> <span class="n">Willy</span> <span class="n">Tarreau</span> <span class="o">&lt;</span><span class="n">w</span><span class="mi">@1</span><span class="n">wt</span><span class="p">.</span><span class="n">eu</span><span class="o">&gt;</span></span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">haproxy</span> <span class="o">-</span><span class="n">v</span>
+<span class="n">HA</span><span class="o">-</span><span class="n">Proxy</span> <span class="n">version</span> <span class="mf">1.4.24</span> <span class="mi">2013</span><span class="o">/</span><span class="mo">06</span><span class="o">/</span><span class="mi">17</span>
+<span class="n">Copyright</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">2013</span> <span class="n">Willy</span> <span class="n">Tarreau</span> <span class="o">&lt;</span><span class="n">w</span><span class="err">@</span><span class="mi">1</span><span class="n">wt</span><span class="p">.</span><span class="n">eu</span><span class="o">&gt;</span>
 </pre></div>
 
 
 <p>HAProxy'i etkinleştirmek için /etc/default/haproxy dosyasında yer alan ENABLED değerini 1 olarak değiştirmeniz gerekmektedir.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>ENABLED=1</span>
+<div class="highlight"><pre><span class="n">ENABLED</span><span class="o">=</span><span class="mi">1</span>
 </pre></div>
 
 
 <p>Artık HAProxy servisi için etkinlikler geldi.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mustafa@altinkaynak:/# service haproxy</span>
-<span class="code-line">Usage: /etc/init.d/haproxy {start|stop|reload|restart|status}</span>
+<div class="highlight"><pre><span class="n">mustafa</span><span class="err">@</span><span class="n">altinkaynak</span><span class="o">:/</span><span class="err">#</span> <span class="n">service</span> <span class="n">haproxy</span>
+<span class="nl">Usage:</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">haproxy</span> <span class="p">{</span><span class="n">start</span><span class="o">|</span><span class="n">stop</span><span class="o">|</span><span class="n">reload</span><span class="o">|</span><span class="n">restart</span><span class="o">|</span><span class="n">status</span><span class="p">}</span>
 </pre></div>
 
 
 <h2>HAProxy yapılandırma</h2>
 <p>Herşeye başlamadan önce mevcut HAProxy konfigurasyon dosyasını yedekleyelim.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>mv /etc/haproxy/haproxy.cfg{,.original}</span>
+<div class="highlight"><pre><span class="n">mv</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">haproxy</span><span class="o">/</span><span class="n">haproxy</span><span class="p">.</span><span class="n">cfg</span><span class="p">{,.</span><span class="n">original</span><span class="p">}</span>
 </pre></div>
 
 
 <p>Artık <strong>haproxy.cfg</strong> adında yeni bir konfigurasyon dosyası oluşturarak burada işlem gerçekleştirelim.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>global</span>
-<span class="code-line">        log /dev/log   local0</span>
-<span class="code-line">        log 127.0.0.1   local1 notice</span>
-<span class="code-line">        maxconn 4096</span>
-<span class="code-line">        user haproxy</span>
-<span class="code-line">        group haproxy</span>
-<span class="code-line">        daemon</span>
-<span class="code-line"></span>
-<span class="code-line">defaults</span>
-<span class="code-line">        log     global</span>
-<span class="code-line">        mode    http</span>
-<span class="code-line">        option  httplog</span>
-<span class="code-line">        option  dontlognull</span>
-<span class="code-line">        retries 3</span>
-<span class="code-line">        option redispatch</span>
-<span class="code-line">        maxconn 2000</span>
-<span class="code-line">        contimeout     5000</span>
-<span class="code-line">        clitimeout     50000</span>
-<span class="code-line">        srvtimeout     50000</span>
-<span class="code-line"></span>
-<span class="code-line">listen altinkaynak 127.0.0.1:80</span>
-<span class="code-line">    mode http</span>
-<span class="code-line">    stats enable</span>
-<span class="code-line">    stats uri /haproxy?stats</span>
-<span class="code-line">    balance roundrobin</span>
-<span class="code-line">    option httpclose</span>
-<span class="code-line">    option forwardfor</span>
-<span class="code-line">    server webserver01 192.168.1.201:80 check</span>
-<span class="code-line">    server webserver02 192.168.1.202:80 check</span>
+<div class="highlight"><pre><span class="n">global</span>
+        <span class="n">log</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">log</span>   <span class="n">local0</span>
+        <span class="n">log</span> <span class="mf">127.0.0.1</span>   <span class="n">local1</span> <span class="n">notice</span>
+        <span class="n">maxconn</span> <span class="mi">4096</span>
+        <span class="n">user</span> <span class="n">haproxy</span>
+        <span class="n">group</span> <span class="n">haproxy</span>
+        <span class="n">daemon</span>
+
+<span class="n">defaults</span>
+        <span class="n">log</span>     <span class="n">global</span>
+        <span class="n">mode</span>    <span class="n">http</span>
+        <span class="n">option</span>  <span class="n">httplog</span>
+        <span class="n">option</span>  <span class="n">dontlognull</span>
+        <span class="n">retries</span> <span class="mi">3</span>
+        <span class="n">option</span> <span class="n">redispatch</span>
+        <span class="n">maxconn</span> <span class="mi">2000</span>
+        <span class="n">contimeout</span>     <span class="mi">5000</span>
+        <span class="n">clitimeout</span>     <span class="mi">50000</span>
+        <span class="n">srvtimeout</span>     <span class="mi">50000</span>
+
+<span class="n">listen</span> <span class="n">altinkaynak</span> <span class="mf">127.0.0.1</span><span class="o">:</span><span class="mi">80</span>
+    <span class="n">mode</span> <span class="n">http</span>
+    <span class="n">stats</span> <span class="n">enable</span>
+    <span class="n">stats</span> <span class="n">uri</span> <span class="o">/</span><span class="n">haproxy</span><span class="o">?</span><span class="n">stats</span>
+    <span class="n">balance</span> <span class="n">roundrobin</span>
+    <span class="n">option</span> <span class="n">httpclose</span>
+    <span class="n">option</span> <span class="n">forwardfor</span>
+    <span class="n">server</span> <span class="n">webserver01</span> <span class="mf">192.168.1.201</span><span class="o">:</span><span class="mi">80</span> <span class="n">check</span>
+    <span class="n">server</span> <span class="n">webserver02</span> <span class="mf">192.168.1.202</span><span class="o">:</span><span class="mi">80</span> <span class="n">check</span>
 </pre></div>
 
 
 <p>Bu sürüm için geçerli konfigurasyon açıklamasına <a href="http://www.haproxy.org/download/1.4/doc/configuration.txt">buradan</a> ulaşabilirsiniz.</p>
 <p>Şimdi HAProxy dashboard sayfamıza göz atalım. Aşağıdaki göreceğiz üzere tüm servislerimiz yerlerini almış ve UP/DOWN durumları zamansal olarak gösterilmiştir. Servisler üzerinde açılan session sayısını da görebilmekteyiz.</p>
-<p><img alt="" src="assets/images/haproxy-dashboard.png"></p>
+<p><img alt="" src="assets/images/haproxy-dashboard.png" /></p>
 <p>Sunucuların up/down durumlarında e-posta bildirimi almak isteyebilirsiniz. O zaman güzel bir haber vereyim. HAProxy 1.6 sürümünde bildirim desteği gelmiştir. Ancak 1.4 sürümünde olmadığından dolayı bu yazıda yer veremiyorum.</p>
 <p>HAProxy'in bize sunmuş olduğu yük dengelemeyi de test edelim. Artık tüm trafiği HAProxy sunucusu üzerine (192.168.1.200) üzerine yönlendiriyoruz. Ben farkı anlayabilmek açısından giriş sayfalarına hangi sunucuya bağlantı yaptığımı yazdırdım.</p>
-<p><img alt="" src="assets/images/sunucular.png"></p>
+<p><img alt="" src="assets/images/sunucular.png" /></p>
 <p>Sonuç olarak HAProxy en uygun olan sunucuya beni yönlendirdi.</p>
             </section>
 

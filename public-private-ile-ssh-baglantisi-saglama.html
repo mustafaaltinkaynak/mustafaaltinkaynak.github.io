@@ -45,13 +45,13 @@ pub/private ikilileri olmadan bağlantı sağlanamamasını
 gerçekleştireceğiz.</p>
 <p>Openssh-server kurulu değilse öncelikle olarak kurulumunu
 gerçekleştirin.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>sudo apt-get install openssh-server</span>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">openssh</span><span class="o">-</span><span class="n">server</span>
 </pre></div>
 
 
 <p>Client bilgisayar üzerinde anahtarlarınızı aşağıdaki komut ile birlikte
 oluşturalım.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>sudo ssh-keygen -t rsa</span>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">rsa</span>
 </pre></div>
 
 
@@ -60,29 +60,29 @@ oluşturulmuş olacaktır. <strong>id_rsa.pub</strong> dosyanız uzantısından 
 anlaşılacağı üzere public key dosyanızdır. <strong>id_rsa</strong> ise iyi korunaklı
 saklamanız gereken private key dosyanızdır.</p>
 <p>Artık public anahtarımızı bağlantı yapacağımız sunucuya gönderelim.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>    cat ~/.ssh/id_rsa.pub | ssh root@ip &#39;umask 077; cat &gt;&gt;.ssh/authorized_keys&#39;</span>
+<div class="highlight"><pre>    <span class="n">cat</span> <span class="o">~/</span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span><span class="p">.</span><span class="n">pub</span> <span class="o">|</span> <span class="n">ssh</span> <span class="n">root</span><span class="err">@</span><span class="n">ip</span> <span class="err">&#39;</span><span class="n">umask</span> <span class="mo">077</span><span class="p">;</span> <span class="n">cat</span> <span class="o">&gt;&gt;</span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span><span class="err">&#39;</span>
 </pre></div>
 
 
 <p>Client bilgisayarda artık aşağıdaki komut ile birlikte uzak sunucuya
 parola gerektirmeksizin bağlantı yapabilirsiniz.</p>
-<div class="highlight"><pre><span class="code-line"><span></span>    ssh uzaksunucu_ip</span>
+<div class="highlight"><pre>    <span class="n">ssh</span> <span class="n">uzaksunucu_ip</span>
 </pre></div>
 
 
 <p>Artık public/private ikilisi ile birlikte bağlantı yaptığımıza göre uzak
 sunucu üzerinde parola ile girişleri kapatabiliriz. Bunun için
 /etc/ssh/sshd_config kısmında aşağıdaki satırı bularak,</p>
-<div class="highlight"><pre><span class="code-line"><span></span># Change to no to disable tunnelled clear text passwords</span>
-<span class="code-line">#PasswordAuthentication yes</span>
+<div class="highlight"><pre><span class="c"># Change to no to disable tunnelled clear text passwords</span>
+<span class="c">#PasswordAuthentication yes</span>
 </pre></div>
 
 
 <p>bununla değiştiriniz.</p>
-<div class="highlight"><pre><span class="code-line"><span></span># Change to no to disable tunnelled clear text passwords</span>
-<span class="code-line">PasswordAuthentication no</span>
-<span class="code-line"></span>
-<span class="code-line">service ssh restart</span>
+<div class="highlight"><pre><span class="cp"># Change to no to disable tunnelled clear text passwords</span>
+<span class="n">PasswordAuthentication</span> <span class="n">no</span>
+
+<span class="n">service</span> <span class="n">ssh</span> <span class="n">restart</span>
 </pre></div>
             </section>
 
