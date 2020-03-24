@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="tr">
+<title>UFW Kurulumu ve Yapılandırma | Mustafa ALTINKAYNAK | Siber Güvenlik</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="UFW nedir? UFW yani Uncomplicated Firewall güvenlik duvarı yönetim aracıdır. Iptables güvenlik duvarı yapılandırmasını kolaylaştırmak için geliştirilen ufw, ...">
+<meta name="author" content="Mustafa ALTINKAYNAK">
+<meta name="generator" content="Jekyll v4.0.0">
+<link rel="canonical" href="http://localhost:4000/ufw-kurulumu-ve-yapilandirma/">
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+<link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Mustafa ALTINKAYNAK | Siber Güvenlik">
+
+
+
+
+<header class="icons">
+    <img src="/assets/images/mustafa-altinkaynak-profil.jpg" style="border-radius:50%;" alt="Mustafa Altınkaynak " class="landing-profile-pic">
+  
+  
+    
+  <nav>
+  <a aria-label="Anasayfa" href="/" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg><span aria-hidden="true" class="hidden">Anasayfa</span></a>
+  <a aria-label="Hakkımda" href="/pages/about.html" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#address-card"></use></svg><span aria-hidden="true" class="hidden">Hakkımda</span></a>
+  <a aria-label="İletişim" href="/pages/contact.html" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg><span aria-hidden="true" class="hidden">İletişim</span></a>
+  
+  </nav>
+
+
+    
+  <nav>
+  <a aria-label="Instagram" target="_blank" href="https://www.instagram.com/mustafaaltinkaynakcom" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#instagram"></use></svg><span aria-hidden="true" class="hidden">Instagram</span></a>
+  <a aria-label="Twitter" target="_blank" href="https://www.twitter.com/m_altinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#twitter"></use></svg><span aria-hidden="true" class="hidden">Twitter</span></a>
+  <a aria-label="Github" target="_blank" href="https://www.github.com/mustafaaltinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg><span aria-hidden="true" class="hidden">Github</span></a>
+  <a aria-label="LinkedIn" target="_blank" href="https://www.linkedin.com/in/altinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#linkedin"></use></svg><span aria-hidden="true" class="hidden">LinkedIn</span></a>
+  
+  </nav>
+
+
+  
+  
+    <div class="hidden description"></div>
+  
+</header>
+
+<article>
+  <header>
+  
+  <h1><a href="/ufw-kurulumu-ve-yapilandirma/">UFW Kurulumu ve Yapılandırma</a></h1><time datetime="2016-12-22T00:00:00+03:00">December 22, 2016</time>
+</header>
+
+  <h2 id="ufw-nedir">UFW nedir?</h2>
+<p>UFW yani Uncomplicated Firewall güvenlik duvarı yönetim aracıdır. Iptables güvenlik duvarı yapılandırmasını kolaylaştırmak için geliştirilen ufw, ipv4 veya v6 ile desteğiyle birlikte kullanıcıların işini epeyi kolaylaştırmaktadır. Varsayılan olarak UFW devre dışı olarak gelmektedir. UFW’yi konsol üzerinden yönetebileceğiniz gibi GUI desteği sayesinde konsol kullanmadan <a href="https://help.ubuntu.com/community/Gufw">Gufw</a> ile de yönetebilirsiniz. Ubuntu için varsayılan güvenlik duvarı yapılandırma aracıdır.</p>
+
+<h2 id="ufw-kurulumu">UFW kurulumu</h2>
+
+<p>UFW ubuntu üzerinde varsayılan geldiğinden dolayı farklı bir işletim sistemi kuruyorsanız aşağıdaki adımı izleyebilirsiniz.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# apt-get install ufw
+</code></pre></div></div>
+
+<p>Kurulum işleminin ardından aşağıdaki komut ile birlikte versiyon kontrolü sağlayabilirsiniz.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw version
+</code></pre></div></div>
+
+<p><strong>ÖNEMLİ:</strong> Eğer ki ev kullanıcı iseniz UFW sizler için varsayılan bir profil ile birlikte sisteminize dahil olmaktadır. Kısacası, ev kullanıcıları için istisnalar dışında tüm gelen istekler reddedilmektedir.</p>
+
+<h2 id="ufw-yönetimi">UFW yönetimi</h2>
+
+<p>UFW’yi etkinleştirmek yada pasifleştirmek için aşağıdaki komutu kullanabilirsiniz.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw enable
+Firewall is active and enabled on system startup
+
+mustafa@altinkaynak:/# ufw disable
+Firewall stopped and disabled on system startup
+</code></pre></div></div>
+
+<p>Mevcut UFW’ye ait kurallar dizisini görmek için aşağıdaki komutu kullanabilirsiniz.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw status verbose
+Status: active
+Logging: on (full)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+</code></pre></div></div>
+
+<p>Henüz bir kural tanımlamadığımız kurallar dizisi görünmemektedir. Ancak UFW’nin mevcut durumuna ilişkin bilgi sahibi olabileceğimiz bilgiler yer almaktadır. Firewall’ın durumu, loglama hassasiyeti, ön tanımlı davranışını bu çıktı da yer almaktadır.</p>
+
+<p>Kural içerikleri <strong>“/etc/ufw”</strong> altında <strong>“.rules”</strong> uzantısı ile biten dosyalarda yer almaktadır.</p>
+
+<h2 id="kural-oluşturma">Kural oluşturma</h2>
+
+<p>UFW üzerinde iki farklı davranış allow, deny belirleyebilirsiniz. Allow ile izin verebilir, deny ile gelen istekleri reddedebilirsiniz.</p>
+
+<p>Allow içeren kurallar aşağıdaki şekilde tanımlanabilir.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ufw allow &lt;port&gt;/&lt;optional: protocol&gt;
+</code></pre></div></div>
+
+<p>53.port üzerine gelen TCP ve UDP bağlantılarına izin verelim.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw allow 53
+</code></pre></div></div>
+
+<p>Yalnızca TCP üzerinden gelen bağlantılara izin vermek için,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw allow 53/tcp
+</code></pre></div></div>
+
+<p>Yalnızca UDP üzerinden gelen bağlantılara izin vermek için,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw allow 53/udp
+</code></pre></div></div>
+
+<p>Deny içeren kurallar aşağıdaki şekilde tanımlanabilir.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ufw deny &lt;port&gt;/&lt;optional: protocol&gt;
+</code></pre></div></div>
+
+<p>53.port üzerine gelen TCP ve UDP bağlantılarını engelleyelim.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw deny 53
+</code></pre></div></div>
+
+<p>Yalnızca TCP üzerinden gelen bağlantıları engellemek için,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw deny 53/tcp
+</code></pre></div></div>
+
+<p>Yalnızca UDP üzerinden gelen bağlantıları engellemek için,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw deny 53/udp
+</code></pre></div></div>
+
+<p>Belirli Subnet’e izin verelim.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw allow from 192.168.1.0/24
+</code></pre></div></div>
+
+<p>Belirlenmiş bir IP adresine erişim izni verelim.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw allow from 10.50.1.55
+</code></pre></div></div>
+
+<p>Belirlenmiş bir IP adresine yalnızca bir port için izin verelim.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw allow from 10.50.1.55 to any port 22
+</code></pre></div></div>
+
+<p>RFC1918 adresleri yani 10.0.0.0/8, 172.16.0.0/12, 169.254.0.0/16, 192.168.0.0/16 olarak belirlenen adreslere izin verelim.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw allow from 10.0.0.0/8
+Rule added
+mustafa@altinkaynak:/# ufw allow from 172.16.0.0/12
+Rule added
+mustafa@altinkaynak:/# ufw allow from 192.168.0.0/16
+Rule added
+</code></pre></div></div>
+
+<p>Bazı durumlarda kuralların birbirlerini bastırdığı durumlar olabilir. Örneğin: SSH bağlantılarını tümüyle kapatan bir kural eklediniz. Akabinde de spesifik bir adres için SSH izni verdiniz. Bu durumda ilk eklediğiniz kural gerçekleşecektir ve spesifik IP adresi bağlantı gerçekleştiremeyecektir.</p>
+
+<p>Bu durumda araya kural eklemesi yapabilirsiniz.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw insert 1 allow from 10.50.1.55 to any port 22
+Rule inserted
+</code></pre></div></div>
+
+<p>Belirli bir IP adresi veya subnet için protokol sınırlaması getirelim.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw allow from 10.50.1.55 to any port 22 proto tcp
+Rule added
+
+mustafa@altinkaynak:/# ufw allow from 192.168.0.0/16 to any port 22 proto tcp
+Rule added
+</code></pre></div></div>
+
+<h2 id="kural-kaldırma">Kural kaldırma</h2>
+
+<p>UFW üzerinde kural kaldırmak için kural oluşturma sırasında yazmış olduğunuz koda delete eklemeniz yeterlidir.</p>
+
+<p>80.porta gelen bağlantıları engellemek için,
+    mustafa@altinkaynak:/# ufw deny 80/tcp</p>
+
+<p>Belirlenen bu kuralı silmek için,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw delete deny 53/udp
+</code></pre></div></div>
+
+<p>Yada tüm kurallar içerisinden belirlemiş olduğunuzu silmek istiyorsanız öncelikle aşağıdaki komutla kuralları numaralandırılmış halde listeleyin, ardından silmek istediğiniz kuralın numarasını ufw delete komutuna vermeniz yeterlidir.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw status numbered
+Status: active
+To                         Action      From
+--                         ------      ----
+[ 1] 80/tcp                     DENY IN     Anywhere
+[ 2] 80/tcp (v6)                DENY IN     Anywhere (v6)
+
+mustafa@altinkaynak:/# ufw delete 1
+Deleting:
+ deny 80/tcp
+Proceed with operation (y|n)? y
+Rule deleted
+</code></pre></div></div>
+
+<h2 id="servisler-için-kural-yazma">Servisler için kural yazma</h2>
+
+<p>UFW /etc/services dosyasını da okuyabildiği için hizmet adına göre de izin verebilir veya reddedebilirsiniz. Servislerin listesini görmek için <strong>“/etc/services”</strong> dosyasına göz atabilirsiniz.</p>
+
+<p>Servis ismiyle bağlantıya izin verilen kurallar aşağıdaki şekilde tanımlanabilir.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ufw allow &lt;service name&gt;
+</code></pre></div></div>
+
+<p>SSH servisine bağlantılara izin vermek için,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw allow ssh
+Rule added
+Rule added (v6)
+</code></pre></div></div>
+
+<p>Servis ismiyle bağlantının reddedildiği kurallar aşağıdaki şekilde tanımlanabilir.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ufw deny &lt;service name&gt;
+</code></pre></div></div>
+
+<p>SSH servisine bağlantıları reddetmek için,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw deny ssh
+Rule added
+Rule added (v6)
+</code></pre></div></div>
+
+<h2 id="loglama">Loglama</h2>
+
+<p>UFW loglama için farklı bir değer belirtilmedikçe “low” yani düşük seviye loglama işlemi yapmaktadır. Loglama konusunda hassas davranmak istiyorsanız aşağıdaki komutu ‘off’, ‘low’, ‘medium’, ‘high’ ve ‘full’ değerleriyle birlikte kullanabilirsiniz.</p>
+
+<p>Log kaydetme seviyeleri yükseldikçe daha fazla çıktı üreterek, yoğunluğunuza göre diskinizi hızla doldurabilir. Production ortamlarda yapılacak olan seviye belirlemelerinde bunu göz önünde bulundurmalısınız.</p>
+
+<p>Loglama işlemini devre dışı bırakmak için,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw logging off
+Logging disabled
+</code></pre></div></div>
+
+<p>En yüksek düzeyde loglama gerçekleştirmek için,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw logging full
+Logging enabled
+</code></pre></div></div>
+
+<p>Loglama işlemini tamamiyle devre dışı bırakmak için,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafa@altinkaynak:/# ufw logging off
+Logging disabled
+</code></pre></div></div>
+
+<p>Bir sonraki yazımda görüşmek dileğiyle.</p>
+
+  
+</article>
+
+
+  <footer class="related">
+    <div class="previous"><span>Previous Post</span><a href="/haproxy-kurulumu-ve-yapilandirma/">HAProxy Kurulumu ve Yapılandırma</a></div>
+    <div class="next"><span>Next Post</span><a href="/siberyildiz-cozumleri/">BTK (USOM) Siber Yıldız Yarışması Çözümleri</a></div>
+  </footer>
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-101755558-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-101755558-3');
+</script>
+</html>

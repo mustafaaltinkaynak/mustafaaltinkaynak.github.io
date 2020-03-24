@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<title>[SLACK] SSH Girişlerini Bildirim Olarak Almak | Mustafa ALTINKAYNAK | Siber Güvenlik</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Merhabalar. Bu yazımızda daha çok geliştirici ekiplerinin kullandığı ekip içi yazışma ortamı sağlayan Slack ile ilgili çalışma gerçekleştireceğiz. Artık ekip...">
+<meta name="author" content="Mustafa ALTINKAYNAK">
+<meta name="generator" content="Jekyll v4.0.0">
+<link rel="canonical" href="http://localhost:4000/slack-ssh-girislerini-bildirim-olarak-almak/">
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+<link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Mustafa ALTINKAYNAK | Siber Güvenlik">
+
+
+
+
+<header class="icons">
+    <img src="/assets/images/mustafa-altinkaynak-profil.jpg" style="border-radius:50%;" alt="Mustafa Altınkaynak " class="landing-profile-pic">
+  
+  
+    
+  <nav>
+  <a aria-label="Anasayfa" href="/" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg><span aria-hidden="true" class="hidden">Anasayfa</span></a>
+  <a aria-label="Hakkımda" href="/pages/about.html" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#address-card"></use></svg><span aria-hidden="true" class="hidden">Hakkımda</span></a>
+  <a aria-label="İletişim" href="/pages/contact.html" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg><span aria-hidden="true" class="hidden">İletişim</span></a>
+  
+  </nav>
+
+
+    
+  <nav>
+  <a aria-label="Instagram" target="_blank" href="https://www.instagram.com/mustafaaltinkaynakcom" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#instagram"></use></svg><span aria-hidden="true" class="hidden">Instagram</span></a>
+  <a aria-label="Twitter" target="_blank" href="https://www.twitter.com/m_altinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#twitter"></use></svg><span aria-hidden="true" class="hidden">Twitter</span></a>
+  <a aria-label="Github" target="_blank" href="https://www.github.com/mustafaaltinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg><span aria-hidden="true" class="hidden">Github</span></a>
+  <a aria-label="LinkedIn" target="_blank" href="https://www.linkedin.com/in/altinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#linkedin"></use></svg><span aria-hidden="true" class="hidden">LinkedIn</span></a>
+  
+  </nav>
+
+
+  
+  
+    <div class="hidden description"></div>
+  
+</header>
+
+<article>
+  <header>
+  
+  <h1><a href="/slack-ssh-girislerini-bildirim-olarak-almak/">[SLACK] SSH Girişlerini Bildirim Olarak Almak</a></h1><time datetime="2016-09-11T00:00:00+03:00">September 11, 2016</time>
+</header>
+
+  <p>Merhabalar.
+Bu yazımızda daha çok geliştirici ekiplerinin kullandığı ekip içi yazışma ortamı sağlayan Slack ile ilgili çalışma gerçekleştireceğiz.
+Artık ekip içi yazışmalarınızı, iş atamalarınızı (busybot) Slack üzerinden yaptığınıza göre fazlalıklardan kurtulmak isteyebilirsiniz. Şahsen ben çok fazla ortam kullanmayı tercih etmek yerine, tek yerden bir dashboard mantığında herşeyi görebilmek isterim. Kısa bir girizgahından ardından giriş yapalım.</p>
+
+<p>Slack’de çoğu uygulama gibi webhook yapısına uygun tasarlanmıştır. Webhook farklı uygulamaların birbirleri ile entegrasyon sağlayabilmeleri için Uygulama içerisinde oluşan event’leri HTTP üzerinden JSON Payload’ları ile kendilerine subscribe olan diğer uygulamaları tetiklemesidir. Tabii bu işlemi yapabilmeniz için webhook izinlerini sağlamanız gerekmektedir.</p>
+
+<h2 id="slack-için-token-oluşturalım">Slack için token oluşturalım.</h2>
+
+<p><a href="https://api.slack.com/incoming-webhooks">Buraya</a> tıklayarak <strong>Integration Settings</strong> alanından yapılandırma ayarlarına ulaşabilirsiniz.</p>
+
+<p><strong>Post to Channel:</strong> Gönderim yapacağınız kanal</p>
+
+<p><strong>Webhook URL :</strong> Kanalı seçmeniz ardından bu URL dinamik olarak oluşacaktır. Bu URL’yi sonra ki aşamalarda kullanacağımızdan dolayı saklamanız gerekmektedir.</p>
+
+<p><strong>Descriptive Label:</strong> Dilerseniz opsiyonel olarak açıklama etiketi girebilirsiniz.</p>
+
+<p><strong>Customize Name:</strong> Gelen bildirimlerde yer alan kullanıcı adını seçebilirsiniz.</p>
+
+<p><strong>Customize Icon:</strong> Gelen bildirimlerde yer alan iconu değiştirebilirsiniz.</p>
+
+<p><strong>Preview Message:</strong> Bu alandan da gelecek bildirimi önizleme olarak görebilirsiniz.</p>
+
+<p>Ayarları <strong>“Save Settings”</strong> butonu ile birlikte kaydediyoruz.</p>
+
+<h2 id="ssh-ile-yapılan-girişlerde-bildirim-gelmesini-sağlayalım">SSH ile yapılan girişlerde bildirim gelmesini sağlayalım.</h2>
+
+<p><strong>/etc/profile</strong> dosyasını editör ile açtıktan sonra en alt kısmına aşağıdaki kod blogunu ekleyebilirsiniz. <strong>“WEBHOOK_URL”</strong> alanını yukarıda saklamanızı istediğim alanla değiştirmeyi unutmayınız.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    if [ -n "$SSH_CLIENT" ]; then
+      TEXT="$(date): ssh login to ${USER}@$(hostname -f)"
+      TEXT="$TEXT from $(echo $SSH_CLIENT|awk '{print $1}')"
+      curl -X POST \
+      --data-urlencode "payload={\"username\": \"SSH Login Alerts\", \"text\": \"${TEXT}\"}" \
+      WEBHOOK_URL &amp;&gt;/dev/null &amp;
+    fi
+</code></pre></div></div>
+
+<p>Yukarıdaki kod blogunu açıklamak gerekirse, sadece SSH işlemlerinde çalışacak şekilde ayarlanmıştır. date parametresinde zaman damgası, $USER bağlantıyı gerçekleştiren kullanıcı, $hostname ise bağlantı yapılan makina adını içerir. $SSH_CLIENT ise bağlantıyı gerçekleştiren kullanıcının IP adresini içerir ve bu AWK ile sadeleştirilmiştir. Akabinde curl ile birlikte POST isteği gerçekleştiriyoruz. Curl istekleri sonrasında response değerlerinin ekrana yazdırılmaması için /dev/null değeri kullandım. Böylece ssh yapan kullanıcı hiçbir şekilde çıktı göremeyecektir.</p>
+
+<p>Kendim Slack uygulamasını mobilde de kullandığımdan dolayı bildirimler cep telefonuma da direkt ulaşmaktadır.</p>
+
+<p><img src="/assets/images/slack-bildirimi.png" alt="" /></p>
+
+<p>Hepsi bu kadar.</p>
+
+  
+</article>
+
+
+  <footer class="related">
+    <div class="previous"><span>Previous Post</span><a href="/vsftpd-kurulumu-ve-yapilandirma/">VSFTPD Kurulumu ve Yapılandırma</a></div>
+    <div class="next"><span>Next Post</span><a href="/slack-nagios-entegrasyonu/">[SLACK] Nagios Entegrasyonu</a></div>
+  </footer>
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-101755558-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-101755558-3');
+</script>
+</html>

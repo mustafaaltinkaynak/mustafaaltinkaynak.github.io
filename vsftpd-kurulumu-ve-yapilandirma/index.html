@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<title>VSFTPD Kurulumu ve Yapılandırma | Mustafa ALTINKAYNAK | Siber Güvenlik</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Yazımıza başlamadan önemli bir hatırlatmak isterim. FTP Protokolü cleartext trafik içermesi nedeniyle güvenli değildir. Bu yüzden SFTP protokolünü kullanmanı...">
+<meta name="author" content="Mustafa ALTINKAYNAK">
+<meta name="generator" content="Jekyll v4.0.0">
+<link rel="canonical" href="http://localhost:4000/vsftpd-kurulumu-ve-yapilandirma/">
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+<link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Mustafa ALTINKAYNAK | Siber Güvenlik">
+
+
+
+
+<header class="icons">
+    <img src="/assets/images/mustafa-altinkaynak-profil.jpg" style="border-radius:50%;" alt="Mustafa Altınkaynak " class="landing-profile-pic">
+  
+  
+    
+  <nav>
+  <a aria-label="Anasayfa" href="/" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg><span aria-hidden="true" class="hidden">Anasayfa</span></a>
+  <a aria-label="Hakkımda" href="/pages/about.html" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#address-card"></use></svg><span aria-hidden="true" class="hidden">Hakkımda</span></a>
+  <a aria-label="İletişim" href="/pages/contact.html" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg><span aria-hidden="true" class="hidden">İletişim</span></a>
+  
+  </nav>
+
+
+    
+  <nav>
+  <a aria-label="Instagram" target="_blank" href="https://www.instagram.com/mustafaaltinkaynakcom" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#instagram"></use></svg><span aria-hidden="true" class="hidden">Instagram</span></a>
+  <a aria-label="Twitter" target="_blank" href="https://www.twitter.com/m_altinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#twitter"></use></svg><span aria-hidden="true" class="hidden">Twitter</span></a>
+  <a aria-label="Github" target="_blank" href="https://www.github.com/mustafaaltinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg><span aria-hidden="true" class="hidden">Github</span></a>
+  <a aria-label="LinkedIn" target="_blank" href="https://www.linkedin.com/in/altinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#linkedin"></use></svg><span aria-hidden="true" class="hidden">LinkedIn</span></a>
+  
+  </nav>
+
+
+  
+  
+    <div class="hidden description"></div>
+  
+</header>
+
+<article>
+  <header>
+  
+  <h1><a href="/vsftpd-kurulumu-ve-yapilandirma/">VSFTPD Kurulumu ve Yapılandırma</a></h1><time datetime="2016-09-10T00:00:00+03:00">September 10, 2016</time>
+</header>
+
+  <p>Yazımıza başlamadan önemli bir hatırlatmak isterim. FTP Protokolü cleartext trafik içermesi nedeniyle
+<strong>güvenli</strong> değildir. Bu yüzden <strong>SFTP</strong> protokolünü kullanmanızı öneririm.</p>
+
+<h2 id="kurulum">Kurulum</h2>
+
+<p>Vsftpd server Ubuntu’nun default repolarından erişilebilmektedir. Ek olarak bir kaynak belirtmenize gerek yoktur.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install vsftpd
+</code></pre></div></div>
+
+<h2 id="yapılandırma">Yapılandırma</h2>
+
+<p>Vsftpd kurulumu ardından <strong>etc/vsftpd.conf</strong> dosyası içerisinde yapılandırma ayarları bulunmaktadır. Bu dosya içerisinde aşağıdaki değişiklikleri yapmanızı öneririm.</p>
+
+<p>FTP için anonymous bağlantı gerçekleştirmelerini kapatmak için aşağıdaki değeri varsa yorum satırından çıkartıp, “NO” olarak belirtiyoruz.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>anonymous_enable=NO
+</code></pre></div></div>
+
+<p>Sunucu üzerinde yer alan kullanıcıların FTP’ye bağlanabilmelerini sağlamaları amacıyla aşağıdaki değeri varsa yorum satırından çıkartıp, “YES” olarak belirtiyoruz.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>local_enable=YES
+</code></pre></div></div>
+
+<p>Kullanıcıların dosyalar üzerinde yazma işlemi yapabilmelerini sağlamaları amacıyla aşağıdaki değeri “YES” olarak belirtiyoruz.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>write_enable=YES
+</code></pre></div></div>
+
+<p>Kullanıcıların home dizinlerine erişim hakkı vermek amacıyla aşağıdaki değeri “YES” olarak belirtiyoruz.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chroot_local_user=YES
+</code></pre></div></div>
+
+<p>Bu dosyayı kaydedip, çıkıyoruz.</p>
+
+<h2 id="ftp-kullanıcı-hesabı-oluşturma">FTP Kullanıcı Hesabı Oluşturma</h2>
+
+<p>Kullanıcı oluşturalım.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo adduser ftpkullanicisi
+</code></pre></div></div>
+
+<p>Kullanıcıyı oluşturduktan sonra, bu kullanıcıya ait dizin için root sahipliği verelim.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chown root:root /home/ftpkullanicisi
+</code></pre></div></div>
+
+<p>Şimdi ise kullanıcıya dosyalarını gönderebileceği bir klasör oluşturalım ve bu kullanıcıya erişim hakkı verelim.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mkdir /home/ftpkullanicisi/dosyalar
+sudo chown ftpuser:ftpuser /home/ftpkullanicisi/files
+</code></pre></div></div>
+
+<p>Vsftpd’yi yeniden başlatalım.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo service vsftpd restart
+</code></pre></div></div>
+
+<p>Tüm işlem bu kadar.</p>
+
+  
+</article>
+
+
+  <footer class="related">
+    <div class="previous"><span>Previous Post</span><a href="/public-private-ile-ssh-baglantisi-saglama/">Public / Private ile SSH Bağlantısı Sağlama</a></div>
+    <div class="next"><span>Next Post</span><a href="/slack-ssh-girislerini-bildirim-olarak-almak/">[SLACK] SSH Girişlerini Bildirim Olarak Almak</a></div>
+  </footer>
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-101755558-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-101755558-3');
+</script>
+</html>

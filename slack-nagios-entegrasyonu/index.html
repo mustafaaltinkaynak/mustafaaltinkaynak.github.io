@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="tr">
+<title>[SLACK] Nagios Entegrasyonu | Mustafa ALTINKAYNAK | Siber Güvenlik</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nagios ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılımdır. Yazılım sayesinde tüm aktif cihazlarını sizlere sunmuş olduğu arayüz üzer...">
+<meta name="author" content="Mustafa ALTINKAYNAK">
+<meta name="generator" content="Jekyll v4.0.0">
+<link rel="canonical" href="http://localhost:4000/slack-nagios-entegrasyonu/">
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+<link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Mustafa ALTINKAYNAK | Siber Güvenlik">
+
+
+
+
+<header class="icons">
+    <img src="/assets/images/mustafa-altinkaynak-profil.jpg" style="border-radius:50%;" alt="Mustafa Altınkaynak " class="landing-profile-pic">
+  
+  
+    
+  <nav>
+  <a aria-label="Anasayfa" href="/" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg><span aria-hidden="true" class="hidden">Anasayfa</span></a>
+  <a aria-label="Hakkımda" href="/pages/about.html" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#address-card"></use></svg><span aria-hidden="true" class="hidden">Hakkımda</span></a>
+  <a aria-label="İletişim" href="/pages/contact.html" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg><span aria-hidden="true" class="hidden">İletişim</span></a>
+  
+  </nav>
+
+
+    
+  <nav>
+  <a aria-label="Instagram" target="_blank" href="https://www.instagram.com/mustafaaltinkaynakcom" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#instagram"></use></svg><span aria-hidden="true" class="hidden">Instagram</span></a>
+  <a aria-label="Twitter" target="_blank" href="https://www.twitter.com/m_altinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#twitter"></use></svg><span aria-hidden="true" class="hidden">Twitter</span></a>
+  <a aria-label="Github" target="_blank" href="https://www.github.com/mustafaaltinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg><span aria-hidden="true" class="hidden">Github</span></a>
+  <a aria-label="LinkedIn" target="_blank" href="https://www.linkedin.com/in/altinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#linkedin"></use></svg><span aria-hidden="true" class="hidden">LinkedIn</span></a>
+  
+  </nav>
+
+
+  
+  
+    <div class="hidden description"></div>
+  
+</header>
+
+<article>
+  <header>
+  
+  <h1><a href="/slack-nagios-entegrasyonu/">[SLACK] Nagios Entegrasyonu</a></h1><time datetime="2016-09-12T00:00:00+03:00">September 12, 2016</time>
+</header>
+
+  <p><strong>Nagios</strong> ağ üzerinde bulunan sistemleri monitör etmek için kullanılan bir yazılımdır. Yazılım sayesinde tüm aktif cihazlarını sizlere sunmuş olduğu arayüz üzerinden monitör edebilirsiniz. Nagios ile birlikte makinalara farklı görev tanımları gerçekleştirebilir ve durum maili alabilirsiniz. <a href="https://www.nagios.org">Buraya</a> tıklayarak Nagios’a ulaşabilirsiniz.</p>
+
+<h2 id="slack-nagios-entegrasyonu">Slack Nagios Entegrasyonu</h2>
+
+<p><a href="https://my.slack.com/services/new/nagios">https://my.slack.com/services/new/nagios</a> adresinde yer alan <strong>“Add Nagios integration”</strong> kısmı içerisinde yer alan <strong>Setup Instructions</strong> başlığı altında kurulum talimatlarına ulaşabilirsiniz. Sizler için takımınıza ait kanal ismi ve token bilgisi dinamik olarak üretilecektir.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://raw.github.com/tinyspeck/services-examples/master/nagios.pl
+cp nagios.pl /usr/local/bin/slack_nagios.pl
+chmod 755 /usr/local/bin/slack_nagios.pl
+</code></pre></div></div>
+
+<p>slack_nagios.pl dosyası içerisinde bizlere özel teamname ve token bilgisini düzenleyelim.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>my $opt_domain = "teamname.slack.com"; # Your team's domain
+my $opt_token = "token"; # The token from your Nagios services page
+</code></pre></div></div>
+
+<p>Nagios bildirimlerin kimlere gönderileceği dair yapılandırma ayarlarını <strong>/etc/nagios3/conf.d/contacts_nagios2.cfg</strong> dosyasında tutmaktadır.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>define contact {
+      contact_name                             slack
+      alias                                    Slack
+      service_notification_period              24x7
+      host_notification_period                 24x7
+      service_notification_options             w,u,c,r
+      host_notification_options                d,r
+      service_notification_commands            notify-service-by-slack
+      host_notification_commands               notify-host-by-slack
+}
+</code></pre></div></div>
+
+<p>Yukarıdaki contact tanımlaması ile birlikte yeni bir bildirim türü belirledik.</p>
+
+<h2 id="service-notification-options-parametreleri">Service Notification Options parametreleri</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parametre</th>
+      <th>Açıklama</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>w</td>
+      <td>Warning durumlarında bildirim gönderir.</td>
+    </tr>
+    <tr>
+      <td>u</td>
+      <td>Unknown durumlarında bildirim gönderir.</td>
+    </tr>
+    <tr>
+      <td>c</td>
+      <td>Kritik durumlarda bildirim gönderir.</td>
+    </tr>
+    <tr>
+      <td>r</td>
+      <td>Servisin tekrar ayağa kalkma durumunda bildirim gönderir.</td>
+    </tr>
+    <tr>
+      <td>f</td>
+      <td>Servisin start/stop durum analizini gönderir.</td>
+    </tr>
+    <tr>
+      <td>s</td>
+      <td>Zamanlanmış aralıklarda bildirim gönderir.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="host-notification-options-parametreleri">Host Notification Options parametreleri</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parametre</th>
+      <th>Açıklama</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>d</td>
+      <td>Hostun down olması durumunda bildirim gönderir.</td>
+    </tr>
+    <tr>
+      <td>u</td>
+      <td>Hostun UNREACHABLE olduğu durumlarda bildirim gönderir.</td>
+    </tr>
+    <tr>
+      <td>r</td>
+      <td>Hostun tekrar ayağa kalkma durumunda bildirim gönderir.</td>
+    </tr>
+    <tr>
+      <td>f</td>
+      <td>Hostun start/stop durum analizini gönderir.</td>
+    </tr>
+    <tr>
+      <td>s</td>
+      <td>Zamanlanmış aralıklarda bildirim gönderir.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="nagios-bildirim-komutlarını-tanımlayalım">Nagios bildirim komutlarını tanımlayalım</h2>
+
+<p>Contact profilini tanımlarken service_notification_commands ve host_notification_commands parametrelerini kullanmıştım. Şimdi <strong>commands.cfg</strong> dosyası içerisinde bu komutlarını tanımlayalım. Bu dosyayı “/etc/nagios3/commands.cfg” adresinden ulaşabilirsiniz.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>define command {
+      command_name notify-service-by-slack
+      command_line /usr/local/bin/slack_nagios.pl -field slack_channel=#nagios -field HOSTALIAS="$HOSTNAME$" -field SERVICEDESC="$SERVICEDESC$" -field SERVICESTATE="$SERVICESTATE$" -field SERVICEOUTPUT="$SERVICEOUTPUT$" -field NOTIFICATIONTYPE="$NOTIFICATIONTYPE$"
+}
+
+define command {
+      command_name notify-host-by-slack
+      command_line /usr/local/bin/slack_nagios.pl -field slack_channel=#nagios -field HOSTALIAS="$HOSTNAME$" -field HOSTSTATE="$HOSTSTATE$" -field HOSTOUTPUT="$HOSTOUTPUT$" -field NOTIFICATIONTYPE="$NOTIFICATIONTYPE$"
+}
+</code></pre></div></div>
+
+<p>Ben Nagios üzerine MySQL server kontrolünü de eklemiştim. Şimdi MySQL servisimizi durduralım. 18:34:36’da MySQL servisi durdurdum.</p>
+
+<p><img src="/assets/images/mysql_stop.png" alt="" /></p>
+
+<p>18:35:19’da da Nagios MySQL servisine erişemediğine dair bildirimi göndermiş.
+<img src="/assets/images/nagios_alert.png" alt="" /></p>
+
+<p>Aynı esnada cep telefonuma da bildirim geldi.
+<img src="/assets/images/slack_android.png" alt="" /></p>
+
+  
+</article>
+
+
+  <footer class="related">
+    <div class="previous"><span>Previous Post</span><a href="/slack-ssh-girislerini-bildirim-olarak-almak/">[SLACK] SSH Girişlerini Bildirim Olarak Almak</a></div>
+    <div class="next"><span>Next Post</span><a href="/slack-fail2ban-entegrasyonu/">[SLACK] Fail2ban Entegrasyonu</a></div>
+  </footer>
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-101755558-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-101755558-3');
+</script>
+</html>

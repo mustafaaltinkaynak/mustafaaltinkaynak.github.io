@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="tr">
+<title>[SLACK] Fail2ban Entegrasyonu | Mustafa ALTINKAYNAK | Siber Güvenlik</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Brute Force Nedir? Saldırganların sıklıkla tercih ettikleri tekniklerden biri de Brute Force adı verilen kaba kuvvet saldırılarıdır. Brute force bir program ...">
+<meta name="author" content="Mustafa ALTINKAYNAK">
+<meta name="generator" content="Jekyll v4.0.0">
+<link rel="canonical" href="http://localhost:4000/slack-fail2ban-entegrasyonu/">
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+<link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Mustafa ALTINKAYNAK | Siber Güvenlik">
+
+
+
+
+<header class="icons">
+    <img src="/assets/images/mustafa-altinkaynak-profil.jpg" style="border-radius:50%;" alt="Mustafa Altınkaynak " class="landing-profile-pic">
+  
+  
+    
+  <nav>
+  <a aria-label="Anasayfa" href="/" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg><span aria-hidden="true" class="hidden">Anasayfa</span></a>
+  <a aria-label="Hakkımda" href="/pages/about.html" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#address-card"></use></svg><span aria-hidden="true" class="hidden">Hakkımda</span></a>
+  <a aria-label="İletişim" href="/pages/contact.html" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg><span aria-hidden="true" class="hidden">İletişim</span></a>
+  
+  </nav>
+
+
+    
+  <nav>
+  <a aria-label="Instagram" target="_blank" href="https://www.instagram.com/mustafaaltinkaynakcom" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#instagram"></use></svg><span aria-hidden="true" class="hidden">Instagram</span></a>
+  <a aria-label="Twitter" target="_blank" href="https://www.twitter.com/m_altinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#twitter"></use></svg><span aria-hidden="true" class="hidden">Twitter</span></a>
+  <a aria-label="Github" target="_blank" href="https://www.github.com/mustafaaltinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg><span aria-hidden="true" class="hidden">Github</span></a>
+  <a aria-label="LinkedIn" target="_blank" href="https://www.linkedin.com/in/altinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#linkedin"></use></svg><span aria-hidden="true" class="hidden">LinkedIn</span></a>
+  
+  </nav>
+
+
+  
+  
+    <div class="hidden description"></div>
+  
+</header>
+
+<article>
+  <header>
+  
+  <h1><a href="/slack-fail2ban-entegrasyonu/">[SLACK] Fail2ban Entegrasyonu</a></h1><time datetime="2016-09-15T00:00:00+03:00">September 15, 2016</time>
+</header>
+
+  <h2 id="brute-force-nedir">Brute Force Nedir?</h2>
+<p>Saldırganların sıklıkla tercih ettikleri tekniklerden biri de Brute Force adı verilen kaba kuvvet saldırılarıdır. Brute force bir program yardımıyla yapılabileceği gibi el ile de yapılabilir. Brute force saldırılarında kullanıcı adı ve parola bilgisi teker teker denenir. Bu saldırıda başarılı olunabilmesi için en çok kullanılan parola dizilimleri yani sözlük denilen listeler kullanılır. Ne kadar geniş bir sözlük varsa başarıya ulaşma imkanı da o kadar yüksek olur.</p>
+
+<p>Uygulamalar brute force saldırılarına yönelik çeşitli aksiyonlar almışlardır. Bazı uygulamalar çok sayıda giriş yapıldığında captcha ile giriş istemekte, bazı uygulamalar ise belirli süre o kullanıcıya ait hesabı kapatmaktadır.</p>
+
+<h2 id="fail2ban-nedir">Fail2Ban Nedir?</h2>
+
+<p>Fail2ban sunucu sistemlerinde servislere ait log kayıtlarının takip edilerek gerektiği durumlarda bu kişilere karşı aksiyon almayı sağlar. Bu kişilere yönelik sizin belirlediğiniz süre kadar sisteme girişlerini yasaklar. Fail2ban iptables firewall’a ilgili kuralı dinamik olarak girmektedir. Ek olarak fail2ban tcpwrapper’la da çalışabilmektedir.</p>
+
+<p>Şu sıralar epeyi Slack ile haşır neşir olmaya ve gittikçe sevmeye başladım. Şimdi fail2ban’ın almış olduğu aksiyonlardan anında haberdar olabilmek için Slack ile entegrasyon edelim.</p>
+
+<p>NOT: Bu tarz durumlar için e-posta kullanmayı pek sevmediğimden dolayı, e-posta ile notification almak istemiyorum. Tercihim bu yüzden Slack’den yana.</p>
+
+<h2 id="fail2ban-slack-entegrasyonu">Fail2ban Slack Entegrasyonu</h2>
+
+<p>Fail2ban uygulamasına ait yapılandırma ayarları <strong>/etc/fail2ban/jail.conf</strong> dosyasında tutulmaktadır. Ancak custom (özelleştirilmiş) yapılandırma ihtiyaçlarında bu dosyanın bir kopyası üzerinden devam edilmesi önerilir.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+</code></pre></div></div>
+
+<p>Artık değişikliklerimizi <strong>jail.local</strong> dosyası üzerinden gerçekleştireceğiz. Slack için action durumunu ayarlayalım.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>action_with_slack_notification = %(banaction)s[name=%(__name__)s, port="%(port)s", protocol="%(protocol)s", chain="%(chain)s"]
+                                 slack[name=%(__name__)s, protocol="%(protocol)s"]
+
+# Choose default action.  To change, just override value of 'action' with the
+# interpolation to the chosen action shortcut (e.g.  action_mw, action_mwl, etc) in jail.local
+# globally (section [DEFAULT]) or per specific section
+action = %(action_with_slack_notification)s
+</code></pre></div></div>
+
+<p>Slack için bildirimlerde kullanacağımız betiği oluşturmak için ilgili dizine gidelim.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /etc/fail2ban/action.d
+</code></pre></div></div>
+
+<p>Şimdi slack bildirimleri için <strong>slack-notify.sh</strong> adında betiğimizi oluşturalım.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># !/bin/bash
+# Dosya: /etc/fail2ban/action.d/slack-notify.sh
+MESSAGE=$1
+HOOK_URL={HOOK_URL} # https://hooks.slack.com/services/1111111/1111111111111
+HOST=$(hostname)
+
+CHANNEL="#alerts" # Hangi kanala gönderim yapılacak
+USERNAME="fail2ban" # Hangi kullanıcı adıyla gönderim yapılacak
+ICON=":bangbang:" # Mesajlarda kullanılacak icon -&gt; http://www.webpagefx.com/tools/emoji-cheat-sheet/
+
+if [ "$#" -ge 2 ]; then
+    IP=$2
+    # İsteğin hangi ülkeden geldiği
+    COUNTRY=$(curl ipinfo.io/${IP}/country)
+
+    COUNTRY=$(echo "$COUNTRY" | tr -s  '[:upper:]'  '[:lower:]')
+    # Ülkeye uygun emoji setleniyor.
+    COUNTRY=":flag-$COUNTRY:"
+    MESSAGE="${MESSAGE/_country_/$COUNTRY}"
+fi
+
+# Curl isteği gerçekleştiriyoruz.
+curl -X POST --data-urlencode "payload={\"channel\": \"${CHANNEL}\", \"username\": \"${USERNAME}\", \"text\": \"[*${HOST}*] ${MESSAGE}\", \"icon_emoji\": \"${ICON}\"$
+
+exit 0
+</code></pre></div></div>
+
+<p>Bildirim betiğimiz hazır. Şimdi hangi durumlarda çalışması gerektiğini belirliyoruz.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Dosya: /etc/fail2ban/action.d/slack.conf
+
+[Definition]
+
+actioncheck=
+actionstart = /bin/bash /etc/fail2ban/action.d/slack-notify.sh "The jail &lt;name&gt; has been started successfully." &gt; /dev/null 2&gt;&amp;1
+actionstop = /bin/bash /etc/fail2ban/action.d/slack-notify.sh "The jail &lt;name&gt; has been stopped." &gt; /dev/null 2&gt;&amp;1
+actionban = /bin/bash /etc/fail2ban/action.d/slack-notify.sh "Banned _country_ &lt;ip&gt; in the jail &lt;name&gt; after &lt;failures&gt; attempts" "&lt;ip&gt;" &gt; /dev/null 2&gt;&amp;1
+actionunban = /bin/bash /etc/fail2ban/action.d/slack-notify.sh "Unbanned _country_ &lt;ip&gt; in the jail &lt;name&gt;" "&lt;ip&gt;" &gt; /dev/null 2&gt;&amp;1
+
+# Default name of the chain
+#
+name = default
+</code></pre></div></div>
+
+<p>Artık servis başladığında, durduğunda, bir kullanıcı sistemden atıldığı ve yasaklamasının kaldırıldığı durumda bildirim gelecektir.</p>
+
+<p><img src="/assets/images/fail2ban_slack.jpg" alt="" /></p>
+
+  
+</article>
+
+
+  <footer class="related">
+    <div class="previous"><span>Previous Post</span><a href="/slack-nagios-entegrasyonu/">[SLACK] Nagios Entegrasyonu</a></div>
+    <div class="next"><span>Next Post</span><a href="/nagios-uzak-sunucu-ekleme/">Nagios Uzak Sunucu Ekleme</a></div>
+  </footer>
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-101755558-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-101755558-3');
+</script>
+</html>

