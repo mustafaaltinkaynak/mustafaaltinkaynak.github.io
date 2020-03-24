@@ -82,7 +82,7 @@
 
 .rouge-table .gl pre { margin: 0 1.5em 0 .25em; opacity: .5; }
 
-.archive { font-size: 1.1em; }
+.archive { font-size: 85%; }
 
 .archive time { display: inline-block; min-width: 10ch; margin: 0 .2em; }
 
