@@ -45,7 +45,7 @@ pre { background: rgba(142, 142, 145, 0.12); border-radius: 2px; font-size: .8em
 
 :not(pre) > code { font-size: .9em; background: rgba(142, 142, 145, 0.15); opacity: .7; border-radius: 2px; margin: 0 .1em; padding: .2em .4em; }
 
-landing-profile-pic { max-width: 250px; float: right; display: block; margin: auto; }
+landing-profile-pic { max-width: 100px; float: right; display: block; margin: auto; }
 
 body > header, body > footer { display: flex; flex-wrap: wrap; justify-content: space-between; }
 
