@@ -1,8 +1,6 @@
 @media (min-width: 50em) { @font-face { font-family: 'PT Sans'; src: local("PT Sans"), local("PTSans-Regular"), url("../fonts/PTSans-Regular.woff") format("woff"); font-weight: normal; font-style: normal; }
   @font-face { font-family: 'PT Sans'; src: local("PT Sans Bold"), local("PTSans-Bold"), url("../fonts/PTSans-Bold.woff") format("woff"); font-weight: bold; font-style: normal; } }
 
-@media (prefers-color-scheme: light) { html { background: #1c1d22; color: #ffffff; } }
-
 @media (prefers-color-scheme: dark) { html { background: #1c1d22; color: #ffffff; } }
 
 html { font-size: 16px; font-size: calc(0.8rem + 0.3vw); }
@@ -49,7 +47,9 @@ landing-profile-pic { max-width: 100px; float: right; display: block; margin: au
 
 wrapper { padding: 100px; }
 
-body > header, body > footer { display: flex; flex-wrap: wrap; justify-content: space-between; }
+body > header { display: flex; flex-wrap: wrap; justify-content: space-between; position: fixed; top: 0; width: 100%; }
+
+body > footer { display: flex; flex-wrap: wrap; justify-content: space-between; }
 
 article header { margin-bottom: 1.5em; }
 
