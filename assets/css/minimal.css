@@ -47,9 +47,9 @@ pre { background: rgba(142, 142, 145, 0.12); border-radius: 2px; font-size: .8em
 
 landing-profile-pic { max-width: 100px; float: right; display: block; margin: auto; }
 
-wrapper { padding: 100px; }
+wrapper { display: block; margin-left: auto; margin-right: auto; width: 100%; }
 
-body > header { display: flex; flex-wrap: wrap; justify-content: space-between; top: 0; width: 100%; }
+body > header { display: flex; flex-wrap: wrap; justify-content: space-between; top: 0; width: 90%; }
 
 body > footer { display: flex; flex-wrap: wrap; justify-content: space-between; }
 
