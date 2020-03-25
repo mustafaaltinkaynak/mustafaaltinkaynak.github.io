@@ -7,7 +7,7 @@
 
 html { font-size: 16px; font-size: calc(0.8rem + 0.3vw); }
 
-body { font-family: "PT Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Roboto", sans-serif; font-weight: 400; line-height: 1.6; margin: 0; -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: "PT Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Roboto", sans-serif; text-align: justify; font-weight: 400; line-height: 1.6; margin: 0; -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 
@@ -46,6 +46,8 @@ pre { background: rgba(142, 142, 145, 0.12); border-radius: 2px; font-size: .8em
 :not(pre) > code { font-size: .9em; background: rgba(142, 142, 145, 0.15); opacity: .7; border-radius: 2px; margin: 0 .1em; padding: .2em .4em; }
 
 landing-profile-pic { max-width: 100px; float: right; display: block; margin: auto; }
+
+wrapper { padding: 100px; }
 
 body > header, body > footer { display: flex; flex-wrap: wrap; justify-content: space-between; }
 
