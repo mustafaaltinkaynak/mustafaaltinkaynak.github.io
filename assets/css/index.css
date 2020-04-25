@@ -31,7 +31,7 @@ blockquote, figure { margin: 1em 0; }
 
 img, li { margin: .5em 0; }
 
-img { border-radius: 2px; max-width: 100%; height: auto; }
+img { border-radius: 5px; border: 1px solid #ddd; padding: 3px; max-width: 100%; height: auto; }
 
 table { display: inline-block; max-width: 100%; overflow-y: scroll; border-spacing: 1px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(142, 142, 145, 0.12) inset; }
 
