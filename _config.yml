@@ -1,0 +1,40 @@
+title: "Mustafa ALTINKAYNAK | Siber Güvenlik"
+author: "Mustafa ALTINKAYNAK"
+description: ""
+permalink: /:title/
+lang: "tr"
+excerpt_separator: "\n\n\n"
+date_format: "%B %d, %Y"
+
+# Layout
+
+sidebar: true                # show a sidebar instead of the usual header
+show_excerpts: false         # show article excerpts on the home page
+show_related: true           # show the previous and next links after every post
+show_description: true       # show the site description in the sidebar
+show_title: false            # always keep the site title visible
+
+# Styling
+
+dark_header: true           # always keep the header dark
+minimal: false               # use simpler style
+
+# Menu
+
+navigation:
+  - {file: "index.html", icon: home}
+  - {file: "about.md", icon: address-card}
+  - {title: İletişim, icon: envelope, url: "/pages/contact.html"}
+
+external:                    # see http://fontawesome.com/icons
+  - {title: Instagram, icon: instagram, url: "https://www.instagram.com/mustafaaltinkaynakcom"}
+  - {title: Twitter, icon: twitter, url: "https://www.twitter.com/m_altinkaynak"}
+  - {title: Github, icon: github, url: "https://www.github.com/mustafaaltinkaynak"}
+  - {title: LinkedIn, icon: linkedin, url: "https://www.linkedin.com/in/altinkaynak"}
+
+comments:
+  disqus_shortname: "mustafaaltinkaynak"      # see https://disqus.com/
+#  isso_domain: ""           # see https://posativ.org/isso/
+
+plugins:
+ - jekyll-feed

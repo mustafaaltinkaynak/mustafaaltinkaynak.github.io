@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
+<meta charset="{{ site.encoding }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Siber güvenlik, internet güvenliği gibi bilgilerin yer aldığı blog">
+<meta name="author" content="{{ page.author | default: site.author | escape }}">
+<link rel="canonical" href="https://www.mustafaaltinkaynak.com/">
+{% if site.minimal %}
+<link rel="stylesheet" href="{{ "/assets/css/minimal.css" | relative_url }}">
+{% else %}
+<link rel="stylesheet" href="{{ "/assets/css/index.css" | relative_url }}">
+{% endif %}
+<link rel="stylesheet" href="{{ "/assets/css/classes.css" | relative_url }}">
+{% if site.sidebar %}<link rel="stylesheet" href="{{ "/assets/css/sidebar.css" | relative_url }}" media="screen and (min-width: 70em)">{% endif %}
+{% if site.plugins contains "jekyll-feed" %}<link rel="alternate" href="{{ site.feed.path | default: "/feed.xml" | relative_url }}" type="application/atom+xml" title="{{ site.title }}">{% endif %}
+{% if page.mathjax or site.mathjax %}
+<link rel="stylesheet" href="{{ "/assets/katex/katex.min.css" | relative_url }}">
+<script defer src="{{ "/assets/katex/katex.min.js" | relative_url }}"></script>
+<script defer src="{{ "/assets/katex/contrib/mathtex-script-type.min.js" | relative_url }}"></script>
+{% endif %}
+{% if site.comments.disqus_shortname and page.layout == "post" %}<script src="//{{ site.comments.disqus_shortname }}.disqus.com/embed.js" async></script>{% endif %}
+{% if site.comments.isso_domain and page.layout == "post" %}<script data-isso="http://{{ site.comments.isso_domain }}" src="//{{ site.comments.isso_domain }}/js/embed.min.js"></script>{% endif %}
+<style>
+  img {
+    border: 1px solid #ddd; /* Gray border */
+    border-radius: 4px;  /* Rounded border */
+    padding: 5px; /* Some padding */
+    width: 100%; /* Set a small width */
+    margin:0 0;
+  }
+  
+  /* Add a hover effect (blue shadow) */
+  img:hover {
+    box-shadow: 0 0 1px 1px rgba(0, 140, 186, 0.5);
+  }
+  </style>
+<header class="icons">
+  <div class="wrapper">
+    <img style="display: block;margin-left:auto;margin-right:auto;margin-bottom:20px" src="/assets/images/mustafa-altinkaynak-profil.jpg" />
+  </div>
+
+  {% unless site.show_title != true and site.navigation and site.external %}
+    <a href="{{ "/" | relative_url }}" class="title">{{ site.title | escape }}</a>
+  {% endunless %}
+  {% if site.navigation or site.external %}
+    {% include menu.html menu=site.navigation icons=true %}
+    {% include ext_menu.html menu=site.external icons=true %}
+  {% else %}
+    {% assign pages = site.pages | where_exp: "item", "item.title and item.sitemap != false" | sort: "order" %}
+    {% include menu.html menu=pages %}
+  {% endif %}
+  {% if site.sidebar and site.show_description %}
+  {% endif %}
+</header>
+
+{{ content }}
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-101755558-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-101755558-3');
+</script>
+</html>
