@@ -26,10 +26,10 @@ Kursumuz boyunca, internette birçok kaynakta karşınıza çıkabileceği gibi,
 - En güncel hacking yöntemlerini ve yazılımlarını öğrenmek isteyenler
 
 ## Bu kurs kimler için uygun:
-Siber güvenlik, etik hackerlık konusunda bilgi sahibi olmak isteyenler
-Sızma testi alanında kariyer planlayan, bu sektöre giriş yapmak isteyen
-Bilişim güvenliği konusunda bilgi sahibi olmak isteyenler
-Hackerların saldırılarından korunmak isteyenler
-En güncel hacking yöntemlerini ve yazılımlarını öğrenmek isteyenler
+- Siber güvenlik, etik hackerlık konusunda bilgi sahibi olmak isteyenler
+- Sızma testi alanında kariyer planlayan, bu sektöre giriş yapmak isteyen
+- Bilişim güvenliği konusunda bilgi sahibi olmak isteyenler
+- Hackerların saldırılarından korunmak isteyenler
+- En güncel hacking yöntemlerini ve yazılımlarını öğrenmek isteyenler
 
 [Kursu satın almak için tıklayınız.](https://www.udemy.com/course/siber-guvenlik/?referralCode=B01848AA98B941DDEF5B)
