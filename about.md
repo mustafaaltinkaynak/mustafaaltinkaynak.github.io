@@ -36,6 +36,7 @@ Herhangi bir konuda [iletişim](/pages/contact.html) sayfasından yada [linkedIn
 
 ## Sunum
 
+- [2020: Black Hat USA 2020 - Amerika Birleşik Devletleri](https://www.blackhat.com/us-20/arsenal/schedule/presenters.html#mustafa-altinkaynak-36665)
 - [2019: Siber Güvenlik ve Tehditleri - Boğaziçi Üniversitesi - İstanbul](https://www.youtube.com/watch?v=VRYVTrbgmdY)
 - 2019: Siber Güvenlik ve Kariyer - IWD 2019 - Karadeniz Teknik Üniversitesi - Trabzon
 - 2018: Siber Güvenlik ve Kariyer - İstanbul Gelişim Üniversitesi - İstanbul
