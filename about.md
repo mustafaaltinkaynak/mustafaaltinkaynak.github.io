@@ -76,5 +76,5 @@ Herhangi bir konuda [iletişim](/pages/contact.html) sayfasından yada [linkedIn
 - 2014: Siber Meydan 2014 CTF (Octosec)
 - 2009: Proje Tabanlı Beceri Yarışması, Samsun birinciliği, Karadeniz Bölgesi üçüncülüğü
 
-Son güncellenme tarihi : 20 Temmuz 2020
+Son güncellenme tarihi : 14 Mart 2021
 
