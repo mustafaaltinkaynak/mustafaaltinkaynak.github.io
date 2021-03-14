@@ -120,7 +120,7 @@ kuyruk mantığıyla çalışması sebebiyle aksamalara sebep verebilir.
 
 # API5:2019 Broken Function Level Authorization
 
-API noktalarına karşılık gelen hizmetlere erişirkenn belirli roller için farklı yollar belirlenebilir. İstemciler için client path'i kullanılırken, yöneticiler için admin pathi
+API noktalarına karşılık gelen hizmetlere erişirken belirli roller için farklı yollar belirlenebilir. İstemciler için client path'i kullanılırken, yöneticiler için admin pathi
 kullanılabilir. Bu doğrultuda tahmini çok da zor olmayan bu pathlere erişim sağlanması sonrasında rol değişimi gerçekleştirilebilir. 1.madde de benzer önlemler bu madde içinde geçerlidir.
 
 <p align="center">
