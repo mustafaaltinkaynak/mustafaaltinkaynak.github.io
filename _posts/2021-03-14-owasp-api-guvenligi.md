@@ -39,8 +39,8 @@ IDOR en temel bağlamda açıklamak gerekirse doğrulanmamış obje erişimidir.
 - X kullanıcısına ait bir finansal bilgisinin, Y kullanıcısı tarafından görülebilmesi yada tam tersi
 - Y kullanıcısına ait olan id2 numaralı finansal numarasının, X kullanıcısı tarafından görüntülenebilmesi
 
-- target.com/accounts/**id1**/financial_info -> X kullanıcısına ait olan finansal numarası
-- target.com/accounts/**id2**/financial_info -> Y kullanıcısına ait olan finansal numarası
+- target/accounts/**id1**/financial_info -> X kullanıcısına ait olan finansal numarası
+- target/accounts/**id2**/financial_info -> Y kullanıcısına ait olan finansal numarası
 
 Yukarıdaki istekler değerlendirildiğinde GET metodu ile alınan id ile başlayan parametre, veritabanında sorgulanarak isteği gerçekleştiren kişi **doğrulanmadan** ekrana sonuçlar yazdırılır.
 
@@ -66,8 +66,8 @@ kimlik doğrulama mekanizmaları oturumların ele geçirilmesi, yetki değişimi
 - Query String veya GET parametresi ile alınan kimlik bilgileri/anahtarlar
 - Password recovery (parola kurtarma) için oluşturulan anahtar değerinin tahmin edilebilir olması, istek limitlenmesi
 
-- target.com/api/login/?username=admin&password=123456 -> GET parametresi ile alınan kimlik bilgileri
-- target.com/api/recovery/?username=admin&recovery_token=123456 -> recovery_token'in tahmin edilebilir ve artan değerli bulunabiliyor olması
+- target/api/login/?username=admin&password=123456 -> GET parametresi ile alınan kimlik bilgileri
+- target/api/recovery/?username=admin&recovery_token=123456 -> recovery_token'in tahmin edilebilir ve artan değerli bulunabiliyor olması
 
 ## Önleme Yöntemleri
 - 2FA (Two factor authentication) kullanılması
@@ -130,8 +130,8 @@ kullanılabilir. Bu doğrultuda tahmini çok da zor olmayan bu pathlere erişim 
 
 ## Örnek saldırı senaryoları
 - Ayrıcalıklı kullanıcıların istek göndermiş olduğu serviste yetki kontrolü bulunmaması
-- target.com/**users**/v1/user/myinfo -> Sıradan kullanıcılara sunulan API hizmeti
-- target.com/**admins**/v1/user/myinfo -> Ayrıcalıklı kullanıcılara sunulan API hizmeti
+- target/**users**/v1/user/myinfo -> Sıradan kullanıcılara sunulan API hizmeti
+- target/**admins**/v1/user/myinfo -> Ayrıcalıklı kullanıcılara sunulan API hizmeti
 
 ## Önleme Yöntemleri
 - Varsayılan olarak tüm erişimleri reddedin.
