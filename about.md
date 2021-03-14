@@ -6,7 +6,7 @@ layout: page
 
 Kariyer hayatı, 2013 yılında lisans eğitimi sırasında Ondokuz Mayıs Üniversitesi sistemleri üzerinde keşfetmiş olduğu güvenlik zafiyetini üniversite yetkilileriyle paylaşması ile başladı. Bu bildiriminin üzerine üniversite yönetimi tarafından 2013 yılı itibariyle işe alındı. 2013-2017 yılları arasında Ondokuz Mayıs Üniversitesi bünyesinde güvenli yazılım geliştirme, SOME (Siber Olaylara Müdahale) ekip liderliği, güvenlik sistem yöneticisi olarak görev yapmıştır. 2017 yılı itibariyle Barikat Bilişim Güvenliği firmasında Sızma Testi Uzmanı olarak çalışmıştır.
 
-İstanbul Şehir Üniversitesi, Bilgi Güvenliği Mühendisliği'nde (MSc) yüksek lisans eğitimini tamamlamış olup, hâlen bir devlet bankasında **Kıdemli Siber Güvenlik Uzmanı** olarak çalışmaktadır.
+Marmara Üniversitesi, Bilgi Güvenliği Mühendisliği'nde (MSc) yüksek lisans eğitimini tamamlamış olup, hâlen bir devlet bankasında **Kıdemli Siber Güvenlik Uzmanı** olarak çalışmaktadır.
 
 Kurumsal iş hayatının yanı sıra 30’un üzerinde ulusal, uluslararası etkinlikte katılımcı, eğitmen olarak yer aldı. Aynı zamanda müfredatında siber güvenlik bulunan çoğu üniversitede yardımcı ders kitabı olarak okutulan **“Uygulamalı Siber Güvenlik ve Hacking”** kitabının yazarıdır.
 
