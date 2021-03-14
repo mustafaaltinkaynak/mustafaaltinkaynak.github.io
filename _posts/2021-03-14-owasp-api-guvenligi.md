@@ -45,7 +45,7 @@ IDOR en temel bağlamda açıklamak gerekirse doğrulanmamış obje erişimidir.
 Yukarıdaki istekler değerlendirildiğinde GET metodu ile alınan id ile başlayan parametre, veritabanında sorgulanarak isteği gerçekleştiren kişi **doğrulanmadan** ekrana sonuçlar yazdırılır.
 
 ## Önleme Yöntemleri
-- Ziyaretçi veya kullanıcı tarafından, yukarıda verdiğimiz saldırı isteklerine benzer bir istek alındığında, burada yer alan invoice_id nesnesinin hangi kullanıcıya aitse, o kullanıcı tarafından
+- Ziyaretçi veya kullanıcı tarafından, yukarıda verdiğimiz saldırı isteklerine benzer bir istek alındığında, burada yer alan ID nesnesinin hangi kullanıcıya aitse, o kullanıcı tarafından
 aktif bir oturumun olup, olmadığı sorgulanmalıdır. Eğer ki oturum, ilgili nesnenin sahibine ait değilse giriş sayfasına yönlendirilmelidir.
 
 # API2:2019 Broken Authentication
