@@ -4,7 +4,7 @@ layout: post
 comments: true
 ---
 Teknolojinin gelişmesiyle birlikte erişilebilirliğin artık mobilize hale gelmiş olduğunu görmekteyiz. HTML & CSS ile başlayan web furyası, cep telefonlarımızın içerisinde 
-uygulamalara kadar girmiştir. Artık her sektörün mobil uygulamalarının yüksek bir kısmı API yöntemiyle orta katman mimarisiyle ile tasarlamıştır. Güvenlik bakış açısıyla
+uygulamalara kadar girmiştir. Artık her sektörün mobil uygulamalarının yüksek bir kısmı API yöntemiyle orta katman mimarisiyle tasarlamıştır. Güvenlik bakış açısıyla
 değerlendirildiğinde üç katmanlı mimarinin de oluşturulmasında API kullanım yöntemleri karşımıza çıkmaktadır.
 
 Öyle ki; API kullanımı yaygınlaştıkça, bu kullanımın güvenli olmasına yönelik konularda masaya yatırılmıştır. Bu doğrultuda OWASP yani Open Web Application Security Project topluluğu
