@@ -3,12 +3,12 @@ title: "OWASP API Güvenliği"
 layout: post
 comments: true
 ---
-Teknolojinin gelişmesiyle birlikte erişilebilirlik artık mobilize hale gelmiş olduğunu görmekteyiz. HTML & CSS ile başlayan web furyası, cep telefonlarımızın içerisinde 
-uygulamalara kadar girmiştir. Artık her sektörün mobilize uygulamalarının yüksek bir kısmı API yöntemiyle orta katman mimarisini tasarlamıştır. Güvenlik bakış açısıyla
+Teknolojinin gelişmesiyle birlikte erişilebilirliğin artık mobilize hale gelmiş olduğunu görmekteyiz. HTML & CSS ile başlayan web furyası, cep telefonlarımızın içerisinde 
+uygulamalara kadar girmiştir. Artık her sektörün mobil uygulamalarının yüksek bir kısmı API yöntemiyle orta katman mimarisiyle ile tasarlamıştır. Güvenlik bakış açısıyla
 değerlendirildiğinde üç katmanlı mimarinin de oluşturulmasında API kullanım yöntemleri karşımıza çıkmaktadır.
 
 Öyle ki; API kullanımı yaygınlaştıkça, bu kullanımın güvenli olmasına yönelik konularda masaya yatırılmıştır. Bu doğrultuda OWASP yani Open Web Application Security Project topluluğu
-referans olarak alınabilecek bir TOP 10 listesi yayınlamıştır. Bu yazımız da bu listede yer alan açıklara yer verip, örnekleştirerek sizlere anlatmaya çalışacağım.
+referans olarak alınabilecek bir TOP 10 listesi yayınlamıştır. Bu yazımızda bu listede yer alan başlıklara yer verip, örnekleştirerek sizlere anlatmaya çalışacağım.
 
 2019 yılı itibariyle OWASP API Security Top 10 listesinde yer alan açıklıklar aşağıda yer almaktadır.
 
@@ -27,7 +27,7 @@ Bunlar:
 # API1:2019 Broken Object Level Authentication
 
 Listenin ilk sırasında ödül avcılığı programlarında da sıklıkla karşılaşılan, güvenlik araştırmacılarının yakından bildiği ve incelediği IDOR yer almaktadır. 
-IDOR en temel bağlamda açıklamak gerekirse doğrulanmamış obje erişimidir. Yani ziyaretçi kendisini erişmek istediği objenin görmeye yetkili veya o objenin sahibi olduğunun **doğrulanmaması** işlemidir.
+IDOR en temel bağlamda açıklamak gerekirse doğrulanmamış obje erişimidir. Yani ziyaretçi erişmek istediği objeyi görmeye yetkili veya o objenin sahibi olduğunun **doğrulanmaması** işlemidir.
 
 <p align="center">
   <img src="/assets/images/api19-1.jpg">
