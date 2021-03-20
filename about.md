@@ -36,6 +36,7 @@ Herhangi bir konuda [iletişim](/pages/contact.html) sayfasından yada [linkedIn
 
 ## Sunum
 
+- [2020: Nükleer Enerji Sistemlerinde Güvensizlik - 4. Siber Güvenlik Zirvesi - Ankara](https://www.youtube.com/watch?v=I8_OuF6SHfg)
 - [2020: Black Hat USA 2020 - Amerika Birleşik Devletleri](https://www.blackhat.com/us-20/arsenal/schedule/presenters.html#mustafa-altinkaynak-36665)
 - [2019: Siber Güvenlik ve Tehditleri - Boğaziçi Üniversitesi - İstanbul](https://www.youtube.com/watch?v=VRYVTrbgmdY)
 - 2019: Siber Güvenlik ve Kariyer - IWD 2019 - Karadeniz Teknik Üniversitesi - Trabzon
@@ -76,5 +77,5 @@ Herhangi bir konuda [iletişim](/pages/contact.html) sayfasından yada [linkedIn
 - 2014: Siber Meydan 2014 CTF (Octosec)
 - 2009: Proje Tabanlı Beceri Yarışması, Samsun birinciliği, Karadeniz Bölgesi üçüncülüğü
 
-Son güncellenme tarihi : 14 Mart 2021
+Son güncellenme tarihi : 20 Mart 2021
 
