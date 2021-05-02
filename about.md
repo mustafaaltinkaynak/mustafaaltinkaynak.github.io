@@ -6,7 +6,7 @@ layout: page
 
 Kariyer hayatı, 2013 yılında lisans eğitimi sırasında Ondokuz Mayıs Üniversitesi sistemleri üzerinde keşfetmiş olduğu güvenlik zafiyetini üniversite yetkilileriyle paylaşması ile başladı. Bu bildiriminin üzerine üniversite yönetimi tarafından 2013 yılı itibariyle işe alındı. 2013-2017 yılları arasında Ondokuz Mayıs Üniversitesi bünyesinde güvenli yazılım geliştirme, SOME (Siber Olaylara Müdahale) ekip liderliği, güvenlik sistem yöneticisi olarak görev yapmıştır. 2017 yılı itibariyle Barikat Bilişim Güvenliği firmasında Sızma Testi Uzmanı olarak çalışmıştır.
 
-Marmara Üniversitesi, Bilgi Güvenliği Mühendisliği'nde (MSc) yüksek lisans eğitimini tamamlamış olup, hâlen bir devlet bankasında **Kıdemli Siber Güvenlik Uzmanı** olarak çalışmaktadır.
+Marmara Üniversitesi, Bilgi Güvenliği Mühendisliği'nde (MSc) yüksek lisans eğitimini tamamlamış olup, hâlen bir devlet bankasında Güvenlik Testleri Yönetimi biriminde **Yönetmen** olarak çalışmaktadır.
 
 Kurumsal iş hayatının yanı sıra 30’un üzerinde ulusal, uluslararası etkinlikte katılımcı, eğitmen olarak yer aldı. Aynı zamanda müfredatında siber güvenlik bulunan çoğu üniversitede yardımcı ders kitabı olarak okutulan **“Uygulamalı Siber Güvenlik ve Hacking”** kitabının yazarıdır.
 
@@ -16,7 +16,6 @@ Herhangi bir konuda [iletişim](/pages/contact.html) sayfasından yada [linkedIn
 
 
 ## Eğitmen
-
 
 - 2019: Tersine Mühendislik - Bahçeşehir Üniversitesi - İstanbul
 - 2019: Tersine Mühendislik - OMÜ Hacker Kamp 2019 - Samsun
@@ -36,6 +35,9 @@ Herhangi bir konuda [iletişim](/pages/contact.html) sayfasından yada [linkedIn
 
 ## Sunum
 
+- [2021: Siber Güvenlik ve Kariyer - IEEE MEF - İstanbul]
+- [2021: Siber Güvenlik ve Etik Hackerlıkta Kariyer - DOU Mühendis Beyinler - İstanbul]
+- [2021: Siber Güvenlik ve Etik Hackerlık - IEEE IZU RAS Days - İstanbul]
 - [2020: Nükleer Enerji Sistemlerinde Güvensizlik - 4. Siber Güvenlik Zirvesi - Ankara](https://www.youtube.com/watch?v=I8_OuF6SHfg)
 - [2020: Black Hat USA 2020 - Amerika Birleşik Devletleri](https://www.blackhat.com/us-20/arsenal/schedule/presenters.html#mustafa-altinkaynak-36665)
 - [2019: Siber Güvenlik ve Tehditleri - Boğaziçi Üniversitesi - İstanbul](https://www.youtube.com/watch?v=VRYVTrbgmdY)
@@ -77,5 +79,5 @@ Herhangi bir konuda [iletişim](/pages/contact.html) sayfasından yada [linkedIn
 - 2014: Siber Meydan 2014 CTF (Octosec)
 - 2009: Proje Tabanlı Beceri Yarışması, Samsun birinciliği, Karadeniz Bölgesi üçüncülüğü
 
-Son güncellenme tarihi : 20 Mart 2021
+Son güncellenme tarihi : 02 Mayıs 2021
 
