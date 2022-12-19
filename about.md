@@ -4,9 +4,9 @@ permalink: "/pages/about.html"
 layout: page
 ---
 
-Kariyer hayatı, 2013 yılında lisans eğitimi sırasında Ondokuz Mayıs Üniversitesi sistemleri üzerinde keşfetmiş olduğu güvenlik zafiyetini üniversite yetkilileriyle paylaşması ile başladı. Bu bildiriminin üzerine üniversite yönetimi tarafından 2013 yılı itibariyle işe alındı. 2013-2017 yılları arasında Ondokuz Mayıs Üniversitesi bünyesinde güvenli yazılım geliştirme, SOME (Siber Olaylara Müdahale) ekip liderliği, güvenlik sistem yöneticisi olarak görev yapmıştır. 2017 yılı itibariyle Barikat Bilişim Güvenliği firmasında Sızma Testi Uzmanı olarak çalışmıştır.
+Kariyer hayatı, 2013 yılında lisans eğitimi sırasında Ondokuz Mayıs Üniversitesi sistemleri üzerinde keşfetmiş olduğu güvenlik zafiyetini üniversite yetkilileriyle paylaşması ile başladı. Bu bildiriminin üzerine üniversite yönetimi tarafından 2013 yılı itibariyle işe alındı. 2013-2017 yılları arasında Ondokuz Mayıs Üniversitesi bünyesinde güvenli yazılım geliştirme, SOME (Siber Olaylara Müdahale) ekip liderliği, güvenlik sistem yöneticisi olarak görev yapmıştır. 2017 yılı itibariyle Barikat Bilişim Güvenliği firmasında Sızma Testi Uzmanı, 2019-2022 yılları arasında bir devlet bankasında Güvenlik Testleri Yönetimi biriminde **Yönetici** olarak çalışmıştır.
 
-Marmara Üniversitesi, Bilgi Güvenliği Mühendisliği'nde (MSc) yüksek lisans eğitimini tamamlamış olup, hâlen bir devlet bankasında Güvenlik Testleri Yönetimi biriminde **Yönetmen** olarak çalışmaktadır.
+Marmara Üniversitesi, Bilgi Güvenliği Mühendisliği'nde (MSc) yüksek lisans eğitimini tamamlamış olup, hâlen siber güvenlik üzerine çalışmaktadır.
 
 Kurumsal iş hayatının yanı sıra 30’un üzerinde ulusal, uluslararası etkinlikte katılımcı, eğitmen olarak yer aldı. Aynı zamanda müfredatında siber güvenlik bulunan çoğu üniversitede yardımcı ders kitabı olarak okutulan **“Uygulamalı Siber Güvenlik ve Hacking”** kitabının yazarıdır.
 
@@ -79,5 +79,5 @@ Herhangi bir konuda [iletişim](/pages/contact.html) sayfasından yada [linkedIn
 - 2014: Siber Meydan 2014 CTF (Octosec)
 - 2009: Proje Tabanlı Beceri Yarışması, Samsun birinciliği, Karadeniz Bölgesi üçüncülüğü
 
-Son güncellenme tarihi : 02 Mayıs 2021
+Son güncellenme tarihi : 19 Aralık 2022
 
