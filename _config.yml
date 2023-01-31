@@ -27,10 +27,6 @@ navigation:
   - {title: İletişim, icon: envelope, url: "/pages/contact.html"}
 
 external:                    # see http://fontawesome.com/icons
-  - {title: Instagram, icon: instagram, url: "https://www.instagram.com/mustafaaltinkaynakcom"}
-  - {title: Twitter, icon: twitter, url: "https://www.twitter.com/m_altinkaynak"}
-  - {title: Github, icon: github, url: "https://www.github.com/mustafaaltinkaynak"}
-  - {title: LinkedIn, icon: linkedin, url: "https://www.linkedin.com/in/altinkaynak"}
 
 comments:
   disqus_shortname: "mustafaaltinkaynak"      # see https://disqus.com/
