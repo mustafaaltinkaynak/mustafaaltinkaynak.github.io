@@ -24,7 +24,7 @@ minimal: false               # use simpler style
 navigation:
   - {file: "index.html", icon: home}
   - {file: "about.md", icon: address-card}
-  - {file: "cyber-security-educations.md", icon: landmark}
+  - {file: "cyber-security-educations.md", icon: book}
   - {title: İletişim, icon: envelope, url: "/pages/contact.html"}
 
 external:                    # see http://fontawesome.com/icons
